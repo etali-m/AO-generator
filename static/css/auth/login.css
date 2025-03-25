@@ -1,0 +1,157 @@
+body{
+    font-family: "Raleway", sans-serif;
+}
+.left-section { 
+    color: white; 
+    width: 45%; 
+    background-color: #F38B04;  
+    background-image: 
+        linear-gradient(45deg, rgba(255, 165, 0, 0.1) 50%, transparent 50%),
+        linear-gradient(-45deg, rgba(255, 140, 0, 0.15) 50%, transparent 50%),
+        linear-gradient(135deg, rgba(255, 120, 0, 0.2) 50%, transparent 50%),
+        linear-gradient(-135deg, rgba(255, 100, 0, 0.1) 50%, transparent 50%);
+    
+    background-size: 
+        80px 80px,
+        120px 120px,
+        160px 160px,
+        200px 200px;
+    
+    background-position: 
+        var(--pos-1), 
+        var(--pos-2), 
+        var(--pos-3), 
+        var(--pos-4);
+    
+    animation: float 25s linear infinite;
+    position: relative;
+    overflow: hidden;
+}
+
+.left-section h2 {
+    color: #fff;
+    text-align: center;
+    font-size: 48px;
+    font-weight: bolder;
+}
+
+.right-section { 
+    width: 55%;  
+    padding: 30px; 
+
+    background-image: 
+    /* Cercle petit en haut à gauche */
+    radial-gradient(circle at 20% 20%, rgba(243, 139, 4, 0.1) 15%, transparent 15%),
+    /* Cercle moyen en bas à droite */
+    radial-gradient(circle at 80% 70%, rgba(243, 139, 4, 0.1)  25%, transparent 25%),
+    /* Cercle intermédiaire en bas à gauche */
+    radial-gradient(circle at 30% 80%, rgba(243, 139, 4, 0.1)  20%, transparent 20%);
+  background-repeat: no-repeat;
+}
+
+.errorlist{
+    list-style-type: none !important;
+}
+
+.right-section h2 { 
+    text-align: center;
+    font-size: 36px;
+    font-weight: bolder;
+}
+
+.login-form {
+    width: 400px;  
+}
+
+.login-form h2 { 
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.login-form p { 
+    margin-bottom: 30px;
+    font-size: 14px;
+}
+
+.login-form .form-group {
+    margin-bottom: 20px;
+}
+
+.login-form .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 30px; 
+    padding-left: 20px;
+    outline: none;   
+}
+
+.login-form .form-group input:focus{ 
+    border: 1px solid #F38B04;
+}
+
+.custom-input:focus {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #F38B04;
+}
+
+.login-form .btn-primary {
+    width: 100%;
+}
+
+.login-form .signup-link {
+    text-align: center;
+}
+.navbar { 
+    color: #F38B04;
+}
+
+.navbar-brand {
+    color: #F38B04;
+    font-weight: bold;
+}
+
+.navbar-nav .nav-link {
+    color: #220037;
+} 
+
+.navbar-nav .nav-link:hover {
+    color: #F38B04;
+} 
+
+.signin-link{
+    background-color: #F38B04;
+    color:white;
+    border-radius: 30px;
+}
+
+.login-link{
+    background-color: white;
+    color:black;
+    font-weight: 600;
+    border-radius: 30px;
+    padding: 8px 25px;
+    border:none;
+}
+
+.login-link:focus{
+    outline: none !important;
+    box-shadow: none;
+}
+
+.signin-link:hover{
+    color: white;
+}
+
+.signin-link:focus {
+    outline: none !important;
+    box-shadow: none;
+}
+ 
+#msg {
+    position:absolute;
+    top:20px;
+    left: 22%;
+    width: 500px;
+}

@@ -9,13 +9,15 @@ from .forms import RegisterForm, LoginForm
 def register_view(request):
     """Vue pour l'inscription d'un utilisateur"""
     if request.method == 'POST':
-        form = RegisterForm()
+        form = RegisterForm(request.POST)
         if form.is_valid():
             user = form.save(commit=False)
             user.set_password(form.cleaned_data["password"])
             user.save()
             messages.success(request, "Inscription réussie. Vous pouvez maintenant vous connecter.")
             return redirect("login")
+        else:
+            print(form.errors)  # Debugging : affiche les erreurs dans la console
     else:
         form = RegisterForm()
     
@@ -35,8 +37,8 @@ def login_view(request):
                 login(request, user)
                 messages.success(request, "Connexion réussie")
                 return redirect('document/home.html')
-            else:
-                messages.error(request, "Email ou mot de passe incorrect")
+            else: 
+                form.add_error(None, "Email ou mot de passe incorrect")
     else:
         form = LoginForm()
 

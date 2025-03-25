@@ -1,5 +1,6 @@
 from django import forms
 from .models import User
+from django_countries.widgets import CountrySelectWidget
 
 class RegisterForm(forms.ModelForm):
     """ Formulaire d'inscription """
@@ -9,11 +10,11 @@ class RegisterForm(forms.ModelForm):
 
     class Meta:
         model = User
-        fields = ["first_name", "last_name", "email", "phone_number", "company", "country"]
+        fields = ["first_name", "last_name", "email", "phone_number", "company", "country"] 
 
     def clean_email(self):
         email = self.cleaned_data.get('email')
-        if User.objects.filter(email=email).exits():
+        if User.objects.filter(email=email).exists():
             raise forms.ValidationError("Cet email est déja utilisé")
         return email
     
