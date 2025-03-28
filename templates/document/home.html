@@ -1,0 +1,56 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+{% block content %}
+<h3>Bonjour, John</h3>
+<p>Créez un nouveau dossier d'appel d'offre</p>
+<div class="row mt-3">
+    <div class="col-md-2 template-box">
+        <div class="template-card">
+            <a href="">
+                <img src="{% static 'img/dao_travaux.png' %}" alt="DAO Marché de travaux">
+                <p class="template-title">Marché de Travaux</p>
+            </a>
+        </div>
+    </div>
+    <div class="col-md-2 template-box">
+        <img src="general_notes.png" alt="General Notes">
+        <p>General notes</p>
+    </div>
+    <div class="col-md-2 template-box">
+        <img src="tour.png" alt="Welcome to Word">
+        <p>Welcome to Word</p>
+    </div>
+    <div class="col-md-2 template-box">
+        <img src="single_spaced.png" alt="Single Spaced">
+        <p>Single spaced (blank)</p>
+    </div>
+    <div class="col-md-2 template-box">
+        <img src="resume.png" alt="Blue Grey Resume">
+        <p>Blue grey resume</p>
+    </div>
+    <div class="col-md-2 template-box">
+        <img src="calendar.png" alt="Snapshot Calendar">
+        <p>Snapshot calendar</p>
+    </div>
+</div>
+
+<h4 class="mt-4">Recent</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Date modified</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>Maths Notes Template.dotx</td>
+            <td>3m ago</td>
+        </tr>
+    </tbody>
+</table>
+{% endblock %}

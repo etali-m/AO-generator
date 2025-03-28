@@ -1,0 +1,9 @@
+.template-card a{
+    color: #202124;
+    text-decoration: none;
+}
+
+.template-title{
+    font-weight: bold;
+    margin-top:5px;
+}

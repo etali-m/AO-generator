@@ -1,16 +1,23 @@
 from django import forms
-from .models import User
-from django_countries.widgets import CountrySelectWidget
+from .models import User 
+from phonenumber_field.formfields import PhoneNumberField
+from phonenumber_field.widgets import PhoneNumberPrefixWidget
 
 class RegisterForm(forms.ModelForm):
     """ Formulaire d'inscription """
 
     password = forms.CharField(widget=forms.PasswordInput, label="Mot de passe")
     password_confirm = forms.CharField(widget=forms.PasswordInput, label="Confirmer le mot de passe")
+    phone_number = forms.CharField(max_length=17, widget=PhoneNumberPrefixWidget(
+        attrs={
+            'class': 'form-control custom-input',
+            'placeholder': 'Numéro de téléphone'
+        },  
+    ))
 
     class Meta:
         model = User
-        fields = ["first_name", "last_name", "email", "phone_number", "company", "country"] 
+        fields = ["first_name", "last_name", "email", "phone_number", "company"] 
 
     def clean_email(self):
         email = self.cleaned_data.get('email')

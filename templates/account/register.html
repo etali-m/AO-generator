@@ -7,11 +7,17 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/all.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/all.css' %}">
     <!-- Bootstrap -->
-    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap/bootstrap.css' %}">
     <link rel="stylesheet" href="{% static 'css/auth/login.css' %}">
-    <title>Document</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/css/intlTelInput.css">
+    <title>Inscription - Tendersuite</title> 
+    <style>
+        #id_phone_number_0 {
+            width: 30%; /* Ajustez la largeur selon vos besoins */
+        } 
+    </style>
 </head>
 <body>  
     <div class="container-fluid vh-100">
@@ -27,7 +33,7 @@
                         </span>
                     {% endif %}
                     <form method="POST">
-                        {% csrf_token %}
+                        {% csrf_token %} 
                         <div class="row g-2">
                             <div class="col">
                                 <input type="text" name="{{ form.first_name.name }}" id="first_name" class="form-control custom-input" placeholder="Nom" required>
@@ -52,27 +58,15 @@
                                         {{ form.email.errors }}
                                     </div>
                                 {% endif %}
-                            </div> 
-                            <div class="col-12">
-                                <select id="{{ form.role.id_for_label }}" name="{{ form.country.name }}" class="form-control custom-input"> 
-                                    {% for value, label in form.country.field.choices %}
-                                        <option value="{{ value }}" {% if form.country.value == value %}selected{% endif %}>
-                                            {{ label }}
-                                        </option>
-                                    {% endfor %}
-                                </select>
-                                {% if form.country.errors %}
-                                    <div class="text-danger">
-                                        {{ form.country.errors }}
-                                    </div>
-                                {% endif %}
-                            </div>
+                            </div>  
                             <div class="col">
-                                <input type="text" name="{{ form.phone_number.name }}" id="phone_number" class="form-control custom-input" placeholder="Téléphone" required>
+                                <div class="d-flex">
+                                    {{ form.phone_number }}
+                                </div> 
                                 {% if form.phone_number.errors %}
-                                    <div class="text-danger">
+                                    <small class="text-danger">
                                         {{ form.phone_number.errors }}
-                                    </div>
+                                    </small>
                                 {% endif %}
                             </div>
                             <div class="col">
@@ -122,5 +116,6 @@
     <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
     <script src="{% static 'js/main.js' %}"></script>
     <script src="{% static 'js/lightbox.min.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.13/js/intlTelInput.min.js"></script>
 </body>
 </html>

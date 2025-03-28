@@ -1,7 +1,7 @@
 from django.contrib.auth.models import BaseUserManager 
 
 class UserManager(BaseUserManager):
-    def create_user(self, email, password, first_name, last_name, phone_number, country, company, **extra_fields):
+    def create_user(self, email, password, first_name, last_name, phone_number, company, **extra_fields):
         if not email:
             raise ValueError(_('The Email must be set'))
         email = self.normalize_email(email)
@@ -10,16 +10,13 @@ class UserManager(BaseUserManager):
         if not first_name:
             raise ValueError(_("The first_name is required"))
         if not phone_number:
-            raise ValueError(_("Phone number is required")) 
-        if not country:
-            raise ValueError(_("Country is required"))
+            raise ValueError(_("Phone number is required"))  
         
         user = self.model(
             email=email,
             first_name=first_name,
             last_name=last_name,
-            phone_number=phone_number,
-            country=country,
+            phone_number=phone_number, 
             company=company,
             **extra_fields
         )
