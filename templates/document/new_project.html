@@ -1,0 +1,87 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <style>
+        .new_project_image_block img{
+            width: 95%;
+            height: auto;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+        }  
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="row gx-2">
+        <div class="col-md-4">
+            <div class="new_project_image_block text-center">
+                <img src="{{ type_marche.image_garde.url }}" alt="{Image { type_marche.nom }}"> 
+            </div>  
+        </div>
+        <div class="col-md-8">
+            <form @submit.prevent="handleSubmit">
+                <h4>Nouveau dossier d'appel d'offre</h4>
+                <small>- {{ type_marche.nom }}</small>
+                <div class="row">
+                    <div class="col-md-10">
+                        <label for="">Nom du Maître d'ouvrage ou du maître d'ouvrage délégué</label>
+                        <input type="text" required placeholder="Ministère des travaux publics">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="">Dénomination</label>
+                        <input type="text" required placeholder="MINTP">
+                    </div>
+                </div>
+                <label for="commission">Commission de passation des marchés</label>
+                <select name="" id="commission">
+                    <option value="cipm">Commission interne de passation des marchés</option>
+                    <option value="crpm">Commission régionale de passation des marchés</option>
+                    <option value="cdpm">Commission départementale de passation des marchés</option>
+                    <option value="cspm">Commission spéciale< de passation des marchés</option>
+                </select>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="dossier">Type de dossier d'appel d'offre</label>
+                        <select name="" id="dossier">
+                            <option value="national">National</option>
+                            <option value="international">International</option>
+                            <option value="ouver">Ouvert</option>
+                            <option value="restreint">Restreint</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <label for="dossier">Numéro du dossier</label>
+                        <input type="number" required placeholder="N°00083">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="dossier">Exercice budgétaire</label>
+                        <input type="text" placeholder="2024" required>
+                    </div>
+                    <div class="col">
+                        <label for="dossier">Date de signature de l'avis d'appel d'offre</label>
+                        <input type="date" required>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <label for="dossier">Financement</label>
+                        <input type="text" placeholder="source du financement" required>
+                    </div>
+                    <div class="col">
+                        <label for="dossier">Imputation</label>
+                        <input type="text" required placeholder="Détails de l'imputation budgétaire">
+                    </div>
+                </div>
+                
+                
+                <button>Créer le dossier</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}
