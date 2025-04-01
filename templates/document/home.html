@@ -5,52 +5,75 @@
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
 {% endblock %}
 {% block content %}
+
 <h3>Bonjour, John</h3>
 <p>Créez un nouveau dossier d'appel d'offre</p>
+
 <div class="row mt-3">
-    <div class="col-md-2 template-box">
-        <div class="template-card">
-            <a href="">
-                <img src="{% static 'img/dao_travaux.png' %}" alt="DAO Marché de travaux">
-                <p class="template-title">Marché de Travaux</p>
-            </a>
+    {% for marche in top_type %}
+        <div class="col-md-3 template-box">
+            <div class="template-card">
+                <a href="{% url 'create-project' pk=marche.id %}">
+                    <img src="{{ marche.image_garde.url }}" alt="DAO Marché de travaux">
+                    <p class="template-title">{{ marche.nom }}</p>
+                </a>
+            </div>
         </div>
-    </div>
-    <div class="col-md-2 template-box">
-        <img src="general_notes.png" alt="General Notes">
-        <p>General notes</p>
-    </div>
-    <div class="col-md-2 template-box">
-        <img src="tour.png" alt="Welcome to Word">
-        <p>Welcome to Word</p>
-    </div>
-    <div class="col-md-2 template-box">
-        <img src="single_spaced.png" alt="Single Spaced">
-        <p>Single spaced (blank)</p>
-    </div>
-    <div class="col-md-2 template-box">
-        <img src="resume.png" alt="Blue Grey Resume">
-        <p>Blue grey resume</p>
-    </div>
-    <div class="col-md-2 template-box">
-        <img src="calendar.png" alt="Snapshot Calendar">
-        <p>Snapshot calendar</p>
+    {% endfor %} 
+    <div class="d-flex justify-content-end">
+        <span class="text-primary" id="more_template" style="cursor:pointer;">Plus de modèle <i class="bi bi-arrow-down-short"></i></span>
     </div>
 </div>
+<div id="template_list">
+    <div class="row mt-3">
+        {% for marche in others_type %}
+            <div class="col-md-3 template-box">
+                <div class="template-card">
+                    <a href="{% url 'create-project' pk=marche.id %}">
+                        <img src="{{ marche.image_garde.url }}" alt="DAO Marché de travaux">
+                        <p class="template-title">{{ marche.nom }}</p>
+                    </a>
+                </div>
+            </div>
+        {% endfor %} 
+    </div> 
+</div>
+<br><br>
 
-<h4 class="mt-4">Recent</h4>
-<table class="table table-striped">
+<h4 class="mt-4">Projet recent</h4>
+<table class="table mb-4">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Date modified</th>
+            <th>Nom</th>
+            <th>Type de marché</th>
+            <th>Dernière modification</th>
         </tr>
     </thead>
     <tbody>
         <tr>
-            <td>Maths Notes Template.dotx</td>
-            <td>3m ago</td>
+            <td>
+                <span class="text-primary" style="cursor:pointer;">Construction de la route AYOS - AWAE</span> <br>
+                <small>descirption du dossier d'appel d'offre</small>
+            </td>
+            <td>Travaux</td>
+            <td>13-08-2024</td>
         </tr>
     </tbody>
 </table>
+<br>
+{% endblock %}
+{% block extra_js %} 
+    <script>
+        $(document).ready(function() {
+            $('#more_template').click(function() {
+                $('#template_list').toggle();
+                // Change the inner HTML of the clicked button
+                if ($('#template_list').is(':visible')) {
+                    this.innerHTML = 'Masquer <i class="bi bi-arrow-up-short"></i>';
+                } else {
+                    this.innerHTML = 'Plus de modèle <i class="bi bi-arrow-down-short"></i>';
+                }
+            });
+        });
+    </script>
 {% endblock %}

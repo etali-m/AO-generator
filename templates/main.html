@@ -51,25 +51,32 @@
 
             </ul>
              
-        </div>
-        <div class="content">
-            <nav class="navbar navbar-light bg-white mb-4">
-                <div class="container">
-                  <a class="navbar-brand">Navbar</a>
-                  <div class="d-flex">
-                    <a href=""><i class="bi bi-person-circle navbar-icon"></i></a>
-                    <a href=""><i class="bi bi-gear navbar-icon"></i></a>
-                  </div>
-                </div>
-            </nav>
-            <div class="container">
+        </div>    
+        <nav class="navbar navbar-light bg-white mb-4" style="padding: 15px;"> 
+            <a class="navbar-brand">Ogive</a>
+            <div class="d-flex">
+                <a href=""><i class="bi bi-person-circle navbar-icon"></i></a>
+                <a href=""><i class="bi bi-gear navbar-icon"></i></a>
+            </div> 
+        </nav> 
+        <div class="content"> 
+            <div class="container mb-4">
                 {% block content %} {% endblock %}
             </div>
+
+            <footer>
+                <div class="row">
+                    <div class="col-md-12 bg-white d-flex justify-content-center p-3">
+                        <span>copyright &copy;2025 <a href="">OGIVE solution-experts</a> </span>
+                    </div>
+                </div>
+            </footer>        
         </div>
 
         <script src="{% static  'js/jquery-3.3.1.min.js' %}"></script>
         <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
         <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/lightbox.min.js' %}"></script>
+        {% block extra_js %} {% endblock %}
     </body>
 </html>

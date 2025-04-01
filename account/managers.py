@@ -34,4 +34,9 @@ class UserManager(BaseUserManager):
         if extra_fields.get("is_superuser") is not True:
             raise ValueError("Un superutilisateur doit avoir is_superuser=True")
 
+        extra_fields.setdefault("first_name", "Admin")
+        extra_fields.setdefault("last_name", "Admin")
+        extra_fields.setdefault("phone_number", "0000000000")
+        extra_fields.setdefault("company", "Admin Company")
+
         return self.create_user(email, password, **extra_fields)

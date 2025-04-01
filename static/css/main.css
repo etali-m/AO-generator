@@ -1,14 +1,28 @@
+/*Variables*/
+:root {
+    --primary: #4f515a;
+    --secondary: #ebebeb;
+    --warning: #da0f41;
+    --border: rgb(218, 220, 224);
+    --main: #f38b04;
+}
+
 body{
     font-family: "Nunito", sans-serif;
     background-color: #f5f5f5;
     color:#202124;
+    overflow-x: hidden;
+    margin:0;
+    padding:0;
 }
 
 .sidebar {
-    width: 150px;
+    width: 130px;
     height: 100vh; 
     color: white; 
     position: fixed;
+    top: 0;
+    left: 0;
     background-color: #F38B04;  
     background-image: 
         linear-gradient(45deg, rgba(255, 165, 0, 0.1) 50%, transparent 50%),
@@ -27,10 +41,22 @@ body{
         var(--pos-2), 
         var(--pos-3), 
         var(--pos-4);
-    
+    z-index: 1000;
     animation: float 25s linear infinite; 
     overflow: hidden;
 }
+
+.navbar {
+    margin-left: 130px;
+    position: fixed;
+    top: 0;
+    width: calc(100% - 130px);
+    background-color: #333;
+    color: white;
+    z-index: 999;
+    padding: 10px;
+}
+
 .sidebar ul{
     list-style-type: none;
     padding:0;
@@ -50,24 +76,15 @@ body{
 }
 .sidebar-icon{
     display: block;
-    font-size: 32px;
+    font-size: 30px;
 }
 .sidebar-title{
     margin:20px;
 }
-.template-box {
-    border: none;
-    padding: 10px;
-    text-align: center;
-    border-radius: 5px;
-}
-.template-box img {
-    width: 100%;
-    height: auto;
-    border:none;
-}
 .content {
-    margin-left: 150px; 
+    margin-left: 130px; 
+    margin-right: 0;
+    padding-top: 100px;
 }
 .active {
     background-color: #8a4e009c;
@@ -76,4 +93,66 @@ body{
     color:rgb(95, 95, 95);
     font-size: 20px;
     margin-right: 15px;
+}
+
+/*Formulaire*/
+form {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 1px 2px 3px rgba(50,50,50,0.05);
+    border: 1px solid  var(--secondary);
+    background: white;
+}
+
+input, textarea, select {
+    border: 0;
+    border-bottom: 1px solid var(--secondary);
+    padding: 10px;
+    outline: none;
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin: 20px auto;
+}
+
+input:focus, textarea:focus { 
+    border-radius:5px;
+    border-bottom: 1px solid #f38b049f;
+    background-color: var(--secondary);
+}
+
+input[type="file"] {
+    border: 0;
+    padding: 0;
+}
+
+label {
+    font-size: 12px;
+    display: block;
+    margin-top: 30px;
+}
+
+button, .btn { 
+    background: var(--secondary);
+    border-radius: 8px;
+    border: 0;
+    padding: 8px 12px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-block;
+}
+
+button:hover, .btn:hover {
+    background: var(--primary);
+    color: white;
+}
+
+button:disabled {
+    opacity: 0.5;
+    color: var(--primary);
+    background: var(--secondary);
+    cursor: not-allowed;
+    margin-top: 20px;
 }
