@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="{% static 'css/bootstrap/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/auth/login.css' %}">
     <title>Connexion - Tendersuite</title> 
+    <style>
+        .login-form {
+            width: 65%;  
+        }
+    </style>
 </head>
 <body>  
     <div class="container-fluid vh-100">
@@ -35,7 +40,8 @@
                     {% endfor %}
                 {% endif %}
                 <div class="login-form text-center"> 
-                    <h2>Welcome back</h2>
+                    <h2>Tendersuite</h2> <br>
+                    <h3>Connexion</h3> 
                     <p>Entrez vos indentifiants pour continuer</p>
                     <form method="POST">
                         {% csrf_token %}
@@ -57,7 +63,15 @@
                                 </div>
                             {% endif %}
                         </div>
-                        <div class="d-grid gap-2">
+                        <div class="col-12 text-start">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="gridCheck">
+                                <label class="form-check-label" for="gridCheck">
+                                Rester connecté
+                                </label>
+                            </div>
+                        </div>
+                        <div class="d-grid gap-2 mt-2">
                             <button class="btn signin-link" type="submit">Se connecter</button>
                         </div>
                     </form> 

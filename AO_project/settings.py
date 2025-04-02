@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'account', 
     'phonenumber_field',
     'document',
+    'travaux',
+    'services_quantifiables',
 ]
 
 MIDDLEWARE = [

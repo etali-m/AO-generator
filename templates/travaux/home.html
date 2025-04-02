@@ -1,0 +1,166 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block extra_css %}
+    <style>
+        .header-box {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 20px;
+            padding-left: 30px;
+            border-radius: 8px;
+            box-shadow: 1px 2px 3px rgba(50,50,50,0.05);
+            border: 1px solid  var(--secondary);
+            background: white;
+        }
+        .header-box-title{
+            font-size: 22px;
+            font-weight: bold;
+            color:rgb(51, 51, 51);
+        }
+        .card-title{
+            color: #f38b04;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="header-box w-100">
+        <div class="d-flex flex-column w-80">
+            <h4 class="header-box-title mb-0">Dossier d'appel d'offre national ouvert</h4>
+            <h4 class="header-box-title mb-0">N˚0089/AONO/MINEE/CIPM/2024</h4>
+            <span style="color:#8a4e009c">Ministère de l'eau et de l'energie</span>
+            <span>POUR: TRAVAUX DE CONSTRUCTION DES CANIVEAUX BETONNES DANS LA COMMUNE DE YAOUNDE 4</span>
+            <div class=""> 
+                <b>Financement</b> : Banque mondiale  &nbsp;&nbsp;
+                <b>Imputation</b> : 1458 0125 2568 
+            </div>
+        </div>
+    </div> <br>
+    <div class="row">
+        <div class="col-md-12 d-flex justify-content-end">
+            <button class="btn btn-sm btn-success"><i class="bi bi-download"></i> Générer le document</button>
+        </div>
+    </div>
+    <br>
+    <div class="row g-2">
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚1.</h5>
+                  <p class="card-text">AVIS D'APPEL D'OFFRES (AAO)</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚2.</h5>
+                  <p class="card-text">Règlement Général de l'Appel d'Offres (RGAO)</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚3.</h5>
+                  <p class="card-text">Règlement Particulier de l’Appel d’Offres (RPAO)</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚4.</h5>
+                  <p class="card-text">Cahier des Clauses Administratives Particulières (CCAP)</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚5.</h5>
+                  <p class="card-text">Cahier des Clauses Techniques Particulières (CCTP)</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚6.</h5>
+                  <p class="card-text">Cadre du bordereau des prix unitaires</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚7.</h5>
+                  <p class="card-text">Cadre du détail quantitatif et estimatif</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚8.</h5>
+                  <p class="card-text">Cadre du sous-détail des prix</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚10.</h5>
+                  <p class="card-text">Modèles ou formulaires types des pièces à utiliser par les Soumissionnaires</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚11.</h5>
+                  <p class="card-text">Le formulaire de la Charte d’Intégrité</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚12.</h5>
+                  <p class="card-text">Le formulaire de la Déclaration d’engagement social et Environnemental</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚13.</h5>
+                  <p class="card-text">Le Visa de maturité ou Justificatifs des études préalables</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card" style="width: 16.5rem;"> 
+                <div class="card-body">
+                  <h5 class="card-title fw-bold">Pièce N˚14.</h5>
+                  <p class="card-text">La Liste des établissements bancaires et organismes habilités à émettre des cautions dans le
+                    cadre des Marchés Publics.</p>
+                  <a href="#" class="btn btn-sm btn-custom"><i class="bi bi-pencil-square"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

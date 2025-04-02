@@ -17,7 +17,7 @@ def home_view(request):
 
     return render(request, "document/home.html", context)
 
-
+#Création d'un dossier d'appel d'offre
 def createProject_view(request, pk):
     type_marche = get_object_or_404(TypeMarche, pk=pk)
 

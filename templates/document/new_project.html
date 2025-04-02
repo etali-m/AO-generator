@@ -22,8 +22,36 @@
         <div class="col-md-8">
             <form @submit.prevent="handleSubmit">
                 <h4>Nouveau dossier d'appel d'offre</h4>
-                <small>- {{ type_marche.nom }}</small>
+                <div class="d-flex justify-content-between">
+                    <small>- {{ type_marche.nom }}</small> 
+                    <!-- Button trigger modal -->
+                    <a type="button" class="text-info" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <i class="bi bi-info-circle"></i>
+                    </a>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">{{ type_marche.nom }}</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                            {{ type_marche.description }}
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button> 
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row">
+                    <div class="col-md-12">
+                        <label for="">Objet de l'appel d'offre</label>
+                        <textarea name="" id="" placeholder="Entrez l'objet de l'appel d'offre"></textarea>
+                    </div>
                     <div class="col-md-10">
                         <label for="">Nom du Maître d'ouvrage ou du maître d'ouvrage délégué</label>
                         <input type="text" required placeholder="Ministère des travaux publics">
@@ -80,7 +108,7 @@
                 </div>
                 
                 
-                <button>Créer le dossier</button>
+                <button class="btn-custom">Créer le dossier</button>
             </form>
         </div>
     </div>

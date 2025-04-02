@@ -95,6 +95,11 @@ body{
     margin-right: 15px;
 }
 
+.navbar-user a{
+    color: #d1d3e2;
+    text-decoration: none;
+}
+
 /*Formulaire*/
 form {
     max-width: 100%;
@@ -116,6 +121,9 @@ input, textarea, select {
     box-sizing: border-box;
     margin: 20px auto;
 }
+select {
+    border-radius: 8px;
+}
 
 input:focus, textarea:focus { 
     border-radius:5px;
@@ -129,12 +137,12 @@ input[type="file"] {
 }
 
 label {
-    font-size: 12px;
+    font-size: 13px;
     display: block;
     margin-top: 30px;
 }
 
-button, .btn { 
+.btn-custom { 
     background: var(--secondary);
     border-radius: 8px;
     border: 0;
@@ -144,7 +152,7 @@ button, .btn {
     display: inline-block;
 }
 
-button:hover, .btn:hover {
+.btn-custom:hover{
     background: var(--primary);
     color: white;
 }
