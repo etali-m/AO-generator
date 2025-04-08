@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+from datetime import timedelta
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -42,13 +43,17 @@ INSTALLED_APPS = [
     'account', 
     'phonenumber_field',
     'document',
-    'travaux',
+    'app_travaux',
     'services_quantifiables',
+    'rest_framework_simplejwt.token_blacklist',
+    'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -107,6 +112,22 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 AUTH_USER_MODEL = 'account.User'
+
+# importer pour la génération de token
+REST_FRAMEWORK = { 
+    'DEFAULT_AUTHENTICATION_CLASSES': ( 
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ) 
+}
+
+#configuration de simple_jwt
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(days=2),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=3),
+    "AUTH_HEADER_TYPES": ("Bearer",)
+}
+
+
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
@@ -135,3 +156,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+# Configuration du serveur STMP de mailtrap pour l'envoi de mail aux utilisateur.
+# Looking to send emails in production? Check out our Email API/SMTP product!
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_HOST_USER = '80bb7a5bd169ed'
+DEFAULT_FROM_EMAIL = 'etalijunior15@gmail.com'
+EMAIL_HOST_PASSWORD = '05f27a1841f71b'
+EMAIL_PORT = '2525'
+EMAIL_USE_TLS = True

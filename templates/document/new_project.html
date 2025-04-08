@@ -16,12 +16,12 @@
     <div class="row gx-2">
         <div class="col-md-4">
             <div class="new_project_image_block text-center">
-                <img src="{{ type_marche.image_garde.url }}" alt="{Image { type_marche.nom }}"> 
+                <img src="{{ type_marche.image_garde.url }}" alt="Image_{{ type_marche.nom }}"> 
             </div>  
         </div>
         <div class="col-md-8">
             <form @submit.prevent="handleSubmit">
-                <h4>Nouveau dossier d'appel d'offre</h4>
+                <h4 class="fw-bold">Nouveau dossier d'appel d'offre</h4>
                 <div class="d-flex justify-content-between">
                     <small>- {{ type_marche.nom }}</small> 
                     <!-- Button trigger modal -->

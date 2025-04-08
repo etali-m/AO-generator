@@ -5,6 +5,7 @@
     --warning: #da0f41;
     --border: rgb(218, 220, 224);
     --main: #f38b04;
+    --second:#8a4e009c;
 }
 
 body{
@@ -87,7 +88,7 @@ body{
     padding-top: 100px;
 }
 .active {
-    background-color: #8a4e009c;
+    background-color: var(--second);
 }
 .navbar-icon{
     color:rgb(95, 95, 95);
@@ -95,9 +96,11 @@ body{
     margin-right: 15px;
 }
 
-.navbar-user a{
-    color: #d1d3e2;
-    text-decoration: none;
+.navbar-user{
+    color: var(--second);
+    padding-right: 8px;
+    display: flex;
+    align-items: center;
 }
 
 /*Formulaire*/
@@ -113,6 +116,7 @@ form {
 
 input, textarea, select {
     border: 0;
+    border-radius: 5px;
     border-bottom: 1px solid var(--secondary);
     padding: 10px;
     outline: none;
@@ -120,6 +124,7 @@ input, textarea, select {
     width: 100%;
     box-sizing: border-box;
     margin: 20px auto;
+    background-color: var(--secondary);
 }
 select {
     border-radius: 8px;
@@ -127,8 +132,7 @@ select {
 
 input:focus, textarea:focus { 
     border-radius:5px;
-    border-bottom: 1px solid #f38b049f;
-    background-color: var(--secondary);
+    border-bottom: 2px solid #f38b049f;
 }
 
 input[type="file"] {
