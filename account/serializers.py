@@ -8,6 +8,7 @@ from django.contrib.sites.shortcuts import get_current_site
 from django.urls import reverse
 from .utils import send_normal_mail
 from rest_framework_simplejwt.tokens import RefreshToken, TokenError
+from django.contrib.auth import get_user_model
 
 from .models import User
 
@@ -15,17 +16,24 @@ from .models import User
 class UserRegisterSerializer(serializers.ModelSerializer):
     password = serializers.CharField(max_length=68, min_length=6, write_only=True) #les mots de passe ne seront par retourner après l'enregistrement de l'utilisateur
     password2 = serializers.CharField(max_length=68, min_length=6, write_only=True)
+    email = serializers.EmailField()
 
     class Meta:
         model = User
         fields = ['email', 'first_name', 'last_name', 'phone_number', 'company', 'password', 'password2']
 
+    def validate_email(self, value):
+        User = get_user_model()
+        if User.objects.filter(email=value).exists():
+            raise serializers.ValidationError("Cet email est déjà utilisé.")
+        return value
+
     def validate(self, attrs):
         password = attrs.get('password')
-        password2 = attrs.get('password2')
+        password2 = attrs.get('password2') 
 
         if password != password2:
-            raise serializers.ValidationError("The passwords do not match")
+            raise serializers.ValidationError("Les mots de passe de correspondent pas")
         
         return attrs
     
@@ -41,17 +49,24 @@ class UserRegisterSerializer(serializers.ModelSerializer):
         )
         return user
 
+
+#Sérializer pour récuperer les infos sur un utilisateur.
+class UserSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = User
+        fields = ['email', 'first_name', 'last_name', 'phone_number',  'company']
+
+
 #serializer pour la connextion d'un utitilisateur
 class LoginSerializer(serializers.ModelSerializer):
     email = serializers.EmailField(max_length=255, min_length=6)
-    password = serializers.CharField(max_length=68, write_only=True)
-    full_name = serializers.CharField(max_length=255, read_only=True)
+    password = serializers.CharField(max_length=68, write_only=True) 
     access_token = serializers.CharField(max_length=255, read_only=True)
     refresh_token = serializers.CharField(max_length=255, read_only=True)
 
     class Meta:
         model = User
-        fields = ['email', 'password', 'full_name', 'access_token', 'refresh_token']
+        fields = ['email', 'password' , 'access_token', 'refresh_token']
 
     def validate(self, attrs):
         email = attrs.get('email')
@@ -59,17 +74,16 @@ class LoginSerializer(serializers.ModelSerializer):
         request = self.context.get('request')
         user = authenticate(request, email=email, password=password)
         if not user:
-            raise AuthenticationFailed("Invalide credential ! try again")
-        
+            raise AuthenticationFailed("Identifiants incorrects")
+        #on s'assure que l'adresse email de l'utilisateur est vérifiée avant de le connecter
         if not user.is_verified:
-            raise AuthenticationFailed("Email not verified")
+            raise AuthenticationFailed("Cette adresse email n'est pas vérifiée")
         
         #générer un token pour l'utilisateur à partir de la fonction tokens() du modèle User
         user_tokens = user.tokens()
 
         return {
-            'email' : user.email,
-            'full_name':  user.get_full_name,
+            'email' : user.email, 
             'access_token' : str(user_tokens.get('access')),
             'refresh_token' : str(user_tokens.get('refresh'))
         }
@@ -140,7 +154,7 @@ class SetNewPasswordSerializer(serializers.Serializer):
 class LogoutUserSerializer(serializers.Serializer):
     refresh_token = serializers.CharField()
 
-    default_error_message = {
+    default_error_messages = {
         'bad_token': ('Token is invalid or has expired') 
     }
 

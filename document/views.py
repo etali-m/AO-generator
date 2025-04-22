@@ -1,5 +1,11 @@
+from rest_framework.generics import GenericAPIView
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework import status
+
 from django.shortcuts import render, get_object_or_404
 from .models import TypeMarche
+from .serializers import TypeMarcheSerializer
 
 # Create your views here.
 def home_view(request): 
@@ -25,3 +31,12 @@ def createProject_view(request, pk):
         'type_marche': type_marche,
     }
     return render(request, "document/new_project.html", context)
+
+
+class typeMarcheView(GenericAPIView): 
+    serializer_class = TypeMarcheSerializer
+    queryset = TypeMarche.objects.all()
+
+    def get(self, request):
+        serializer = self.serializer_class(self.queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

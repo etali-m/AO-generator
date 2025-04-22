@@ -127,6 +127,12 @@ SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": ("Bearer",)
 }
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:8081",
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/

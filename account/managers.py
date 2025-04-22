@@ -28,6 +28,7 @@ class UserManager(BaseUserManager):
         """Créer un super utilisateur avec tous les privilèges"""
         extra_fields.setdefault("is_staff", True)
         extra_fields.setdefault("is_superuser", True) 
+        extra_fields.setdefault("is_verified", True)
         
         if extra_fields.get("is_staff") is not True:
             raise ValueError("Un superutilisateur doit avoir is_staff=True")

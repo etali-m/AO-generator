@@ -8,7 +8,7 @@ from .forms import RegisterForm, LoginForm
 
 from rest_framework.generics import GenericAPIView
 from rest_framework.views import APIView
-from .serializers import UserRegisterSerializer, LoginSerializer, PasswordResetRequestSerializer, SetNewPasswordSerializer, LogoutUserSerializer
+from .serializers import UserRegisterSerializer, LoginSerializer, PasswordResetRequestSerializer, SetNewPasswordSerializer, LogoutUserSerializer, UserSerializer
 from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.tokens import PasswordResetTokenGenerator
@@ -34,6 +34,7 @@ def register_view(request):
         form = RegisterForm()
     
     return render(request, "account/register.html", {"form": form})
+
 
 def login_view(request):
     """Vue pour la connexion d'un utilisateur"""
@@ -121,16 +122,23 @@ class LoginUserView(GenericAPIView):
         serializer.is_valid(raise_exception=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
 #tester l'authentification d'un utilisateur
-class TestAuthenticationView(GenericAPIView):
+class UserProfilView(GenericAPIView):
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
-        data = {
-            'msg' :  'its works'
-        }
-
+        serializer = UserSerializer(request.user)
+        data = serializer.data
         return Response(data, status=status.HTTP_200_OK)
+
+    #Mise à jour des informations utilisateur
+    def put(self, request):
+        serializer = UserSerializer(request.user, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 #Requete de changement de mot de pass
