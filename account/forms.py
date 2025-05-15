@@ -8,12 +8,7 @@ class RegisterForm(forms.ModelForm):
 
     password = forms.CharField(widget=forms.PasswordInput, label="Mot de passe")
     password_confirm = forms.CharField(widget=forms.PasswordInput, label="Confirmer le mot de passe")
-    phone_number = forms.CharField(max_length=17, widget=PhoneNumberPrefixWidget(
-        attrs={
-            'class': 'form-control custom-input',
-            'placeholder': 'Numéro de téléphone'
-        },  
-    ))
+    phone_number = forms.CharField(max_length=17)
 
     class Meta:
         model = User

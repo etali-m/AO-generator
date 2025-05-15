@@ -4,8 +4,8 @@ from rest_framework.response import Response
 from rest_framework import status
 
 from django.shortcuts import render, get_object_or_404
-from .models import TypeMarche
-from .serializers import TypeMarcheSerializer
+from .models import TypeMarche, AppelOffre
+from .serializers import TypeMarcheSerializer, AppelOffreSerializer
 
 # Create your views here.
 def home_view(request): 
@@ -37,6 +37,34 @@ class typeMarcheView(GenericAPIView):
     serializer_class = TypeMarcheSerializer
     queryset = TypeMarche.objects.all()
 
-    def get(self, request):
-        serializer = self.serializer_class(self.queryset, many=True)
+    def get(self, request): 
+        type = request.GET.get('slug')
+
+        queryset = self.get_queryset() #recupération de la requete
+        
+        if type:
+            queryset = queryset.filter(slug=type)
+
+        serializer = self.serializer_class(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class AppelOffreView(GenericAPIView):
+    serializer_class = AppelOffreSerializer
+    queryset = AppelOffre.objects.all()
+
+    def get(self, request):
+        #user = request.user
+        queryset = self.get_queryset()
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
+    def post(self, request):
+        serializer = self.get_serializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        
+        return Response({
+            'data': serializer.data,
+            'message': "Le dossier a été créé avec succès."
+        }, status=status.HTTP_201_CREATED)
