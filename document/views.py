@@ -2,6 +2,8 @@ from rest_framework.generics import GenericAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
+from rest_framework_simplejwt.authentication import JWTAuthentication
+from rest_framework.permissions import IsAuthenticated
 
 from django.shortcuts import render, get_object_or_404
 from .models import TypeMarche, AppelOffre
@@ -51,20 +53,23 @@ class typeMarcheView(GenericAPIView):
 
 class AppelOffreView(GenericAPIView):
     serializer_class = AppelOffreSerializer
-    queryset = AppelOffre.objects.all()
+    queryset = AppelOffre.objects.all() 
 
     def get(self, request):
-        #user = request.user
-        queryset = self.get_queryset()
+        user = request.user
+        print("ID Utilisateur: ", user)
+        queryset = self.get_queryset().filter(user=user)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
     def post(self, request):
-        serializer = self.get_serializer(data=request.data)
+        data = request.data.copy()  #recupérer les données envoyé depuis le frontend
+        data['user'] = request.user.id #on ajoute user à l'objet data
+        serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         
         return Response({
             'data': serializer.data,
-            'message': "Le dossier a été créé avec succès."
+            'message': "Le Dossier d'Appel d'offre a été créé avec succès."
         }, status=status.HTTP_201_CREATED)

@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models import PROTECT
 from autoslug import AutoSlugField
+from account.models import User
 
 # Create your models here.
 class TypeMarche(models.Model):
@@ -14,6 +15,7 @@ class TypeMarche(models.Model):
     
 #Appel d'offre 
 class AppelOffre(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     type_marche = models.ForeignKey(TypeMarche, on_delete=PROTECT)
     objet_appel = models.TextField()
     maitre_ouvrage = models.CharField(max_length=300)
