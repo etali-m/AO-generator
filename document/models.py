@@ -12,6 +12,12 @@ class TypeMarche(models.Model):
 
     def __str__(self):
         return f'{self.nom}'
+
+class Piece(models.Model):
+    titre = models.CharField(max_length=200)
+    description = models.TextField(blank=True, null=True)
+    nom_composant = models.CharField(max_length=100)
+    type_marche = models.ForeignKey(TypeMarche, on_delete=models.CASCADE)
     
 #Appel d'offre 
 class AppelOffre(models.Model):

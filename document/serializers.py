@@ -18,4 +18,4 @@ class AppelOffreSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = AppelOffre
-        fields = ['type_marche', 'user', 'objet_appel', 'maitre_ouvrage', 'denomination', 'commission_marche', 'type_dossier', 'numero_dossier', 'exercice_budgetaire', 'financement', 'imputation']
+        fields = [ 'id', 'type_marche', 'user', 'objet_appel', 'maitre_ouvrage', 'denomination', 'commission_marche', 'type_dossier', 'numero_dossier', 'exercice_budgetaire', 'financement', 'imputation']
