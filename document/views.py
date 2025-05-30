@@ -6,8 +6,8 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 from django.shortcuts import render, get_object_or_404
-from .models import TypeMarche, AppelOffre
-from .serializers import TypeMarcheSerializer, AppelOffreSerializer
+from .models import TypeMarche, AppelOffre, Piece
+from .serializers import TypeMarcheSerializer, AppelOffreSerializer, PieceSerializer
 
 # Create your views here.
 def home_view(request): 
@@ -51,14 +51,27 @@ class typeMarcheView(GenericAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+class PieceView(GenericAPIView):
+    serializer_class = PieceSerializer
+    queryset = Piece.objects.all()
+
+    #renvoi toutes le pièces disponible pour le type du dossier d'appel d'offre
+    def get(self, request, *args, **kwargs):
+        type_id = kwargs.GET('type_id')
+        queryset = self.get_queryset().filter(id=type_id)
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data)
+
 class AppelOffreView(GenericAPIView):
     serializer_class = AppelOffreSerializer
     queryset = AppelOffre.objects.all() 
 
-    def get(self, request):
-        user = request.user
-        print("ID Utilisateur: ", user)
-        queryset = self.get_queryset().filter(user=user)
+    def get(self, request, *args, **kwargs):
+        user = request.user  
+        queryset = self.get_queryset().filter(user=user) #recupérer les DAO créer par l'utilisateur connecté
+        dossier = self.request.GET.get('dossier') #recupérer le DAO que l'utilisateur a selectionner
+        if dossier: 
+            queryset = queryset.filter(id=dossier) 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 

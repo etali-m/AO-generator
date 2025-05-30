@@ -13,11 +13,15 @@ class TypeMarche(models.Model):
     def __str__(self):
         return f'{self.nom}'
 
+#Piece d'un Dossier d'appel d'offre
 class Piece(models.Model):
     titre = models.CharField(max_length=200)
     description = models.TextField(blank=True, null=True)
     nom_composant = models.CharField(max_length=100)
     type_marche = models.ForeignKey(TypeMarche, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f'{self.titre} - {self.type_marche.nom}'
     
 #Appel d'offre 
 class AppelOffre(models.Model):
@@ -28,6 +32,7 @@ class AppelOffre(models.Model):
     denomination = models.CharField(max_length=30)
     commission_marche = models.CharField(max_length=200)
     type_dossier = models.CharField(max_length=100)
+    mode_passation = models.CharField(max_length=10)
     numero_dossier = models.IntegerField(blank=True, null=True)
     exercice_budgetaire = models.IntegerField()
     financement = models.CharField(max_length=300)
