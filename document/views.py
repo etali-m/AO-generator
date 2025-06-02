@@ -57,8 +57,8 @@ class PieceView(GenericAPIView):
 
     #renvoi toutes le pièces disponible pour le type du dossier d'appel d'offre
     def get(self, request, *args, **kwargs):
-        type_id = kwargs.GET('type_id')
-        queryset = self.get_queryset().filter(id=type_id)
+        type_id = kwargs.get('type_id')
+        queryset = self.get_queryset().filter(type_marche=type_id)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 

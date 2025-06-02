@@ -40,3 +40,23 @@ class AppelOffre(models.Model):
 
     def __str__(self):
         return f'{self.objet_appel}'
+
+    @property 
+    def numero_appel_offre(self):
+        lettre_type = self.type_dossier[0]
+        lettre_passation = self.mode_passation[0]
+        numero = (
+            str(self.numero_dossier)
+            + '/AO'
+            + lettre_type
+            + lettre_passation
+            + '/'
+            + self.denomination
+            + '/'
+            + self.commission_marche
+            + '/'
+            + str(self.exercice_budgetaire)
+        )
+        return numero.upper()
+
+    

@@ -24,8 +24,14 @@ class AppelOffreSerializer(serializers.ModelSerializer):
     type_marche = serializers.PrimaryKeyRelatedField(
         queryset=TypeMarche.objects.all()
     )
+    numero_appel_offre = serializers.SerializerMethodField() #numero d'appel d'offre généré par la fonction 
 
+    #pour avoir tous les elements du type de marche dans le serializer
+    #type_marche = TypeMarcheSerializer(read_only=True)
     class Meta:
         model = AppelOffre
-        fields = [ 'id', 'type_marche', 'user', 'objet_appel', 'maitre_ouvrage', 'denomination', 'commission_marche', 'type_dossier', 'numero_dossier', 'exercice_budgetaire', 'financement', 'imputation']
+        fields = [ 'id', 'type_marche', 'user', 'objet_appel', 'maitre_ouvrage', 'denomination', 'commission_marche', 'type_dossier', 'mode_passation', 'numero_dossier', 'exercice_budgetaire', 'financement', 'imputation', 'numero_appel_offre']
+    
+    def get_numero_appel_offre(self, obj):
+        return obj.numero_appel_offre
 
