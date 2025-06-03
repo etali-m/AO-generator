@@ -19,6 +19,7 @@ class Piece(models.Model):
     description = models.TextField(blank=True, null=True)
     nom_composant = models.CharField(max_length=100)
     type_marche = models.ForeignKey(TypeMarche, on_delete=models.CASCADE)
+    statut = models.BooleanField(default=False)
 
     def __str__(self):
         return f'{self.titre} - {self.type_marche.nom}'
@@ -59,4 +60,15 @@ class AppelOffre(models.Model):
         )
         return numero.upper()
 
-    
+
+#Permet de créer stocker les instances de pièces d'un type de marché à chaque fois qu'on créé un dossier d'appel d'offre.
+class StatutPiece(models.Model):
+    appel_offre = models.ForeignKey(AppelOffre, on_delete=models.CASCADE, related_name='pieces')
+    piece = models.ForeignKey(Piece, on_delete=models.CASCADE)
+    is_complete = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ('appel_offre', 'piece')
+
+    def __str__(self):
+        return f"{self.piece.titre} ({self.appel_offre})"

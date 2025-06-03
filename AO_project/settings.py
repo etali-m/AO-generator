@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     'account', 
     'phonenumber_field',
-    'document',
+    'document.apps.DocumentConfig',
     'app_travaux',
     'services_quantifiables',
     'rest_framework_simplejwt.token_blacklist',
