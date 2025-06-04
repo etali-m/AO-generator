@@ -1,4 +1,4 @@
-from rest_framework.generics import GenericAPIView
+from rest_framework.generics import GenericAPIView, ListAPIView
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -6,8 +6,8 @@ from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 
 from django.shortcuts import render, get_object_or_404
-from .models import TypeMarche, AppelOffre, Piece
-from .serializers import TypeMarcheSerializer, AppelOffreSerializer, PieceSerializer
+from .models import TypeMarche, AppelOffre, Piece, StatutPiece
+from .serializers import TypeMarcheSerializer, AppelOffreSerializer, PieceSerializer, StatutPieceSerializer
 
 # Create your views here.
 def home_view(request): 
@@ -61,6 +61,16 @@ class PieceView(GenericAPIView):
         queryset = self.get_queryset().filter(type_marche=type_id)
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
+
+class StatuPieceView(ListAPIView):
+    serializer_class = StatutPieceSerializer
+
+    def get_queryset(self):
+        id_projet = self.kwargs.get('project_id')
+        print(id_projet)
+        print(StatutPiece.objects.filter(appel_offre__id=id_projet))
+        return StatutPiece.objects.filter(appel_offre__id=id_projet)
+
 
 class AppelOffreView(GenericAPIView):
     serializer_class = AppelOffreSerializer

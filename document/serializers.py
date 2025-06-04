@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import TypeMarche, AppelOffre, Piece
+from .models import TypeMarche, AppelOffre, Piece, StatutPiece
 from account.models import User
 
 class TypeMarcheSerializer(serializers.ModelSerializer):
@@ -35,3 +35,12 @@ class AppelOffreSerializer(serializers.ModelSerializer):
     def get_numero_appel_offre(self, obj):
         return obj.numero_appel_offre
 
+
+#serializer en lecture seul
+class StatutPieceSerializer(serializers.ModelSerializer):
+    piece = PieceSerializer(read_only=True)
+    appel_offre = AppelOffreSerializer(read_only=True)
+
+    class Meta:
+        model = StatutPiece
+        fields = ['id', 'appel_offre', 'piece', 'is_complete']
