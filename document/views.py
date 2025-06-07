@@ -66,9 +66,7 @@ class StatuPieceView(ListAPIView):
     serializer_class = StatutPieceSerializer
 
     def get_queryset(self):
-        id_projet = self.kwargs.get('project_id')
-        print(id_projet)
-        print(StatutPiece.objects.filter(appel_offre__id=id_projet))
+        id_projet = self.kwargs.get('project_id') 
         return StatutPiece.objects.filter(appel_offre__id=id_projet)
 
 
