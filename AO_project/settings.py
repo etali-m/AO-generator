@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'account', 
+    'ckeditor',
     'phonenumber_field',
     'document.apps.DocumentConfig',
     'app_travaux',
