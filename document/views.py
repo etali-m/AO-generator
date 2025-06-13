@@ -7,7 +7,7 @@ from rest_framework.permissions import IsAuthenticated
 
 from django.shortcuts import render, get_object_or_404
 from .models import TypeMarche, AppelOffre, Piece, StatutPiece
-from .serializers import TypeMarcheSerializer, AppelOffreSerializer, PieceSerializer, StatutPieceSerializer
+from .serializers import TypeMarcheSerializer, AppelOffreSerializer, PieceSerializer, StatutPieceSerializer, UpdateStatutPieceSerializer
 
 # Create your views here.
 def home_view(request): 
@@ -62,12 +62,32 @@ class PieceView(GenericAPIView):
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
 
+#Obtenir les pieces d'un projet
 class StatuPieceView(ListAPIView):
     serializer_class = StatutPieceSerializer
 
     def get_queryset(self):
         id_projet = self.kwargs.get('project_id') 
         return StatutPiece.objects.filter(appel_offre__id=id_projet)
+
+#Mettre à jour le statut d'une piece d'un projet
+class StatutPieceUpdateView(GenericAPIView):
+    serializer_class = UpdateStatutPieceSerializer
+    queryset = StatutPiece.objects.all()
+
+    def patch(self, request, *args, **kwargs):
+        piece_id = kwargs.get('piece_id')  # l'identifiant de la StatutPiece à mettre à jour
+        try:
+            instance = self.get_queryset().get(pk=piece_id)
+        except StatutPiece.DoesNotExist:
+            return Response({"detail": "Statut non trouvé."}, status=status.HTTP_404_NOT_FOUND)
+
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 
 class AppelOffreView(GenericAPIView):

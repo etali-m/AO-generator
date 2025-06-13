@@ -39,7 +39,7 @@ class AppelOffreSerializer(serializers.ModelSerializer):
         return obj.numero_appel_offre
 
 
-#serializer en lecture seul
+#serializer en lecture seul pour uniquement lire statutPiece
 class StatutPieceSerializer(serializers.ModelSerializer):
     piece = PieceSerializer(read_only=True)
     appel_offre = AppelOffreSerializer(read_only=True)
@@ -47,3 +47,9 @@ class StatutPieceSerializer(serializers.ModelSerializer):
     class Meta:
         model = StatutPiece
         fields = ['id', 'appel_offre', 'piece', 'is_complete']
+
+#Mettre à jour statutPiece
+class UpdateStatutPieceSerializer(serializers.ModelSerializer): 
+    class Meta:
+        model = StatutPiece
+        fields = ['is_complete']

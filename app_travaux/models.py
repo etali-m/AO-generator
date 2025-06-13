@@ -4,7 +4,7 @@ from document.models import AppelOffre
 
 # Create your models here.
 class AvisAppelOffre(models.Model):
-    appel_offre = models.ForeignKey(AppelOffre, on_delete=models.CASCADE)
+    appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
     objet_appel = RichTextField()
     consistence_travaux = RichTextField()
     tranches = RichTextField()

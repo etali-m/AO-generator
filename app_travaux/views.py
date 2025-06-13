@@ -14,9 +14,9 @@ class AAOView(GenericAPIView):
     def get(self, request, *args, **kwargs):
         project_id = kwargs.get('project_id')
         queryset = self.get_queryset().filter(appel_offre=project_id)
-        if queryset:
-            serializer = self.get_serializer(queryset, many=True)
-            return Response(serializer.data, status=status.HTTP_200_OK)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
     
     def post(self, request, *args, **kwargs):
         project_id = kwargs.get('project_id')
