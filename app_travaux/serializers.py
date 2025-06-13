@@ -3,7 +3,7 @@ from .models import *
 
 class AAOSerializer(serializers.ModelSerializer):
     appel_offre = serializers.PrimaryKeyRelatedField(
-        queryset = AvisAppelOffre.objects.all()
+        queryset = AppelOffre.objects.all()
     )
 
     class Meta:

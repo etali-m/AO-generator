@@ -18,8 +18,12 @@ class AAOView(GenericAPIView):
             serializer = self.get_serializer(queryset, many=True)
             return Response(serializer.data, status=status.HTTP_200_OK)
     
-    def post(self, request):
-        serializer = self.get_serializer(data=request.data)
+    def post(self, request, *args, **kwargs):
+        project_id = kwargs.get('project_id')
+        data = request.data.copy()
+        data['appel_offre'] = project_id
+
+        serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
