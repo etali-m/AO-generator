@@ -25,6 +25,7 @@ class AppelOffreSerializer(serializers.ModelSerializer):
         queryset=TypeMarche.objects.all()
     )
     numero_appel_offre = serializers.SerializerMethodField() #numero d'appel d'offre généré par la fonction 
+    titre_complet = serializers.SerializerMethodField()
 
     #pour avoir tous les elements du type de marche dans le serializer
     #type_marche = TypeMarcheSerializer(read_only=True)
@@ -33,10 +34,13 @@ class AppelOffreSerializer(serializers.ModelSerializer):
     type_marche_nom = serializers.CharField(source='type_marche.nom', read_only=True)
     class Meta:
         model = AppelOffre
-        fields = [ 'id', 'type_marche', 'type_marche_nom', 'user', 'objet_appel', 'maitre_ouvrage', 'denomination', 'commission_marche', 'type_dossier', 'mode_passation', 'numero_dossier', 'exercice_budgetaire', 'financement', 'imputation', 'numero_appel_offre', 'date_creation']
+        fields = [ 'id', 'type_marche', 'type_marche_nom', 'user', 'objet_appel', 'maitre_ouvrage', 'denomination', 'commission_marche', 'type_dossier', 'mode_passation', 'numero_dossier', 'exercice_budgetaire', 'financement', 'imputation', 'numero_appel_offre', 'date_creation', 'titre_complet']
     
     def get_numero_appel_offre(self, obj):
         return obj.numero_appel_offre
+    
+    def get_titre_complet(self, obj):
+        return obj.titre_complet
 
 
 #serializer en lecture seul pour uniquement lire statutPiece

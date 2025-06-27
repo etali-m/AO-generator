@@ -61,6 +61,13 @@ class AppelOffre(models.Model):
         )
         return numero.upper()
 
+    @property
+    def titre_complet(self):
+        titre = (
+            f"Avis d'Appel d'Offres {self.type_dossier} {self.mode_passation}\n"
+            f"N° {self.numero_appel_offre} DU ________ RELATIF AUX: \n {self.objet_appel}\n" 
+        )
+        return titre 
 
 #Permet de créer stocker les instances de pièces d'un type de marché à chaque fois qu'on créé un dossier d'appel d'offre.
 class StatutPiece(models.Model):
