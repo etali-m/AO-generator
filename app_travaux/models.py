@@ -128,4 +128,6 @@ class CCAP(models.Model):
     edition_marche = RichTextField()
     entree_en_vigueur = RichTextField()
 
+    def __str__(self):
+        return f"{self.appel_offre}"
 
