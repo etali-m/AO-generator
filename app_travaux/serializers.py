@@ -27,5 +27,26 @@ class CCAPSerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        model = RPAO
+        model = CCAP
+        fields = '__all__'
+
+
+#Bordereau des prix unitaires
+class BPUSerializer(serializers.ModelSerializer):
+    appel_offre = serializers.PrimaryKeyRelatedField(
+        queryset = AppelOffre.objects.all()
+    )
+
+    class Meta:
+        model = BPU
+        fields = '__all__'
+
+#BDevis Quantitatif et Estimatif
+class DQESerializer(serializers.ModelSerializer):
+    appel_offre = serializers.PrimaryKeyRelatedField(
+        queryset = AppelOffre.objects.all()
+    )
+
+    class Meta:
+        model = BPU
         fields = '__all__'

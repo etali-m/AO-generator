@@ -131,3 +131,20 @@ class CCAP(models.Model):
     def __str__(self):
         return f"{self.appel_offre}"
 
+
+#Bordereau des prix unitaires
+class BPU(models.Model):
+    appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
+    prix_unitaires = RichTextField()
+
+    def __str__(self):
+        return f"{self.appel_offre}"
+
+
+#Devis quantitatif et estimatif
+class DQE(models.Model):
+    appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
+    dqe = RichTextField()
+
+    def __str__(self):
+        return f"{self.appel_offre}"
