@@ -148,3 +148,13 @@ class DQE(models.Model):
 
     def __str__(self):
         return f"{self.appel_offre}"
+
+class modelMarche(models.Model):
+    appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
+    region = models.CharField(max_length=100, blank=True, null=True)
+    departement = models.CharField(max_length=100, blank=True, null=True)
+    service = models.CharField(max_length=100, blank=True, null=True) 
+    logo = models.ImageField(upload_to='logo_moa', blank=True, null=True) 
+
+    def __str__(self):
+        return f"{self.appel_offre}"

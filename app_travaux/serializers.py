@@ -48,5 +48,11 @@ class DQESerializer(serializers.ModelSerializer):
     )
 
     class Meta:
-        model = BPU
+        model = DQE
+        fields = '__all__'
+
+
+class ModelMarcheSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = modelMarche
         fields = '__all__'
