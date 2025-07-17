@@ -79,6 +79,7 @@ class RPAO(models.Model):
     def __str__(self):
         return f"{self.appel_offre}"
 
+#Cahier de Clauses Administratives Particulières
 class CCAP(models.Model):
     appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
     chef_service_marche = models.CharField(max_length=100)
@@ -132,6 +133,14 @@ class CCAP(models.Model):
         return f"{self.appel_offre}"
 
 
+#Cahier des clauses Techniques Particulières
+class CCTP(models.Model):
+    appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
+    cctp_fichier = models.FileField(upload_to='cctp/', null=True, blank=True)
+
+    def __str__(self):
+        return f"{self.appel_offre}"
+
 #Bordereau des prix unitaires
 class BPU(models.Model):
     appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
@@ -148,8 +157,9 @@ class DQE(models.Model):
 
     def __str__(self):
         return f"{self.appel_offre}"
-
-class modelMarche(models.Model):
+    
+#Modèle de marché
+class ModelMarche(models.Model):
     appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
     region = models.CharField(max_length=100, blank=True, null=True)
     departement = models.CharField(max_length=100, blank=True, null=True)

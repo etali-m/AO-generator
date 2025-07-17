@@ -32,9 +32,10 @@ class AppelOffreSerializer(serializers.ModelSerializer):
 
     # Récupérer juste le nom du type de marché (lecture seule)
     type_marche_nom = serializers.CharField(source='type_marche.nom', read_only=True)
+    type_marche_slug = serializers.CharField(source='type_marche.slug', read_only=True)
     class Meta:
         model = AppelOffre
-        fields = [ 'id', 'type_marche', 'type_marche_nom', 'user', 'objet_appel', 'maitre_ouvrage', 'denomination', 'commission_marche', 'type_dossier', 'mode_passation', 'numero_dossier', 'exercice_budgetaire', 'financement', 'imputation', 'numero_appel_offre', 'date_creation', 'titre_complet']
+        fields = [ 'id', 'type_marche', 'type_marche_nom', 'type_marche_slug', 'user', 'objet_appel', 'maitre_ouvrage', 'denomination', 'commission_marche', 'type_dossier', 'mode_passation', 'numero_dossier', 'exercice_budgetaire', 'financement', 'imputation', 'numero_appel_offre', 'date_creation', 'titre_complet']
     
     def get_numero_appel_offre(self, obj):
         return obj.numero_appel_offre

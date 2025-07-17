@@ -30,6 +30,16 @@ class CCAPSerializer(serializers.ModelSerializer):
         model = CCAP
         fields = '__all__'
 
+#Cahier des Clause Techniques Particulières
+class CCTPSerializer(serializers.ModelSerializer):
+    appel_offre = serializers.PrimaryKeyRelatedField(
+        queryset = AppelOffre.objects.all()
+    )
+
+    class Meta:
+        model = CCTP
+        fields = '__all__'
+
 
 #Bordereau des prix unitaires
 class BPUSerializer(serializers.ModelSerializer):
@@ -54,5 +64,5 @@ class DQESerializer(serializers.ModelSerializer):
 
 class ModelMarcheSerializer(serializers.ModelSerializer):
     class Meta:
-        model = modelMarche
+        model = ModelMarche
         fields = '__all__'
