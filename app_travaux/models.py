@@ -136,7 +136,7 @@ class CCAP(models.Model):
 #Cahier des clauses Techniques Particulières
 class CCTP(models.Model):
     appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
-    cctp_fichier = models.FileField(upload_to='cctp/', null=True, blank=True)
+    clauses_techniques = RichTextField()
 
     def __str__(self):
         return f"{self.appel_offre}"

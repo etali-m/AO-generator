@@ -48,7 +48,7 @@ class AppelOffre(models.Model):
         lettre_type = self.type_dossier[0]
         lettre_passation = self.mode_passation[0]
         numero = (
-            str(self.numero_dossier)
+            (str(self.numero_dossier) if self.numero_dossier else '............')
             + '/AO'
             + lettre_type
             + lettre_passation
@@ -59,6 +59,7 @@ class AppelOffre(models.Model):
             + '/'
             + str(self.exercice_budgetaire)
         )
+
         return numero.upper()
 
     @property
