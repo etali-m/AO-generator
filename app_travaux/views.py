@@ -376,7 +376,7 @@ def telecharger_marche_travaux(request, project_id):
     template = loader.get_template('app_travaux/resume.html')
     html = template.render(context)
     return render(request, 'app_travaux/resume.html', context)
-    """ 
+    """
     options = {
         'page-size': 'Letter',
         'encoding': "UTF-8",
