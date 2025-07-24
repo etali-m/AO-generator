@@ -42,6 +42,7 @@ INSTALLED_APPS = [
 
     'account', 
     'ckeditor',
+    'modeltranslation',
     'phonenumber_field',
     'document.apps.DocumentConfig',
     'app_travaux',
@@ -138,7 +139,13 @@ CORS_ALLOW_CREDENTIALS = True
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
 
+LANGUAGES = ( 
+    ('en', 'English'),
+)
+
 LANGUAGE_CODE = 'en-us'
+
+MODELTRANSLATION_DEFAULT_LANGUAGE = 'en'
 
 TIME_ZONE = 'UTC'
 
