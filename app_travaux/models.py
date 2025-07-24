@@ -25,7 +25,7 @@ class AvisAppelOffre(models.Model):
     nombre_max_lots = models.IntegerField()
     duree_validite = models.IntegerField()
     renseignement_complementaires = RichTextField()
-    numero_moa = models.IntegerField()
+    numero_moa = models.IntegerField(blank=True, null=True)
 
     def __str__(self):
         return f"{self.appel_offre}"

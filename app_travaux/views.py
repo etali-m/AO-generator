@@ -365,7 +365,7 @@ def telecharger_marche_travaux(request, project_id):
     try:
         aao = AvisAppelOffre.objects.get(appel_offre=appel_offre)
     except AvisAppelOffre.DoesNotExist:
-        aao = None
+        aao = None 
 
     context = {
         'appel_offre': appel_offre,
