@@ -364,18 +364,29 @@ def telecharger_marche_travaux(request, project_id):
     # Récupérer les autres données avec précaution
     try:
         aao = AvisAppelOffre.objects.get(appel_offre=appel_offre)
+        rpao = RPAO.objects.get(appel_offre=appel_offre)
     except AvisAppelOffre.DoesNotExist:
         aao = None 
 
     context = {
         'appel_offre': appel_offre,
         'aao': aao,
+        'rpao':rpao,
     }
-    print(appel_offre.maitre_ouvrage)
 
     template = loader.get_template('app_travaux/resume.html')
     html = template.render(context)
-    return render(request, 'app_travaux/resume.html', context)
+
+    config = pdfkit.configuration(
+        wkhtmltopdf=r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
+    )
+
+    pdf = pdfkit.from_string(html, False, configuration=config)
+
+    response = HttpResponse(pdf, content_type='application/pdf')
+    response['Content-Disposition'] = 'attachment; filename="rapport.pdf"'
+
+    return response
     """
     options = {
         'page-size': 'Letter',

@@ -1538,13 +1538,11 @@
             <p style="margin-top: 8pt;"><strong>Définition des Travaux :</strong></p>
             <p>Les travaux consistent à :</p>
             <div>
-              <p>………… ;</p>
-              <p>………… ;</p>
-              <p>………… ;</p>
+              {{rpao.consistenceTravaux|safe}}
             </div>
             <p style="font-style: italic;">
-              [Insérer une description sommaire des Travaux et préciser leur rapport avec les autres marchés du Projet.<br/>
-              En cas d’allotissement, préciser l’objet et décrire la consistance de chaque lot]
+              <!-- [Insérer une description sommaire des Travaux et préciser leur rapport avec les autres marchés du Projet.<br/>
+              En cas d’allotissement, préciser l’objet et décrire la consistance de chaque lot] -->
             </p> <br>
             <p><strong>NB :</strong> Les informations sur les travaux à exécuter sont détaillées dans le bordereau des prix unitaires,
               le détail quantitatif et estimatif et le Cahier des Clauses Techniques Particulières.</p>
@@ -1554,7 +1552,7 @@
         <tr>
             <td style="text-align: center; vertical-align: top;">1.2</td>
             <td style="padding-left:15px;">
-                <p>Le délai prévisionnel d’exécution des travaux est de :</p>
+                <p>Le délai prévisionnel d’exécution des travaux est de : {{ aao.delai_previsionnel }}</p>
                 <i>[Référence doit être faite, le cas échéant, à l’article 18.1 ci-dessous.]</i>
                 <br>
                 <p>Ce délai pour chacune des tranches (le cas échéant), court à compter de la date de notification de
@@ -1566,7 +1564,7 @@
         <tr>
             <td style="text-align: center; vertical-align: top;">1.4</td>
             <td style="padding-left:15px;">
-                <p>Nom, Object des travaux :____________________________</p>
+                <p>Nom, Object des travaux :{{aao.objet_appel|safe}}</p>
                 <p>Les travaux comportent plusieurs phases : Oui ___ Non ___ [si oui, indiquer lesquelles]</p>
                 <p>Conférence préalable à l’établissement des propositions : Oui ___ Non ___</p>
             </td>
