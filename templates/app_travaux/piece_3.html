@@ -1,0 +1,389 @@
+<!-- Règlement particulier de l'appel d'offre -->
+<div>
+    <h1 style="padding-top: 500px;text-indent: 0pt;text-align: center;"><a name="bookmark56">&zwnj;</a>PIECE N° 3</h1><p style="padding-top: 1pt;text-indent: 0pt;text-align: left;"><br/>
+    </p><h1 style="text-indent: 0pt;line-height: 150%;text-align: center;">REGLEMENT PARTICULIER DE L ’ APPEL D’ OFFRES</h1> 
+    <h1 style="text-align:center;">(RPAO)</h1>
+
+    <div class="page-break"></div>
+
+    <h2 style="padding-top: 20px;padding-bottom: 50px;text-indent: 0pt;text-align: center;">REGLEMENT PARTICULIER DE L’ APPEL D’ OFFRES</h2>
+    
+    <p style="text-indent: 0pt;text-align: left;"><br/></p><p style="padding-left: 12pt;text-indent: 0pt;line-height: 150%;text-align: justify;">Cette pièce doit être remplie par le Maître d’Ouvrage ou le Maître d’Ouvrage Délégué avant le lancement de la consultation. Les dispositions ci-après, qui sont spécifiques aux prestations faisant l’objet de l’Appel d’Offres, complètent ou, le cas échéant, précisent les dispositions du RGAO.</p><h4 style="padding-left: 12pt;text-indent: 0pt;line-height: 14pt;text-align: justify;">En cas de conflit, les dispositions ci-après prévalent sur celles du RGAO</h4><p style="padding-top: 6pt;padding-left: 12pt;text-indent: 0pt;text-align: left;">Les numéros de la première colonne se réfèrent à l’article correspondant du RGAO.</p><p style="text-indent: 0pt;text-align: left;"><br/></p><p class="s3" style="padding-left: 12pt;text-indent: 0pt;text-align: left;">[Des instructions pour compléter le Règlement Particulier de l’appel d’offres sont fournies, le cas échéant, par</p><p class="s3" style="padding-top: 6pt;padding-left: 12pt;text-indent: 0pt;text-align: left;">des notes en italique en référence aux clauses correspondantes du RGAO].</p>
+    
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+
+    <table border="1" cellspacing="0" cellpadding="4" style="width: 100%; border-collapse: collapse;">
+        <tr>
+          <td style="width: 20%; text-align: center; vertical-align: middle;font-weight:bold;">
+            Références du RGAO
+          </td>
+          <td style="text-align: center; font-weight: bold;">
+            Description de la Disposition du RPAO
+          </td>
+        </tr>
+        <tr>  
+            <td></td>
+          <td style="text-align: center; font-weight: bold;">
+            <h3>A. GENERALITES</h3>
+          </td>
+        </tr>
+        <!--1.1-->
+        <tr>
+          <td style="text-align: center; vertical-align: top;">1.1</td>
+          <td style="padding-left:15px;">
+            <div style="margin-top: 0; margin-bottom: 0; ">
+              <p>Nom et adresse du Maître d’Ouvrage ou du Maître d’Ouvrage Délégué</p>
+              <p>Référence de l’Appel d’Offres :</p>
+              <p>Nombre de lots :</p>
+            </div>
+            <p style="margin-top: 8pt;"><strong>Définition des Travaux :</strong></p>
+            <p>Les travaux consistent à :</p>
+            <div>
+              {{rpao.consistenceTravaux|safe}}
+            </div>
+            <p style="font-style: italic;">
+              <!-- [Insérer une description sommaire des Travaux et préciser leur rapport avec les autres marchés du Projet.<br/>
+              En cas d’allotissement, préciser l’objet et décrire la consistance de chaque lot] -->
+            </p> <br>
+            <p><strong>NB :</strong> Les informations sur les travaux à exécuter sont détaillées dans le bordereau des prix unitaires,
+              le détail quantitatif et estimatif et le Cahier des Clauses Techniques Particulières.</p>
+          </td>
+        </tr>
+        <!--1.2-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">1.2</td>
+            <td style="padding-left:15px;">
+                <p>Le délai prévisionnel d’exécution des travaux est de : {{ aao.delai_previsionnel|safe }}</p>
+                <i>[Référence doit être faite, le cas échéant, à l’article 18.1 ci-dessous.]</i>
+                <br>
+                <p>Ce délai pour chacune des tranches (le cas échéant), court à compter de la date de notification de
+                    l’ordre de service de commencer les travaux.
+                </p>
+            </td>
+        </tr>
+        <!--1.4-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">1.4</td>
+            <td style="padding-left:15px;">
+                <p>Nom, Object des travaux :{{aao.objet_appel|safe}}</p>
+                <p>Les travaux comportent plusieurs phases : Oui ___ Non ___ [si oui, indiquer lesquelles]</p>
+                <p>Conférence préalable à l’établissement des propositions : Oui ___ Non ___</p>
+            </td>
+        </tr>
+        <!--2.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">2.1</td>
+            <td style="padding-left:15px;">
+                <p>Source(s) de financement : </p>
+                <p>Les travaux objet du présent Appel d’Offres sont financés par : {{appel_offre.financement|safe}}</p>
+                <p>Budget : …………………… Exercice {{appel_offre.exercice_budgetaire|safe}} Ligne {{appel_offre.imputation|safe}}</p>
+            </td>
+        </tr>
+        <!--4.2-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">4.2</td>
+            <td style="padding-left:15px;">
+                <p>L’appel d’offres est {{appel_offre.mode_passation|safe}}</p> 
+            </td>
+        </tr>
+        <!--5.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">5.1</td>
+            <td style="padding-left:15px;">
+                <p>Provenance des matériaux, matériels et fournitures d’équipement et services.</p> <br>
+                {{rpao.provenance_materiaux|safe}}
+            </td>
+        </tr>
+        <!--6.2-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">6.2</td>
+            <td style="padding-left:15px;">
+                <p>
+                    En cas de groupement d’entreprises, chaque membre du groupement doit présenter un dossier 
+                    administratif complet, les pièces " L’attestation de domiciliation bancaire (sauf cas de cotraitance
+                    conjointe) , La quittance d’achat du DAO et le cautionnement de soumission" prévues au point 13.1
+                    du RPAO étant uniquement présentés par le mandataire du groupement.
+                </p> 
+            </td>
+        </tr>
+        <!--7.3-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">7.3</td>
+            <td style="padding-left:15px;">
+                {{rpao.visite_travaux|safe}}
+            </td>
+        </tr>
+        <!--9-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">9</td>
+            <td style="padding-left:15px;">
+                {{rpao.renseignements_complementaires|safe}}
+            </td>
+        </tr>
+        <tr>  
+            <td></td>
+          <td style="text-align: center; font-weight: bold;">
+            <h3>C. PREPARATION DES OFFRES</h3>
+          </td>
+        </tr>
+        <!--12-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">12</td>
+            <td style="padding-left:15px;">
+                {{rpao.langue_soumission|safe}}
+            </td>
+        </tr>
+        <!--13.1-->  
+        <tr>
+            <td style="text-align: center; vertical-align: top;">13.1</td>
+            <td style="padding-left:15px;">
+                <h3>A-Volume 1: Pièces Administratives</h3>
+                <p><strong>Pour les soumissionnaires installés au Cameroun</strong>, elles comprendront notamment:</p>
+                <br>
+                {{rpao.piecesAdminLocales|safe}}
+                <br>
+                <p><b>NB: En cas de catégorisation, le Maître d’Ouvrage ou Maître d’Ouvrage Délégué définit les exigences complémentaires à demander aux entreprises catégorisées.</b></p>
+                <p>
+                    En cas de groupement chaque membre du groupement doit présenter un dossier
+                    Administratif complet, les pièces a, b, g, h étant uniquement présentées par le mandataire du groupement
+                </p>
+                <br><br>
+                <p><strong>Pour les soumissionnaires non installés au Cameroun</strong>:</p>
+                <br>
+                {{rpao.piecesAdminEtrangeres|safe}}
+                <br>
+                <p><b>NB: Sous peine de rejet, les pièces du dossier administratif requises doivent être produites en originaux ou en copies certifiées conformes par le service émetteur ou l’autorité administrativecompétente, conformément aux dispositions du Règlement Particulier de l’Appel d’Offres. Elles doivent être valides à la date limite originelle de dépôt des offres</b></p>
+                <br><br>
+                <h3 style="margin:15px 0px">B-Volume II: Offre technique</h3>
+                <p>Elle comprend notamment: </p>
+                <p>b.1 La lettre de soumission de la proposition technique :</p><br>
+
+
+                <p><b>b.2 Références du soumissionaire :</b></p><br>
+                {{rpao.refSoumissionnaire|safe}}
+                <br>
+
+                <p><b>b.3 Personnel</b></p><br>
+                {{rpao.personnel|safe}}
+                <br>
+
+                <p><b>b.4 Matériels à mobiliser pour l'exécution des travaux :</b></p><br>
+                {{rpao.materiels|safe}}
+                <br>
+
+                <p><b>b.5 Organisation et méthodologie :</b></p><br>
+                {{rpao.organisation_methodologie|safe}}
+                <br>
+
+                <p><b>b.6 Respect du formulaire proposé dans le DAO :</b></p><br>
+                {{rpao.respect_formulaire|safe}}
+                <br>
+
+                <p><b>b.7 Les preuves d'accepation des conditions du marché :</b></p><br>
+                {{rpao.preuve_acceptation|safe}}
+                <br>
+
+                <p><b>b.8 Commentaires CCAP et CCTP :</b></p><br>
+                {{rpao.commentaire_ccap|safe}}
+                <br>
+
+                <p><b>b.9 La capacité financière :</b></p><br>
+                {{rpao.capacite_financiere|safe}}
+                <br>
+
+                <p><b>b.10 l’attestation de non abandon de chantier au cours des trois dernières années</b></p><br>
+                <br><br>
+
+                <h3 style="margin:15px 0px">C-Volume III: Offre financière</h3>
+                <p>Cette enveloppe comprendra les documents ci-après :</p> <br>
+                {{rpao.offreFinanciere|safe}}
+            </td>
+        </tr>
+        <!--14.3-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">14.3</td>
+            <td style="padding-left:15px;">
+                <p><b>Impôts et Taxes: </b></p> <br>
+                {{rpao.impots_taxes|safe}}
+            </td>
+        </tr>
+        <!--14.4-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">14.4</td>
+            <td style="padding-left:15px;">
+                <p>{{rpao.prix_marche|safe}}</p>
+            </td>
+        </tr>
+        <!--15.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">15.1</td>
+            <td style="padding-left:15px;">
+                <p>{{rpao.monnaies_soumission|safe}}</p>
+            </td>
+        </tr>
+        <!--15.2-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">15.2</td>
+            <td style="padding-left:15px;">
+                <p>{{rpao.taux_change|safe}}</p>
+            </td>
+        </tr>
+        <!--16.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">16.1</td>
+            <td style="padding-left:15px;">
+                <p>{{rpao.validite_offre|safe}}</p>
+            </td>
+        </tr>
+        <!--17.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">17.1</td>
+            <td style="padding-left:15px;">
+                <p>{{rpao.montant_cautionnement|safe}}</p>
+            </td>
+        </tr>
+        <!--18.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">18.1</td>
+            <td style="padding-left:15px;">
+                {{rpao.evaluation_offres|safe}}
+            </td>
+        </tr>
+        <!--18.3-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">18.3</td>
+            <td style="padding-left:15px;">
+                {{rpao.variante_techniques|safe}}
+            </td>
+        </tr>
+        <!--19.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">19.1</td>
+            <td style="padding-left:15px;">
+                {{rpao.reunion_preparatoire|safe}} 
+            </td>
+        </tr>
+        <!--20-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">20</td>
+            <td style="padding-left:15px;">
+                {{rpao.soumission_en_ligne|safe}} 
+            </td>
+        </tr>
+        <!--20.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">20.1</td>
+            <td style="padding-left:15px;">
+                {{rpao.date_heure_limite|safe}}
+            </td>
+        </tr>
+        <tr>  
+            <td></td>
+          <td style="text-align: center; font-weight: bold;">
+             <h3>D. DEPOT DES OFFRES</h3>
+          </td>
+        </tr>
+        <!--22.2-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">22.2</td>
+            <td style="padding-left:15px;">
+                <h4 style="text-align:center;">MODE DE SOUMISSION</h4> <br>
+                {{rpao.mode_soumission|safe}}
+            </td>
+        </tr>
+        <tr>  
+            <td></td>
+            <td style="text-align: center; font-weight: bold;">
+                <h3>E. OUVERTURE DES PLIS ET EVALUATION DES OFFRES</h3>
+            </td>
+        </tr>
+        <!--25.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">25.1</td>
+            <td style="padding-left:15px;"> 
+                {{rpao.ouverture_plis|safe}}
+            </td>
+        </tr>
+        <!--29.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">29.1</td>
+            <td style="padding-left:15px;"> 
+                {{rpao.qualification_soumissionaire|safe}}
+                <br>
+                {{rpao.criteres_eliminatoires|safe}}
+                <br>
+                {{rpao.criteres_essentiels|safe}}
+            </td>
+        </tr>
+        <!--31.2-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">31.2</td>
+            <td style="padding-left:15px;"> 
+                {{rpao.monnaie_retenu|safe}}
+            </td>
+        </tr>
+        <!--32.2(b)-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">32.2(b)</td>
+            <td style="padding-left:15px;"> 
+                {{rpao.mode_evaluation|safe}}
+            </td>
+        </tr>
+        <!--32.2(e)-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">32.2(e)</td>
+            <td style="padding-left:15px;"> 
+                {{rpao.ref_32_2_e|safe}}
+            </td>
+        </tr>
+        <!--32.2(g)-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">32.2(g)</td>
+            <td style="padding-left:15px;"> 
+                {{rpao.ref_32_2_g|safe}}
+            </td>
+        </tr>
+        <!--33.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">33.1</td>
+            <td style="padding-left:15px;"> 
+                {{rpao.ref33_1|safe}}
+            </td>
+        </tr>
+        <tr>  
+            <td></td>
+            <td style="text-align: center; font-weight: bold;">
+                <h3>F. ATTRIBUTION </h3>
+            </td>
+        </tr>
+        <!--34.1-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">34.1</td>
+            <td style="padding-left:15px;"> 
+                {{rpao.ref_34_1|safe}}
+            </td>
+        </tr>
+        <!--34.2-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">34.2</td>
+            <td style="padding-left:15px;"> 
+                {{rpao.ref_34_2|safe}}
+            </td>
+        </tr>
+        <!--39.2-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">39.2</td>
+            <td style="padding-left:15px;"> 
+                {{rpao.ref_39_2|safe}}
+            </td>
+        </tr>
+        <!--40-->
+        <tr>
+            <td style="text-align: center; vertical-align: top;">40</td>
+            <td style="padding-left:15px;"> 
+                <h4 style="text-align: center;">Principes Ethiques</h3>
+                {{rpao.ref_40|safe}}
+            </td>
+        </tr>
+    </table> 
+</div>

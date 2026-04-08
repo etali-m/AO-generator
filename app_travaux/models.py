@@ -60,6 +60,7 @@ class RPAO(models.Model):
     evaluation_offres = RichTextField()
     variante_techniques = RichTextField()
     reunion_preparatoire = RichTextField()
+    soumission_en_ligne = RichTextField()
     mode_soumission = RichTextField()
     date_heure_limite = RichTextField() 
     ouverture_plis = RichTextField()
@@ -74,7 +75,7 @@ class RPAO(models.Model):
     ref_34_1 = RichTextField()
     ref_34_2 = RichTextField()
     ref_39_2 = RichTextField()
-    ref_40 = RichTextField
+    ref_40 = RichTextField()
 
     def __str__(self):
         return f"{self.appel_offre}"

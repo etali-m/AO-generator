@@ -365,16 +365,18 @@ def telecharger_marche_travaux(request, project_id):
     try:
         aao = AvisAppelOffre.objects.get(appel_offre=appel_offre)
         rpao = RPAO.objects.get(appel_offre=appel_offre)
+        ccap = CCAP.objects.get(appel_offre=appel_offre)
     except AvisAppelOffre.DoesNotExist:
         aao = None 
 
     context = {
         'appel_offre': appel_offre,
         'aao': aao,
-        'rpao':rpao,
+        'rpao': rpao,
+        'ccap': ccap
     }
 
-    template = loader.get_template('app_travaux/resume.html')
+    template = loader.get_template('app_travaux/dao_travaux.html')
     html = template.render(context)
 
     config = pdfkit.configuration(
