@@ -306,6 +306,63 @@ class DQEView(GenericAPIView):
             'data': serializer.data,
             'message': "Le BPU a été mis à jour correctement"
         }, status=status.HTTP_201_CREATED)
+    
+
+#DQE travaux view
+class BPU_DQEView(GenericAPIView):
+    serializer_class = BPU_DQESerializer
+    queryset = BPU_DQE.objects.all()
+
+    def get(self, request, *args, **kwargs):
+        project_id = kwargs.get('project_id')
+        queryset = self.get_queryset().filter(appel_offre=project_id)
+
+        serializer = self.get_serializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+    
+    def post(self, request, *args, **kwargs):
+        project_id = kwargs.get('project_id')
+        data = request.data.copy()
+        # AJOUTER appel_offre SUR CHAQUE LIGNE
+        for item in data:
+            item['appel_offre'] = int(project_id)
+
+        serializer = self.get_serializer(data=data, many=True)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+
+        return Response({
+            'data': serializer.data,
+            'message': "Borderau de prix enregsitré avec succès"
+        }, status=status.HTTP_201_CREATED)
+    
+    #Mise à jour d'un DQE
+    def put(self, request, *args, **kwargs):
+        project_id = kwargs.get('project_id')
+        data = request.data.copy() 
+
+         # supprimer anciennes lignes
+        BPU_DQE.objects.filter(
+            appel_offre=project_id
+        ).delete()
+
+         # ajouter FK
+        for item in data:
+            item['appel_offre'] = int(project_id)
+
+        serializer = self.get_serializer(
+            data=data,
+            many=True
+        )
+
+        serializer.is_valid(raise_exception=True)
+
+        serializer.save()
+
+        return Response({ 
+            'data': serializer.data,
+            'message': "Le BPU et le DQE ont été mis à jour correctement"
+        }, status=status.HTTP_201_CREATED)
 
 
 #Modèle de marché travaux view

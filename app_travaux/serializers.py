@@ -61,6 +61,15 @@ class DQESerializer(serializers.ModelSerializer):
         model = DQE
         fields = '__all__'
 
+class BPU_DQESerializer(serializers.ModelSerializer):
+    appel_offre = serializers.PrimaryKeyRelatedField(
+        queryset = AppelOffre.objects.all()
+    )
+
+    class Meta:
+        model = BPU_DQE
+        fields = '__all__'
+
 
 class ModelMarcheSerializer(serializers.ModelSerializer):
     class Meta:

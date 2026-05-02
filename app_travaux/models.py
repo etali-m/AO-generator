@@ -159,7 +159,21 @@ class DQE(models.Model):
     def __str__(self):
         return f"{self.appel_offre}"
     
-#Modèle de marché
+class BPU_DQE(models.Model):
+    appel_offre = models.ForeignKey(AppelOffre, on_delete=models.CASCADE)
+    TYPE_CHOICES = (
+        ('section', 'Section'),
+        ('item', 'Item')
+    )
+    
+    type = models.CharField(max_length=20)
+    title = models.CharField(max_length=255,blank=True, null=True)
+    code = models.CharField(max_length=255,blank=True, null=True)
+    designation = models.CharField(max_length=255,blank=True, null=True)
+    unit = models.CharField(max_length=255,blank=True, null=True)
+    quantity = models.DecimalField(max_digits=10, decimal_places=2, default=1.00)
+
+
 class ModelMarche(models.Model):
     appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
     region = models.CharField(max_length=100, blank=True, null=True)
