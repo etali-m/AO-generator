@@ -11,4 +11,5 @@ urlpatterns = [
     path('<int:project_id>/bpu_dqe', BPU_DQEView.as_view(), name="bpu_dqe-travaux"),
     path('<int:project_id>/modele_marche', ModelMarcheView.as_view(), name="madele-marche-travaux"),
     path('<int:project_id>/telecharger', telecharger_marche_travaux, name="telecharger-travaux"),
+    path('<int:project_id>/apercu/', apercu_marche_travaux, name='apercu_pdf'), 
 ]

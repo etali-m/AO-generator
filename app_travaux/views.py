@@ -415,7 +415,7 @@ class ModelMarcheView(GenericAPIView):
         }, status=status.HTTP_201_CREATED)
   
 #fonction pour telecharger le document finale
-def telecharger_marche_travaux(request, project_id):
+def generer_pdf(request, project_id, mode='inline'):
     #recuperation de toutes les pièces de l'appel d'offre
     appel_offre = get_object_or_404(AppelOffre, id=project_id)
     # Récupérer les autres données avec précaution
@@ -443,7 +443,12 @@ def telecharger_marche_travaux(request, project_id):
     pdf = pdfkit.from_string(html, False, configuration=config)
 
     response = HttpResponse(pdf, content_type='application/pdf')
-    response['Content-Disposition'] = 'attachment; filename="rapport.pdf"'
+    if mode == 'inline':
+        # Pour la prévisualisation : affiche dans le navigateur
+        response['Content-Disposition'] = 'inline; filename="apercu.pdf"'
+    else:
+        # Pour le téléchargement : force le download
+        response['Content-Disposition'] = 'attachment; filename="rapport.pdf"'
 
     return response
     """
@@ -457,3 +462,12 @@ def telecharger_marche_travaux(request, project_id):
     response = HttpResponse(pdf, content_type='application/pdf')
     response['Content-Disposition'] = f'attachment; filename="{filename}.pdf"'
     return response """
+
+# Vue pour la prévisualisation
+def apercu_marche_travaux(request, project_id):
+    return generer_pdf(request, project_id, mode='inline')
+
+
+# Vue pour le téléchargement
+def telecharger_marche_travaux(request, project_id):
+    return generer_pdf(request, project_id, mode='attachment')
