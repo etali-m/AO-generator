@@ -1,4 +1,4 @@
-<div style="font-size: 12pt; color: #1a1a1a; line-height: 1.5; max-width: 210mm; margin: 0 auto; padding: 15mm 20mm 15mm 20mm; box-sizing: border-box;">
+<div style="font-size: 14pt; color: #1a1a1a; line-height: 1.5; margin: 0 auto; padding: 15mm 20mm 15mm 20mm; box-sizing: border-box;">
 
   <!-- PAGE DE GARDE -->
   <div style="padding-top: 60mm; text-align: center; margin-bottom: 30mm;">
@@ -18,7 +18,15 @@
         <em>[Indiquer le Maître d'Ouvrage<br>ou le Maître d'Ouvrage Délégué]</em><br>
         &#8213;&#8213;&#8213;&#8213;&#8213;
       </td>
-      <td style="width: 10%; text-align: center; vertical-align: middle;"><!-- Logo --></td>
+      <td style="width: 10%; text-align: center; vertical-align: middle;">
+        {% if logo_base64 %}
+          <img 
+            src="{{ logo_base64 }}" 
+            alt="Logo Maître d'Ouvrage"
+            style="max-height: 80px; max-width: 120px; object-fit: contain;"
+          >
+        {% endif %}
+      </td>
       <td style="width: 45%; text-align: right; vertical-align: top; font-size: 10pt; line-height: 1.7;">
         <strong>REPUBLIC OF CAMEROON</strong><br>
         Peace &#8211; Work &#8211; Fatherland<br>
@@ -28,33 +36,32 @@
       </td>
     </tr>
   </table>
-
-  <hr style="border: none; border-top: 1.5px solid #1a1a1a; margin: 12px 0 20px 0;">
+ 
+  <br><br>
 
   <!-- RÉFÉRENCES DU MARCHÉ -->
   <div style="margin-bottom: 6px;">
-    <span style="font-weight: bold; font-size: 11pt;">MARCHÉ ou LETTRE-COMMANDE N°</span>
+    <span style="font-weight: bold; font-size: 11pt;">MARCHÉ N°</span>
     <span style="display: inline-block; border-bottom: 1px solid #1a1a1a; min-width: 120px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    <span style="font-size: 10pt;">/M ou LC/MO ou MOD/CPM/xy</span>
+    <span style="font-size: 10pt;">/M </span>
   </div>
 
-  <div style="margin-bottom: 4px; font-size: 10pt;">
-    Passé après Appel d'Offres&nbsp;
-    <span style="display: inline-block; border-bottom: 1px solid #1a1a1a; min-width: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    &nbsp;n°
-    <span style="display: inline-block; border-bottom: 1px solid #1a1a1a; min-width: 80px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-    /AO/MO <strong>ou</strong> MOD/CPM/xy
+  <div style="margin-bottom: 4px; font-size: 10pt; text-transform: uppercase;">
+    <span style="font-weight: bold;">
+      Passé après Appel d'Offres &nbsp; {{ appel_offre.type_dossier }} {{ appel_offre.mode_passation }}
+      &nbsp;N°
+      {{ appel_offre.numero_appel_offre }} DU ___________/{{ appel_offre.exercice_budgetaire }}
+    </span> POUR : <span style="font-weight: bold;">{{ appel_offre.objet_appel }}</span>
   </div>
 
-  <div style="margin-bottom: 20px; font-size: 10pt;">
-    du&nbsp;<span style="display: inline-block; border-bottom: 1px solid #1a1a1a; min-width: 140px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+  <div style="margin-bottom: 20px; font-size: 10pt;"> 
   </div>
 
   <!-- PARTIES DU MARCHÉ -->
-  <div style="background: #f7f7f7; border-left: 3px solid #555; padding: 12px 16px; margin-bottom: 16px; font-size: 10pt; line-height: 1.9;">
+  <div style="padding: 12px 16px; margin-bottom: 16px; font-size: 10pt; line-height: 1.9;">
     <div>
       <strong>Maître d'Ouvrage ou Maître d'Ouvrage Délégué :</strong>
-      <span style="font-style: italic;">[indiquer le nom et son adresse complète]</span>
+      <span style="font-style: italic;">{{ appel_offre.maitre_ouvrage }}</span>
     </div>
     <div style="margin-top: 6px;">
       <strong style="font-size: 11pt;">TITULAIRE :</strong>
@@ -73,7 +80,7 @@
   <!-- OBJET DU MARCHÉ -->
   <div style="margin-bottom: 10px; font-size: 10.5pt;">
     <strong>OBJET :</strong>
-    <span style="font-style: italic;">Exécution des travaux&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 200px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></span>
+    <span style="font-style: italic;">Exécution des travaux {{ appel_offre.objet_appel }}</span>
   </div>
 
   <div style="margin-bottom: 14px; font-size: 10pt;">
@@ -105,7 +112,7 @@
   <div style="font-size: 10.5pt; line-height: 2; margin-bottom: 16px;">
     <div>
       <strong>LIEU :</strong>
-      Région&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 220px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      Département de {{ appel_offre.departement }} Région de {{ appel_offre.region }}</span>
     </div>
     <div>
       <strong>DÉLAI D'EXÉCUTION :</strong>
@@ -144,11 +151,11 @@
   <div style="font-size: 10.5pt; line-height: 2; margin-bottom: 24px;">
     <div>
       <strong>FINANCEMENT :</strong>
-      <span style="font-style: italic;">[Indiquer source de financement]</span>
+      <span style="font-style: italic;">{{ appel_offre.financement }}</span>
     </div>
     <div>
       <strong>IMPUTATION :</strong>
-      <span style="font-style: italic;">[A compléter]</span>
+      <span style="font-style: italic;">{{ appel_offre.imputation }}</span>
     </div>
   </div>
 
@@ -167,19 +174,23 @@
     <h4 style="font-size: 11pt; margin: 0 0 6px 0;">Entre :</h4>
 
     <p style="margin: 0 0 4px 0;">
-      L'administration camerounaise, représentée par&nbsp;
-      <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 200px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      L'administration camerounaise, représentée par &nbsp; 
+      {% if appel_offre.departement %}
+        le prefet du département de {{ appel_offre.departement }}
+      {% else %}
+        le gouverneur de la région de {{ appel_offre.region }}
+      {% endif %}
     </p>
     <p style="margin: 0 0 4px 0;">Dénommée ci-après :</p>
 
-    <div style="border: 1px solid #aaa; background: #f5f5f5; padding: 8px 16px; display: inline-block; margin: 6px 0 12px 0; font-style: italic; font-weight: bold;">
+    <div style="padding: 8px 16px; display: inline-block; margin: 6px 0 12px 0; font-style: italic; font-weight: bold;">
       « Le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué ou Autorité contractante »
     </div>
 
     <h4 style="font-size: 11pt; margin: 0 0 10px 0;">D'une part,</h4>
     <h4 style="font-size: 11pt; margin: 0 0 10px 0;">Et</h4>
 
-    <div style="background: #f7f7f7; border-left: 3px solid #555; padding: 12px 16px; margin-bottom: 12px; line-height: 2;">
+    <div style="padding: 12px 16px; margin-bottom: 12px; line-height: 2;">
       <div>
         <h4 style="font-size: 11pt; margin: 0 0 4px 0;">
           La société&nbsp;
@@ -203,7 +214,7 @@
       son Directeur Général ou son représentant, ci-après désigné :
     </p>
 
-    <div style="border: 1px solid #aaa; background: #f5f5f5; padding: 8px 16px; display: inline-block; margin: 6px 0 16px 0; font-style: italic; font-weight: bold;">
+    <div style="padding: 8px 16px; display: inline-block; margin: 6px 0 16px 0; font-style: italic; font-weight: bold;">
       « le Cocontractant »
     </div>
 
@@ -246,18 +257,20 @@
 
   <!-- DERNIÈRE PAGE -->
   <div style="font-size: 10.5pt; line-height: 1.8; margin-bottom: 16px;">
-    <div>
+    <div style="margin-bottom: 6px;">
       Page&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 40px;">&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;
       et Dernière du Marché ou Lettre commande N°&nbsp;
-      <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
-      /M ou LC///MO/CPM/
+      <span style="display: inline-block; border-bottom: 1px solid #1a1a1a; min-width: 120px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+      <span style="font-size: 10pt;">/M </span>
     </div>
-    <div>
-      Passé après Appel d'Offres&nbsp;<span style="font-style: italic;">[préciser références]</span>
-    </div>
-    <div>
-      Avec&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 60px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>,
-    </div>
+
+    <div style="margin-bottom: 4px; font-size: 10pt; text-transform: uppercase;">
+      <span style="font-weight: bold;">
+        Passé après Appel d'Offres &nbsp; {{ appel_offre.type_dossier }} {{ appel_offre.mode_passation }}
+        &nbsp;N°
+        {{ appel_offre.numero_appel_offre }} DU ___________/{{ appel_offre.exercice_budgetaire }}
+      </span> POUR : <span style="font-weight: bold;">{{ appel_offre.objet_appel }}</span>
+    </div>   
   </div>
 
   <div style="font-size: 10.5pt; line-height: 1.8; margin-bottom: 14px;">
@@ -306,7 +319,7 @@
   <div style="margin-top: 30px;">
 
     <div style="text-align: center; margin-bottom: 30px;">
-      <div style="display: inline-block; border: 1px solid #ccc; background: #fafafa; padding: 16px 40px; min-width: 280px;">
+      <div style="display: inline-block; padding: 16px 40px; min-width: 280px;">
         <h4 style="font-size: 11pt; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">Lu et accepté par le prestataire</h4>
         <div style="font-size: 10pt; font-style: italic; margin-bottom: 20px;">
           [Lieu], le&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
@@ -316,7 +329,7 @@
     </div>
 
     <div style="text-align: center; margin-bottom: 30px;">
-      <div style="display: inline-block; border: 1px solid #ccc; background: #fafafa; padding: 16px 40px; min-width: 280px;">
+      <div style="display: inline-block; padding: 16px 40px; min-width: 280px;">
         <h4 style="font-size: 11pt; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">
           Signé par&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </h4>
@@ -329,7 +342,7 @@
     </div>
 
     <div style="text-align: center;">
-      <div style="display: inline-block; border: 1px solid #ccc; background: #fafafa; padding: 16px 40px; min-width: 280px;">
+      <div style="display: inline-block; padding: 16px 40px; min-width: 280px;">
         <h4 style="font-size: 11pt; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">Enregistrement</h4>
         <div style="font-size: 10pt; font-style: italic;">
           [Lieu], le&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>

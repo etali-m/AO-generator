@@ -52,7 +52,7 @@ class AppelOffre(models.Model):
         lettre_type = self.type_dossier[0]
         lettre_passation = self.mode_passation[0]
         numero = (
-            (str(self.numero_dossier) if self.numero_dossier else '............')
+            (str(self.numero_dossier) if self.numero_dossier else '________________')
             + '/AO'
             + lettre_type
             + lettre_passation

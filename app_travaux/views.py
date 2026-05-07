@@ -4,6 +4,10 @@ from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
 import pdfkit
+import base64
+import os
+import tempfile
+from django.conf import settings
 from django.http import HttpResponse
 from django.template import loader
 from .models import *
@@ -413,24 +417,97 @@ class ModelMarcheView(GenericAPIView):
             'data': serializer.data,
             'message': "Le Modèle a été mis à jour correctement"
         }, status=status.HTTP_201_CREATED)
-  
-#fonction pour telecharger le document finale
-def generer_pdf(request, project_id, mode='inline'):
-    #recuperation de toutes les pièces de l'appel d'offre
-    appel_offre = get_object_or_404(AppelOffre, id=project_id)
-    # Récupérer les autres données avec précaution
+    
+
+def get_image_base64(image_field):
+    """Convertit un ImageField Django en base64 pour l'intégrer dans le HTML"""
+    if not image_field:
+        return None
+    
     try:
-        aao = AvisAppelOffre.objects.get(appel_offre=appel_offre)
+        # Construire le chemin absolu vers le fichier
+        image_path = os.path.join(settings.MEDIA_ROOT, str(image_field))
+        
+        if not os.path.exists(image_path):
+            return None
+        
+        # Détecter le type MIME selon l'extension
+        extension = os.path.splitext(image_path)[1].lower()
+        mime_types = {
+            '.jpg':  'image/jpeg',
+            '.jpeg': 'image/jpeg',
+            '.png':  'image/png',
+            '.gif':  'image/gif',
+            '.webp': 'image/webp',
+            '.svg':  'image/svg+xml',
+        }
+        mime_type = mime_types.get(extension, 'image/png')
+        
+        # Lire et encoder en base64
+        with open(image_path, 'rb') as f:
+            image_data = base64.b64encode(f.read()).decode('utf-8')
+        
+        return f"data:{mime_type};base64,{image_data}"
+    
+    except Exception as e:
+        print(f"Erreur encodage image : {e}")
+        return None
+
+  
+def get_image_base64(image_field):
+    """Convertit un ImageField Django en base64 pour l'intégrer dans le HTML"""
+    if not image_field:
+        return None
+    
+    try:
+        # Construire le chemin absolu vers le fichier
+        image_path = os.path.join(settings.MEDIA_ROOT, str(image_field))
+        
+        if not os.path.exists(image_path):
+            return None
+        
+        # Détecter le type MIME selon l'extension
+        extension = os.path.splitext(image_path)[1].lower()
+        mime_types = {
+            '.jpg':  'image/jpeg',
+            '.jpeg': 'image/jpeg',
+            '.png':  'image/png',
+            '.gif':  'image/gif',
+            '.webp': 'image/webp',
+            '.svg':  'image/svg+xml',
+        }
+        mime_type = mime_types.get(extension, 'image/png')
+        
+        # Lire et encoder en base64
+        with open(image_path, 'rb') as f:
+            image_data = base64.b64encode(f.read()).decode('utf-8')
+        
+        return f"data:{mime_type};base64,{image_data}"
+    
+    except Exception as e:
+        print(f"Erreur encodage image : {e}")
+        return None
+ 
+
+def generer_pdf(request, project_id, mode='inline'):
+    appel_offre = get_object_or_404(AppelOffre, id=project_id)
+
+    try:
+        aao  = AvisAppelOffre.objects.get(appel_offre=appel_offre)
         rpao = RPAO.objects.get(appel_offre=appel_offre)
         ccap = CCAP.objects.get(appel_offre=appel_offre)
     except AvisAppelOffre.DoesNotExist:
-        aao = None 
+        aao = None
+
+    # ✅ Convertir le logo en base64 avant de passer au template
+    logo_base64 = get_image_base64(appel_offre.logo)
 
     context = {
         'appel_offre': appel_offre,
-        'aao': aao,
-        'rpao': rpao,
-        'ccap': ccap
+        'aao':         aao,
+        'rpao':        rpao,
+        'ccap':        ccap,
+        'logo_base64': logo_base64,  # ← base64 ou None si pas de logo
     }
 
     template = loader.get_template('app_travaux/dao_travaux.html')
@@ -438,36 +515,35 @@ def generer_pdf(request, project_id, mode='inline'):
 
     config = pdfkit.configuration(
         wkhtmltopdf=r'C:\Program Files\wkhtmltopdf\bin\wkhtmltopdf.exe'
-    )
-
-    pdf = pdfkit.from_string(html, False, configuration=config)
-
-    response = HttpResponse(pdf, content_type='application/pdf')
-    if mode == 'inline':
-        # Pour la prévisualisation : affiche dans le navigateur
-        response['Content-Disposition'] = 'inline; filename="apercu.pdf"'
-    else:
-        # Pour le téléchargement : force le download
-        response['Content-Disposition'] = 'attachment; filename="rapport.pdf"'
-
-    return response
-    """
+    ) 
     options = {
-        'page-size': 'Letter',
-        'encoding': "UTF-8",
+        'encoding': 'UTF-8',
+        'enable-local-file-access': '',
+        'quiet': '',
     }
 
-    pdf = pdfkit.from_string(html, False, options)
-    filename = f'{appel_offre.objet_appel}'
-    response = HttpResponse(pdf, content_type='application/pdf')
-    response['Content-Disposition'] = f'attachment; filename="{filename}.pdf"'
-    return response """
+    # ✅ Écrire dans un fichier temporaire évite le problème de décodage stdout
+    with tempfile.NamedTemporaryFile(suffix='.pdf', delete=False) as tmp:
+        tmp_path = tmp.name
 
-# Vue pour la prévisualisation
+    try:
+        pdfkit.from_string(html, tmp_path, configuration=config, options=options)
+
+        with open(tmp_path, 'rb') as f:
+            pdf = f.read()
+    finally:
+        if os.path.exists(tmp_path):
+            os.remove(tmp_path)  # nettoyage systématique
+
+    nom_fichier = f"appel_offre_{appel_offre.numero_dossier or project_id}.pdf"
+    response = HttpResponse(pdf, content_type='application/pdf')
+    response['Content-Disposition'] = f'{mode}; filename="{nom_fichier}"'
+
+    return response
+
 def apercu_marche_travaux(request, project_id):
     return generer_pdf(request, project_id, mode='inline')
 
 
-# Vue pour le téléchargement
 def telecharger_marche_travaux(request, project_id):
     return generer_pdf(request, project_id, mode='attachment')
