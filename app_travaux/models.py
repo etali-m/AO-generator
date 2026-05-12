@@ -84,6 +84,7 @@ class RPAO(models.Model):
 class CCAP(models.Model):
     appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
     chef_service_marche = models.CharField(max_length=100)
+    contractant = models.CharField(max_length=100)
     ing_marche = models.CharField(max_length=100)
     control_externe = models.CharField(max_length=100)
     cocontractant = models.CharField(max_length=100, blank=True, null=True)
