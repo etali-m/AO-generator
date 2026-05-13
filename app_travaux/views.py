@@ -496,10 +496,11 @@ def generer_pdf(request, project_id, mode='inline'):
         aao  = AvisAppelOffre.objects.get(appel_offre=appel_offre)
         rpao = RPAO.objects.get(appel_offre=appel_offre)
         ccap = CCAP.objects.get(appel_offre=appel_offre)
+        bpu_dqe = BPU_DQE.objects.filter(appel_offre=appel_offre)
     except AvisAppelOffre.DoesNotExist:
         aao = None
 
-    # ✅ Convertir le logo en base64 avant de passer au template
+    # Convertir le logo en base64 avant de passer au template
     logo_base64 = get_image_base64(appel_offre.logo)
 
     context = {
@@ -507,6 +508,7 @@ def generer_pdf(request, project_id, mode='inline'):
         'aao':         aao,
         'rpao':        rpao,
         'ccap':        ccap,
+        'bpu_dqe' : bpu_dqe,
         'logo_base64': logo_base64,  # ← base64 ou None si pas de logo
     }
 

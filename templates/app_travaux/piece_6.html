@@ -10,5 +10,49 @@
     <h2 style="padding-top: 3pt; text-align: center;">BORDEREAU DES PRIX UNITAIRES</h2>
     <p style="padding-top: 9pt;text-indent: 0pt;text-align: left;"><br/></p>
 
+    <table class="table"  style="width: 100%; border-collapse: collapse; border: 1px solid #1a1a1a;">
+        <thead>
+            <tr>
+                <th colspan="6" style="text-transform: uppercase; font-weight: bold; text-align: center; padding: 15px 5px;">BORDEREAU DES PRIX UNITAIRES POUR L'EXECUTION DES TRAVAUX DE : {{ appel_offre.objet_appel }}</th>
+            </tr>
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">N° Prix</th>
+                <th style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">Désignation</th>
+                <th style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">Unité</th>
+                <th style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">Prix Unitaire en Chiffre FCFA</th>
+                <th style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">Prix Unitaire en lettre FCFA</th> 
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for row in bpu_dqe %}
+
+                {% if row.type == 'section' %}
+                <tr>
+                    <td colspan="5" style="border: 1px solid #1a1a1a; padding: 12px; text-align: center;font-weight: bold; text-transform: uppercase;">{{ row.title }}</td>
+                </tr>
+
+                {% else %}
+                <tr>
+                    <td style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">{{ row.code }}</td>
+                    <td style="border: 1px solid #1a1a1a; padding: 12px; text-align: left; text-transform: capitalize;">{{ row.designation }}</td>
+                    <td style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">{{ row.unit }}</td>
+                    <td style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;"> </td>
+                    <td style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;"> </td>
+                     
+                </tr>
+
+                {% endif %}
+
+            {% empty %}
+                <tr>
+                    <td colspan="6" style="text-align:center; color:#888; padding: 20px; font-style: italic;">
+                        Aucune ligne pour le moment.
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
     <!--TABELEAU DU BORDEREAU DES PRIX UNITAIRES-->
 </div>

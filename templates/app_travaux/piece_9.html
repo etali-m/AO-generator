@@ -2,8 +2,8 @@
 
   <!-- PAGE DE GARDE -->
   <div style="padding-top: 60mm; text-align: center; margin-bottom: 30mm;">
-    <h1 style="font-size: 20pt; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 8px 0; color: #1a1a1a;">PIÈCE N° 9</h1>
-    <h2 style="font-size: 16pt; font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin: 0; color: #1a1a1a;">MODÈLE DE MARCHÉ</h2>
+    <h1 style="font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin: 0 0 8px 0; color: #1a1a1a;">PIÈCE N° 9</h1>
+    <h1 style="font-weight: bold; letter-spacing: 1px; text-transform: uppercase; margin: 0; color: #1a1a1a;">MODÈLE DE MARCHÉ</h1>
   </div>
 
   <div style="page-break-after: always;"></div>
@@ -175,11 +175,7 @@
 
     <p style="margin: 0 0 4px 0;">
       L'administration camerounaise, représentée par &nbsp; 
-      {% if appel_offre.departement %}
-        le prefet du département de {{ appel_offre.departement }}
-      {% else %}
-        le gouverneur de la région de {{ appel_offre.region }}
-      {% endif %}
+      {{ ccap.contractant }}
     </p>
     <p style="margin: 0 0 4px 0;">Dénommée ci-après :</p>
 
@@ -333,7 +329,7 @@
         <h4 style="font-size: 11pt; margin: 0 0 10px 0; text-transform: uppercase; letter-spacing: 0.5px;">
           Signé par&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px; font-weight: normal;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </h4>
-        <div style="font-size: 10pt; font-style: italic; margin-bottom: 4px;">[Maître d'Ouvrage ou Maître d'Ouvrage Délégué]</div>
+        <div style="font-size: 10pt; font-style: italic; margin-bottom: 4px;">{{ appel_offre.maitre_ouvrage }}</div>
         <div style="font-size: 10pt; font-style: italic; margin-bottom: 20px;">
           [Lieu], le&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
         </div>
