@@ -63,7 +63,6 @@ class StatutPieceUpdateView(GenericAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-
 class AppelOffreView(GenericAPIView):
     serializer_class = AppelOffreSerializer
     queryset = AppelOffre.objects.all() 
@@ -88,3 +87,41 @@ class AppelOffreView(GenericAPIView):
             'data': serializer.data,
             'message': "Le Dossier d'Appel d'offre a été créé avec succès."
         }, status=status.HTTP_201_CREATED)
+
+class AppelOffreDetailView(GenericAPIView):
+    serializer_class = AppelOffreSerializer
+    queryset = AppelOffre.objects.all()
+
+    def get_object(self, pk, user):
+        # on restreint aux objets appartenant à l'utilisateur connecté
+        return get_object_or_404(self.get_queryset(), pk=pk, user=user)
+
+    def put(self, request, pk):
+        instance = self.get_object(pk, request.user)
+        data = request.data.copy()
+        data['user'] = request.user.id
+        serializer = self.get_serializer(instance, data=data)  # PUT = remplacement complet
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({
+            'data': serializer.data,
+            'message': "Le Dossier d'Appel d'offre a été mis à jour avec succès."
+        }, status=status.HTTP_200_OK)
+
+    def patch(self, request, pk):
+        instance = self.get_object(pk, request.user)
+        data = request.data.copy()
+        serializer = self.get_serializer(instance, data=data, partial=True)  # PATCH = mise à jour partielle
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response({
+            'data': serializer.data,
+            'message': "Le Dossier d'Appel d'offre a été mis à jour avec succès."
+        }, status=status.HTTP_200_OK)
+
+    def delete(self, request, pk):
+        instance = self.get_object(pk, request.user)
+        instance.delete()
+        return Response({
+            'message': "Le Dossier d'Appel d'offre a été supprimé avec succès."
+        }, status=status.HTTP_200_OK)
