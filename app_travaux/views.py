@@ -12,6 +12,10 @@ from django.http import HttpResponse
 from django.template import loader
 from .models import *
 from .serializers import *
+import logging
+from services.translation import build_translated_fields
+from django.utils import timezone
+logger = logging.getLogger(__name__)
 
 # Create your views here.
 class AAOView(GenericAPIView):
@@ -24,7 +28,7 @@ class AAOView(GenericAPIView):
 
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-    
+
     def post(self, request, *args, **kwargs):
         project_id = kwargs.get('project_id')
         data = request.data.copy()
@@ -32,14 +36,16 @@ class AAOView(GenericAPIView):
 
         serializer = self.get_serializer(data=data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
+
+        extra_fields = self._get_translation_kwargs(serializer.validated_data)
+        serializer.save(**extra_fields)
 
         return Response({
             'data': serializer.data,
-            'message': "Avis d'Appel d'Offre enregsitré avec succès"
+            'message': "Avis d'Appel d'Offre enregistré avec succès"
         }, status=status.HTTP_201_CREATED)
-    
-    #Mise à jour d'un AAO
+
+    # Mise à jour d'un AAO
     def put(self, request, *args, **kwargs):
         project_id = kwargs.get('project_id')
         data = request.data.copy()
@@ -55,13 +61,31 @@ class AAOView(GenericAPIView):
 
         serializer = self.get_serializer(instance, data=data)
         serializer.is_valid(raise_exception=True)
-        serializer.save()
 
-        return Response({ 
+        extra_fields = self._get_translation_kwargs(serializer.validated_data)
+        serializer.save(**extra_fields)
+
+        return Response({
             'data': serializer.data,
             'message': "Avis d'Appel d'Offre a été mis à jour correctement"
-        }, status=status.HTTP_201_CREATED)
-    
+        }, status=status.HTTP_200_OK)
+
+    def _get_translation_kwargs(self, validated_data):
+        """
+        Construit les kwargs {champ_en: valeur, translated_at, valide_en} à injecter
+        dans serializer.save(). Si la traduction échoue, on renvoie un dict vide :
+        la version française reste sauvegardée normalement, sans bloquer la requête.
+        """
+        try:
+            translated = build_translated_fields(validated_data)
+            if not translated:
+                return {}
+            translated['translated_at'] = timezone.now()
+            translated['valide_en'] = False  # toute nouvelle traduction doit être re-validée
+            return translated
+        except Exception as e:
+            logger.error(f"Échec de la traduction automatique pour project_id={self.kwargs.get('project_id')}: {e}")
+            return {}  
 
 class RPAOView(GenericAPIView):
     serializer_class = RPAOSerializer

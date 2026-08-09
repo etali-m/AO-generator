@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 from pathlib import Path
 from datetime import timedelta
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -41,8 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'account', 
-    'ckeditor',
-    'modeltranslation',
+    'ckeditor', 
     'phonenumber_field',
     'document.apps.DocumentConfig',
     'app_travaux',
@@ -178,3 +179,5 @@ DEFAULT_FROM_EMAIL = 'etalijunior15@gmail.com'
 EMAIL_HOST_PASSWORD = '05f27a1841f71b'
 EMAIL_PORT = '2525'
 EMAIL_USE_TLS = True
+
+DEEPL_API_KEY = os.getenv("DEEPL_API_KEY")

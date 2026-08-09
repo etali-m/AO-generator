@@ -5,6 +5,8 @@ from document.models import AppelOffre
 # Create your models here.
 class AvisAppelOffre(models.Model):
     appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE)
+
+    # ===== Version française (existante) =====
     objet_appel = RichTextField()
     consistence_travaux = RichTextField()
     tranches = RichTextField()
@@ -22,10 +24,36 @@ class AvisAppelOffre(models.Model):
     critere_eliminatoire = RichTextField()
     critere_essentielles = RichTextField()
     attribution = RichTextField()
+    renseignement_complementaires = RichTextField()
+
+    # ===== Champs communs (pas de traduction nécessaire) =====
     nombre_max_lots = models.IntegerField()
     duree_validite = models.IntegerField()
-    renseignement_complementaires = RichTextField()
     numero_moa = models.IntegerField(blank=True, null=True)
+
+    # ===== Version anglaise (générée) =====
+    objet_appel_en = RichTextField(blank=True, null=True)
+    consistence_travaux_en = RichTextField(blank=True, null=True)
+    tranches_en = RichTextField(blank=True, null=True)
+    cout_previsionnel_en = RichTextField(blank=True, null=True)
+    delai_previsionnel_en = RichTextField(blank=True, null=True)
+    participation_en = RichTextField(blank=True, null=True)
+    financement_en = RichTextField(blank=True, null=True)
+    mode_soumission_en = models.CharField(max_length=100, blank=True, null=True)
+    caution_soumission_en = RichTextField(blank=True, null=True)
+    consultation_dossier_en = RichTextField(blank=True, null=True)
+    acquisition_dao_en = RichTextField(blank=True, null=True)
+    remise_offre_en = RichTextField(blank=True, null=True)
+    recevabilite_plis_en = RichTextField(blank=True, null=True)
+    ouverture_plis_en = RichTextField(blank=True, null=True)
+    critere_eliminatoire_en = RichTextField(blank=True, null=True)
+    critere_essentielles_en = RichTextField(blank=True, null=True)
+    attribution_en = RichTextField(blank=True, null=True)
+    renseignement_complementaires_en = RichTextField(blank=True, null=True)
+
+    # ===== Traçabilité de la traduction =====
+    translated_at = models.DateTimeField(blank=True, null=True)
+    valide_en = models.BooleanField(default=False)  # passe à True après relecture humaine
 
     def __str__(self):
         return f"{self.appel_offre}"
