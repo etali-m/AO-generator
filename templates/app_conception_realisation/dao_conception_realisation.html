@@ -1,0 +1,122 @@
+{% extends "base_dao.html" %}
+
+{% block content %}
+    <!-- ========= PARTIE STATIQUE : PAGE DE GARDE ========= -->
+    <div class="page-garde">
+        <table style="width: 100%; margin-bottom:100px">
+            <tr>
+                <td style="width:40%; text-align:center; vertical-align:middle; font-size:15px; line-height:1.5; text-transform: uppercase;">
+                    <strong>REPUBLIQUE DU CAMEROUN</strong><br>
+                    <small>PAIX - TRAVAIL - PATRIE</small><br>
+                    <strong>Region de {{ appel_offre.region }}</strong><br>
+                    <strong>Département de {{ appel_offre.departement }}</strong><br>
+                    <strong>{{ appel_offre.service }}</strong>
+                </td>
+
+                <td style="width:20%; text-align:center; vertical-align:middle;">
+                    {% if logo_base64 %}
+                    <img src="{{ logo_base64 }}" alt="Logo" style="height:100px;">
+                    {% endif %}
+                </td>
+
+                <td style="width:40%; text-align:center; vertical-align:middle; font-size:15px; line-height:1.5; text-transform:uppercase;">
+                    <strong>REPUBLIC OF CAMEROON</strong><br>
+                    <small>PEACE - WORK - FATHERLAND</small><br>
+                    <strong>Region of {{ appel_offre.region }}</strong><br>
+                    <strong>Department of {{ appel_offre.departement }}</strong><br>
+                    <strong>{{ appel_offre.service }}</strong>
+                </td>
+            </tr>
+        </table>
+
+        <p style="font-size:24px; font-weight: bold; text-transform: uppercase; text-align: center;">{{ appel_offre.maitre_ouvrage }}</p>
+        <p style="font-size:24px; text-align: center; margin-bottom:30px;">{{ appel_offre.denomination }}</p>
+
+        <p style="font-weight:bold; font-size:24px; text-align: center; margin-bottom:30px; text-transform:uppercase;">
+            {% if appel_offre.commission_marche == 'cimp' %}
+                Commission interne de passation des marchés
+            {% elif appel_offre.commission_marche == 'crmp' %}
+                Commission régionale de passation des marchés
+            {% elif appel_offre.commission_marche == 'cdpm' %}
+                Commission départementale de passation des marchés
+            {% else %}
+                Commission spéciale de passation des marchés
+            {% endif %}
+        </p>
+
+        <div style="margin: 0 auto;">
+            <div class="textbox" style="font-size:24px; border:3.0pt solid #000000; display:block; min-height:155.3pt; width:auto;">
+                <p style="font-weight:bold; font-size:24px; text-align: center;">Dossier d'Appel d'Offres <span style="text-transform:capitalize;">{{ appel_offre.type_dossier }}</span> <span style="text-transform:capitalize;">{{ appel_offre.mode_passation }}</span> avec Concours</p>
+                <p style="font-weight:bold; font-size:24px; text-align: center;"><b>N°{{ appel_offre.numero_appel_offre }}</b> <b>du</b> _______________________</p>
+                <p style="font-size:24px; text-align: center;">POUR LA CONCEPTION-REALISATION DE : <br> {{ appel_offre.objet_appel }}</p>
+            </div>
+        </div>
+
+        <h4 style="font-size:24px; text-align: center; margin-top:100px;">FINANCEMENT : {{ appel_offre.financement }}</h4>
+        <h4 style="font-size:24px; text-align: center;">IMPUTATION : {{ appel_offre.imputation }}</h4>
+        <h4 style="font-size:24px; text-align: center; margin-top:120px;">EXERCICE {{ appel_offre.exercice_budgetaire }}</h4>
+
+        <h3 style="margin-top:50px; margin-bottom:100px; text-align: center;">Mois et année</h3>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ========= ASSEMBLAGE DES 19 PIECES ========= -->
+
+    {% include "app_conception_realisation/piece_1.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_2.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_3.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_4.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_5.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_6.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_7.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_8.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_9.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_10.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_11.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_12.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_13.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_14.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_15.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_16.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_17.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_18.html" %}
+    <div class="page-break"></div>
+
+    {% include "app_conception_realisation/piece_19.html" %}
+
+{% endblock %}

@@ -1,0 +1,19 @@
+<div>
+    <h1 style="padding-top:500px; text-align: center;">PIECE N° 17</h1>
+    <h1 style="text-align:center;">JUSTIFICATIFS DES ETUDES PREALABLES</h1>
+    <h2 style="text-align:center;">(LE CAS ECHEANT)</h2>
+
+    <div class="page-break"></div>
+
+    <div style="padding:15px;">
+        {% if etude_prealable %}
+        <h3>Date de l'étude</h3><p>{{ etude_prealable.etude_prealable_date }}</p>
+        <h3>Maître d'œuvre ayant réalisé l'étude</h3><p>{{ etude_prealable.etude_prealable_maitre_oeuvre }}</p>
+        <h3>Références du marché d'étude</h3><p>{{ etude_prealable.etude_prealable_references_marche }}</p>
+        <h3>Type d'opération</h3><p>{{ etude_prealable.etude_prealable_type }}</p>
+        <h3>Description des études (APS / APD)</h3><div style="padding:10px;">{{ etude_prealable.etude_prealable_description|safe }}</div>
+        {% else %}
+        <p style="font-style: italic;">[Sans objet — aucune étude préalable renseignée pour ce dossier.]</p>
+        {% endif %}
+    </div>
+</div>

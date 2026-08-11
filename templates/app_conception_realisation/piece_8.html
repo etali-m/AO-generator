@@ -1,0 +1,33 @@
+<div>
+    <h1 style="padding-top:500px; text-align: center;">PIECE N° 8</h1>
+    <h1 style="text-align:center;">CADRE DU DETAIL QUANTITATIF ET ESTIMATIF</h1>
+
+    <div class="page-break"></div>
+
+    <table style="width:100%; border-collapse: collapse; margin-top:20px;">
+        <thead>
+            <tr>
+                <th style="border:1px solid #000; padding:6px;">N° Prix</th>
+                <th style="border:1px solid #000; padding:6px;">Désignation</th>
+                <th style="border:1px solid #000; padding:6px;">Unité</th>
+                <th style="border:1px solid #000; padding:6px;">Quantité</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ligne in bpu_dqe %}
+                {% if ligne.type == 'section' %}
+                <tr>
+                    <td colspan="4" style="border:1px solid #000; padding:6px; font-weight:bold; background:#f0f0f0;">{{ ligne.title }}</td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td style="border:1px solid #000; padding:6px;">{{ ligne.code }}</td>
+                    <td style="border:1px solid #000; padding:6px;">{{ ligne.designation }}</td>
+                    <td style="border:1px solid #000; padding:6px;">{{ ligne.unit }}</td>
+                    <td style="border:1px solid #000; padding:6px;">{{ ligne.quantity }}</td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>

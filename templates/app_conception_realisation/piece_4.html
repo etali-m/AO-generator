@@ -1,0 +1,65 @@
+<div>
+    <h1 style="padding-top:500px; text-align: center;">PIECE N° 4</h1>
+    <h1 style="text-align:center;">CAHIER DES CLAUSES ADMINISTRATIVES PARTICULIERES</h1>
+    <h2 style="text-align:center;">(CCAP)</h2>
+
+    <div class="page-break"></div>
+
+    <div style="padding:15px;">
+        <h3>Chef de service du marché</h3><p>{{ ccap.chef_service_marche }}</p>
+        <h3>Contractant</h3><p>{{ ccap.contractant }}</p>
+        <h3>Ingénieur du marché</h3><p>{{ ccap.ing_marche }}</p>
+        <h3>Maîtrise d'œuvre de la phase conception</h3><div style="padding:10px;">{{ ccap.maitrise_oeuvre_conception|safe }}</div>
+        <h3>Maître d'œuvre de la phase réalisation</h3><div style="padding:10px;">{{ ccap.maitre_oeuvre_realisation|safe }}</div>
+        <h3>Assistant à maîtrise d'ouvrage</h3><div style="padding:10px;">{{ ccap.assistant_maitrise_ouvrage|safe }}</div>
+        <h3>Consistance de la phase conception</h3><div style="padding:10px;">{{ ccap.consistance_phase_conception|safe }}</div>
+        <h3>Consistance de la phase réalisation</h3><div style="padding:10px;">{{ ccap.consistance_phase_realisation|safe }}</div>
+        <h3>Montant de la phase 1 (conception)</h3><div style="padding:10px;">{{ ccap.montant_phase1|safe }}</div>
+        <h3>Montant de la phase 2 (réalisation)</h3><div style="padding:10px;">{{ ccap.montant_phase2|safe }}</div>
+        <h3>Commission de suivi et de recette de la conception</h3><div style="padding:10px;">{{ ccap.commission_suivi_recette_conception|safe }}</div>
+        <h3>Contrôle externe</h3><p>{{ ccap.control_externe }}</p>
+        <h3>Cocontractant</h3><p>{{ ccap.cocontractant }}</p>
+        <h3>Autorité d'ordonnancement</h3><p>{{ ccap.autorite_ordonnancement }}</p>
+        <h3>Autorité de liquidation</h3><p>{{ ccap.autorite_liquidation }}</p>
+        <h3>Organisme payeur</h3><p>{{ ccap.organisme_paiment }}</p>
+        <h3>Responsable des renseignements</h3><p>{{ ccap.responsable_renseignement }}</p>
+        <h3>Pièces constitutives du marché</h3><div style="padding:10px;">{{ ccap.pieces_constitutive_marche|safe }}</div>
+        <h3>Textes applicables</h3><div style="padding:10px;">{{ ccap.textes_applicables|safe }}</div>
+        <h3>Communication</h3><div style="padding:10px;">{{ ccap.communication|safe }}</div>
+        <h3>Délai d'exécution</h3><div style="padding:10px;">{{ ccap.delai_execution|safe }}</div>
+        <h3>Marché à tranches</h3><div style="padding:10px;">{{ ccap.marche_a_tranche|safe }}</div>
+        <h3>Personnel de l'entreprise</h3><div style="padding:10px;">{{ ccap.personnel_entreprise|safe }}</div>
+        <h3>Remplacement du personnel</h3><div style="padding:10px;">{{ ccap.replacement_personnel|safe }}</div>
+        <h3>Programme des travaux</h3><div style="padding:10px;">{{ ccap.programme_travaux|safe }}</div>
+        <h3>Projet d'exécution</h3><div style="padding:10px;">{{ ccap.projet_execution|safe }}</div>
+        <h3>Laboratoire de chantier</h3><div style="padding:10px;">{{ ccap.labo_chantier|safe }}</div>
+        <h3>Réunion de chantier</h3><div style="padding:10px;">{{ ccap.reunion_chantier|safe }}</div>
+        <h3>Utilisation d'explosifs</h3><div style="padding:10px;">{{ ccap.utilisation_explosifs|safe }}</div>
+        <h3>Opérations préalables à la réception</h3><div style="padding:10px;">{{ ccap.operation_prealable_reception|safe }}</div>
+        <h3>Commission de réception</h3><div style="padding:10px;">{{ ccap.commission_reception|safe }}</div>
+        <h3>Réception partielle</h3><div style="padding:10px;">{{ ccap.reception_partielle|safe }}</div>
+        <h3>Période de garantie</h3><div style="padding:10px;">{{ ccap.periode_garantie|safe }}</div>
+        <h3>Documents à fournir</h3><div style="padding:10px;">{{ ccap.documente_a_fournir|safe }}</div>
+        <h3>Délai de garantie</h3><div style="padding:10px;">{{ ccap.delai_garantie|safe }}</div>
+        <h3>Réception définitive</h3><div style="padding:10px;">{{ ccap.reception_definitive|safe }}</div>
+        <h3>Cautionnement définitif</h3><div style="padding:10px;">{{ ccap.cautionnement_definitif|safe }}</div>
+        <h3>Cautionnement de garantie</h3><div style="padding:10px;">{{ ccap.cautionnement_garantie|safe }}</div>
+        <h3>Cautionnement d'avance de démarrage</h3><div style="padding:10px;">{{ ccap.cautionnement_avance_demarrage|safe }}</div>
+        <h3>Variation des prix</h3><div style="padding:10px;">{{ ccap.variation_prix|safe }}</div>
+        <h3>Révision des prix</h3><div style="padding:10px;">{{ ccap.revision_prix|safe }}</div>
+        <h3>Actualisation des prix</h3><div style="padding:10px;">{{ ccap.actualisation_prix|safe }}</div>
+        <h3>Travaux en régie</h3><div style="padding:10px;">{{ ccap.travaux_regie|safe }}</div>
+        <h3>Valorisation des approvisionnements</h3><div style="padding:10px;">{{ ccap.valorisation_approvisionnement|safe }}</div>
+        <h3>Avances</h3><div style="padding:10px;">{{ ccap.avances|safe }}</div>
+        <h3>Décompte provisoire</h3><div style="padding:10px;">{{ ccap.decompte_provisoir|safe }}</div>
+        <h3>Décompte final</h3><div style="padding:10px;">{{ ccap.decompte_final|safe }}</div>
+        <h3>Décompte définitif</h3><div style="padding:10px;">{{ ccap.decompte_defintif|safe }}</div>
+        <h3>Règlement des groupements</h3><div style="padding:10px;">{{ ccap.reglement_groupement|safe }}</div>
+        <h3>Régime fiscal</h3><div style="padding:10px;">{{ ccap.regime_fiscal|safe }}</div>
+        <h3>Résiliation du marché</h3><div style="padding:10px;">{{ ccap.resiliation_marche|safe }}</div>
+        <h3>Force majeure</h3><div style="padding:10px;">{{ ccap.force_majeure|safe }}</div>
+        <h3>Différends et litiges</h3><div style="padding:10px;">{{ ccap.differends_litiges|safe }}</div>
+        <h3>Édition du marché</h3><div style="padding:10px;">{{ ccap.edition_marche|safe }}</div>
+        <h3>Entrée en vigueur</h3><div style="padding:10px;">{{ ccap.entree_en_vigueur|safe }}</div>
+    </div>
+</div>

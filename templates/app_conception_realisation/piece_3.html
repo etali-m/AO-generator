@@ -1,0 +1,267 @@
+<!-- Règlement particulier de l'appel d'offre (conception-réalisation) -->
+<div>
+    <h1 style="padding-top: 500px;text-indent: 0pt;text-align: center;">PIECE N° 3</h1>
+    <p style="padding-top: 1pt;text-indent: 0pt;text-align: left;"><br/></p>
+    <h1 style="text-indent: 0pt;line-height: 150%;text-align: center;">REGLEMENT PARTICULIER DE L'APPEL D'OFFRES</h1>
+    <h1 style="text-align:center;">(RPAO)</h1>
+
+    <div class="page-break"></div>
+
+    <h2 style="padding-top: 20px;padding-bottom: 50px;text-indent: 0pt;text-align: center;">REGLEMENT PARTICULIER DE L'APPEL D'OFFRES</h2>
+
+    <p style="padding-left: 12pt;text-indent: 0pt;line-height: 150%;text-align: justify;">Cette pièce doit être remplie par le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué avant le lancement de la consultation. Les dispositions ci-après, spécifiques à la conception-réalisation faisant l'objet de l'Appel d'Offres, complètent ou, le cas échéant, précisent les dispositions du RGAO.</p>
+    <h4 style="padding-left: 12pt;text-indent: 0pt;line-height: 14pt;text-align: justify;">En cas de conflit, les dispositions ci-après prévalent sur celles du RGAO.</h4>
+
+    <p style="text-indent: 0pt;text-align: left;"><br/></p>
+
+    <table border="1" cellspacing="0" cellpadding="4" style="width: 100%; border-collapse: collapse;">
+        <tr>
+          <td style="width: 15%; text-align: center; vertical-align: middle;font-weight:bold;">Référence</td>
+          <td style="text-align: center; font-weight: bold;">Description de la Disposition du RPAO</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td style="text-align: center; font-weight: bold;"><h3>A. GENERALITES</h3></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§1</td>
+            <td style="padding-left:15px;">
+                <p><strong>Descriptif de l'opération :</strong></p>
+                <div>{{ rpao.descriptif_operation|safe }}</div>
+                <p style="margin-top: 8pt;"><strong>Objet de l'Appel d'Offres :</strong> {{ appel_offre.objet_appel }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§2</td>
+            <td style="padding-left:15px;">
+                <p><strong>Lieu d'exécution :</strong></p>
+                <div>{{ rpao.lieu_execution|safe }}</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§3</td>
+            <td style="padding-left:15px;">
+                <p><strong>Objectifs de la mission :</strong></p>
+                <div>{{ rpao.objectifs_mission|safe }}</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§4</td>
+            <td style="padding-left:15px;">
+                <p><strong>Source de financement :</strong></p>
+                <div>{{ rpao.source_financement_rpao|safe }}</div>
+                <p>Budget : …………………… Exercice {{ appel_offre.exercice_budgetaire }} Ligne {{ appel_offre.imputation }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§5</td>
+            <td style="padding-left:15px;">
+                <p>L'appel d'offres est {{ appel_offre.mode_passation }}, avec concours.</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td style="text-align: center; font-weight: bold;"><h3>B. CONCOURS — PHASES CONCEPTION ET REALISATION</h3></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§6</td>
+            <td style="padding-left:15px;">
+                <p><strong>Délai de la phase conception :</strong></p>
+                <div>{{ rpao.delai_phase_conception|safe }}</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§7</td>
+            <td style="padding-left:15px;">
+                <p><strong>Délai de la phase réalisation :</strong></p>
+                <div>{{ rpao.delai_phase_realisation|safe }}</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§8</td>
+            <td style="padding-left:15px;">
+                <p><strong>Délai global (Dg = Dc + Dt) :</strong></p>
+                <div>{{ rpao.delai_global|safe }}</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§9</td>
+            <td style="padding-left:15px;">
+                <p><strong>Coût global prévisionnel (CG = CE + CEP) :</strong></p>
+                <div>{{ rpao.cout_global_previsionnel|safe }}</div>
+                <p>Coût des études : {{ rpao.cout_etudes|safe }}</p>
+                <p>Coût estimatif du projet : {{ rpao.cout_estimatif_projet|safe }}</p>
+                <p>Coût global du projet : {{ rpao.cout_global_projet|safe }}</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§10</td>
+            <td style="padding-left:15px;">
+                <p><strong>Avant-Projet Sommaire (APS) attendu :</strong></p>
+                <div>{{ rpao.avant_projet_sommaire|safe }}</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§11</td>
+            <td style="padding-left:15px;">
+                <p><strong>Liste des études de conception à mener :</strong></p>
+                <div>{{ rpao.liste_etudes_conception|safe }}</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">§12</td>
+            <td style="padding-left:15px;">
+                <p>La formation est-elle un élément majeur de la mission : {% if rpao.formation_element_majeur %}Oui{% else %}Non{% endif %}</p>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td style="text-align: center; font-weight: bold;"><h3>C. QUALIFICATION DES CANDIDATS</h3></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">5.1</td>
+            <td style="padding-left:15px;">
+                <p>Provenance des matériaux, matériels et fournitures :</p>
+                <div>{{ rpao.provenance_materiaux|safe }}</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">7.3</td>
+            <td style="padding-left:15px;">{{ rpao.visite_travaux|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">9</td>
+            <td style="padding-left:15px;">
+                <p>Renseignements nécessaires :</p>
+                <div>{{ rpao.renseignements_necessaires|safe }}</div>
+                <p>Renseignements complémentaires :</p>
+                <div>{{ rpao.renseignements_complementaires|safe }}</div>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td style="text-align: center; font-weight: bold;"><h3>D. PREPARATION DES OFFRES</h3></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">12</td>
+            <td style="padding-left:15px;">{{ rpao.langue_soumission|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">13.1</td>
+            <td style="padding-left:15px;">
+                <h3>A - Volume 1 : Pièces Administratives</h3>
+                <p><strong>Pour les soumissionnaires installés au Cameroun :</strong></p>
+                <div>{{ rpao.piecesAdminLocales|safe }}</div>
+                <p><strong>Pour les soumissionnaires non installés au Cameroun :</strong></p>
+                <div>{{ rpao.piecesAdminEtrangeres|safe }}</div>
+                <p><em>Nombre d'exemplaires attendu : {{ rpao.nombre_exemplaires_dossier_administratif }}</em></p>
+
+                <h3 style="margin:15px 0px">B - Volume 2 : Proposition artistique</h3>
+                <p>Avant-Projet Sommaire, mémoire explicatif, dossier de pièces graphiques (cf. §10).</p>
+                <p><em>Nombre d'exemplaires attendu : {{ rpao.nombre_exemplaires_proposition_artistique }}</em></p>
+
+                <h3 style="margin:15px 0px">C - Volume 3 : Proposition technique</h3>
+                <p><b>Références du soumissionnaire :</b></p>
+                <div>{{ rpao.refSoumissionnaire|safe }}</div>
+                <p><b>Personnel :</b></p>
+                <div>{{ rpao.personnel|safe }}</div>
+                <p><b>Matériels :</b></p>
+                <div>{{ rpao.materiels|safe }}</div>
+                <p><b>Organisation et méthodologie :</b></p>
+                <div>{{ rpao.organisation_methodologie|safe }}</div>
+                <p><b>Preuves d'acceptation des conditions du marché :</b></p>
+                <div>{{ rpao.preuve_acceptation|safe }}</div>
+                <p><b>Commentaires CCAP et TDR :</b></p>
+                <div>{{ rpao.commentaire_ccap|safe }}</div>
+                <p><em>Nombre d'exemplaires attendu : {{ rpao.nombre_exemplaires_proposition_technique }}</em></p>
+
+                <h3 style="margin:15px 0px">D - Volume 4 : Proposition financière</h3>
+                <div>{{ rpao.prix_marche|safe }}</div>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">14.4</td>
+            <td style="padding-left:15px;">{{ rpao.prix_marche|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">15.1</td>
+            <td style="padding-left:15px;">{{ rpao.monnaies_soumission|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">15.2</td>
+            <td style="padding-left:15px;">{{ rpao.taux_change|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">16.1</td>
+            <td style="padding-left:15px;">{{ rpao.validite_offre|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">17.1</td>
+            <td style="padding-left:15px;">
+                <p>{{ rpao.montant_cautionnement|safe }}</p>
+                <p>Taux de cautionnement définitif : {{ rpao.taux_cautionnement_definitif_rpao }} %</p>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">18.3</td>
+            <td style="padding-left:15px;">{{ rpao.variante_techniques|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">19.1</td>
+            <td style="padding-left:15px;">{{ rpao.reunion_preparatoire|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">20</td>
+            <td style="padding-left:15px;">{{ rpao.soumission_en_ligne|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">20.1</td>
+            <td style="padding-left:15px;">{{ rpao.date_heure_limite|safe }}</td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td style="text-align: center; font-weight: bold;"><h3>E. DEPOT DES OFFRES</h3></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">22.2</td>
+            <td style="padding-left:15px;">
+                <h4 style="text-align:center;">MODE DE SOUMISSION</h4>
+                {{ rpao.mode_soumission|safe }}
+                <p><strong>Adresse de dépôt des offres :</strong></p>
+                <div>{{ rpao.adresse_depot_offres|safe }}</div>
+            </td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td style="text-align: center; font-weight: bold;"><h3>F. OUVERTURE DES PLIS ET EVALUATION DES OFFRES</h3></td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">25.1</td>
+            <td style="padding-left:15px;">{{ rpao.ouverture_plis|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">29.1</td>
+            <td style="padding-left:15px;">
+                {{ rpao.criteres_eliminatoires|safe }}
+                <br>
+                {{ rpao.criteres_essentiels|safe }}
+                <p style="margin-top:10pt;"><strong>Pondération :</strong> Artistique {{ rpao.poids_artistique }}% — Technique {{ rpao.poids_technique }}% — Financière {{ rpao.poids_financiere }}%</p>
+                <p><em>Voir également la grille d'évaluation détaillée en Pièce n°16.</em></p>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">31.2</td>
+            <td style="padding-left:15px;">{{ rpao.monnaie_retenu|safe }}</td>
+        </tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">32.2(b)</td>
+            <td style="padding-left:15px;">{{ rpao.mode_evaluation|safe }}</td>
+        </tr>
+    </table>
+</div>

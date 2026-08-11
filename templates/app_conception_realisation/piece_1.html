@@ -1,0 +1,86 @@
+<div id="version-francaise">
+    <h1 style="padding-top:500px; text-align: center;">PIECE N° 1</h1>
+    <h1 style="text-align:center;">AVIS D'APPEL D'OFFRES</h1>
+    <h2 style="text-align:center;">(AAO)</h2>
+
+    <div class="page-break"></div>
+
+    <h2 style="text-align: center;">AVIS D'APPEL D'OFFRES</h2>
+    <p style="text-align: center; text-transform:uppercase;"><b>Avis d'Appel d'Offres {{ appel_offre.type_dossier }} {{ appel_offre.mode_passation }} avec Concours N°{{ appel_offre.numero_appel_offre }} du _________________</b></p>
+    <h4 style="text-align: center;">POUR LA CONCEPTION-REALISATION DE {{ appel_offre.objet_appel }}</h4>
+
+    <ol>
+        <li><h3>1. Objet de l'Appel d'Offres</h3><div style="padding:15px;">{{ aao.objet_appel|safe }}</div></li>
+        <li><h3>2. Consistance des prestations</h3><div style="padding:15px;">{{ aao.consistence_travaux|safe }}</div></li>
+        <li><h3>3. Allotissement</h3><div style="padding:15px;">{{ aao.tranches|safe }}</div></li>
+        <li><h3>4. Coût prévisionnel</h3><div style="padding:15px;">{{ aao.cout_previsionnel|safe }}</div></li>
+        <li><h3>5. Délais d'exécution</h3><div style="padding:15px;">{{ aao.delai_previsionnel|safe }}</div></li>
+        <li><h3>6. Participation et origine</h3><div style="padding:15px;">{{ aao.participation|safe }}</div></li>
+        <li><h3>7. Financement</h3><div style="padding:15px;">{{ aao.financement|safe }}</div></li>
+        <li><h3>8. Mode de soumission</h3><div style="padding:15px;">{{ aao.mode_soumission|safe }}</div></li>
+        <li><h3>9. Cautionnement provisoire</h3><div style="padding:15px;">{{ aao.caution_soumission|safe }}</div></li>
+        <li><h3>10. Consultation du Dossier d'Appel d'Offres</h3><div style="padding:15px;">{{ aao.consultation_dossier|safe }}</div></li>
+        <li><h3>11. Acquisition du Dossier d'Appel d'Offres</h3><div style="padding:15px;">{{ aao.acquisition_dao|safe }}</div></li>
+        <li><h3>12. Remise des offres</h3><div style="padding:15px;">{{ aao.remise_offre|safe }}</div></li>
+        <li><h3>13. Recevabilité des offres</h3><div style="padding:15px;">{{ aao.recevabilite_plis|safe }}</div></li>
+        <li><h3>14. Ouverture des plis</h3><div style="padding:15px;">{{ aao.ouverture_plis|safe }}</div></li>
+        <li>
+            <h3>15. Critères d'évaluation</h3>
+            <div style="padding:15px;">
+                <h4>15.1 Critères éliminatoires</h4>
+                <div style="padding:10px;">{{ aao.critere_eliminatoire|safe }}</div>
+                <h4>15.2 Critères essentiels</h4>
+                <div style="padding:10px;">{{ aao.critere_essentielles|safe }}</div>
+                {% if aao.note_artistique_minimale %}
+                <p><b>Note artistique minimale requise :</b> {{ aao.note_artistique_minimale }} / 100</p>
+                {% endif %}
+            </div>
+        </li>
+        <li><h3>16. Attribution</h3><div style="padding:15px;">{{ aao.attribution|safe }}</div></li>
+        <li><h3>17. Nombre maximum de lots</h3><div style="padding:15px;">{% if aao.nombre_max_lots %}Un candidat ne peut être attributaire de plus de <b>{{ aao.nombre_max_lots }}</b> lot(s).{% else %}Sans objet{% endif %}</div></li>
+        <li><h3>18. Durée de validité des offres</h3><div style="padding:15px;">Les soumissionnaires restent engagés par leur offre pendant {{ aao.duree_validite }} jours à partir de la date limite fixée pour la remise des offres.</div></li>
+        <li><h3>19. Renseignements complémentaires</h3><div style="padding:15px;">{{ aao.renseignement_complementaires|safe }}</div></li>
+        <li>
+            <h3>20. Lutte contre la corruption et les mauvaises pratiques</h3>
+            <p style="padding:15px;">Pour toute dénonciation de pratiques, faits ou actes de corruption, bien vouloir appeler la CONAC au numéro 1517, l'Autorité chargée des Marchés Publics (MINMAP) aux numéros (+237) 673 20 57 25 et 699 37 07 48, ou le MO/MOD au {{ aao.numero_moa }}.</p>
+        </li>
+    </ol>
+</div>
+
+<div class="page-break"></div>
+
+<div id="version-anglaise">
+    <h2 style="text-align: center;">TENDER NOTICE</h2>
+    <p style="text-align: center; text-transform:uppercase;"><b>Invitation to Tender {{ appel_offre.type_dossier }} {{ appel_offre.mode_passation }} with Design Competition No {{ appel_offre.numero_appel_offre }} of _________________</b></p>
+    <h4 style="text-align: center;">FOR THE DESIGN-BUILD OF {{ appel_offre.objet_appel }}</h4>
+
+    <ol>
+        <li><h3>1. Subject of the Invitation to Tender</h3><div style="padding:15px;">{{ aao.objet_appel_en|safe }}</div></li>
+        <li><h3>2. Nature of Services</h3><div style="padding:15px;">{{ aao.consistence_travaux_en|safe }}</div></li>
+        <li><h3>3. Lots</h3><div style="padding:15px;">{{ aao.tranches_en|safe }}</div></li>
+        <li><h3>4. Estimated Cost</h3><div style="padding:15px;">{{ aao.cout_previsionnel_en|safe }}</div></li>
+        <li><h3>5. Execution Deadline</h3><div style="padding:15px;">{{ aao.delai_previsionnel_en|safe }}</div></li>
+        <li><h3>6. Participation and Origin</h3><div style="padding:15px;">{{ aao.participation_en|safe }}</div></li>
+        <li><h3>7. Funding</h3><div style="padding:15px;">{{ aao.financement_en|safe }}</div></li>
+        <li><h3>8. Bidding Method</h3><div style="padding:15px;">{{ aao.mode_soumission_en|safe }}</div></li>
+        <li><h3>9. Bid Bond</h3><div style="padding:15px;">{{ aao.caution_soumission_en|safe }}</div></li>
+        <li><h3>10. Consultation of Tender File</h3><div style="padding:15px;">{{ aao.consultation_dossier_en|safe }}</div></li>
+        <li><h3>11. Acquisition of Tender File</h3><div style="padding:15px;">{{ aao.acquisition_dao_en|safe }}</div></li>
+        <li><h3>12. Submission of Bids</h3><div style="padding:15px;">{{ aao.remise_offre_en|safe }}</div></li>
+        <li><h3>13. Admissibility of Bids</h3><div style="padding:15px;">{{ aao.recevabilite_plis_en|safe }}</div></li>
+        <li><h3>14. Opening of Bids</h3><div style="padding:15px;">{{ aao.ouverture_plis_en|safe }}</div></li>
+        <li>
+            <h3>15. Evaluation Criteria</h3>
+            <div style="padding:15px;">
+                <h4>15.1 Eliminatory Criteria</h4>
+                <div style="padding:10px;">{{ aao.critere_eliminatoire_en|safe }}</div>
+                <h4>15.2 Essential Criteria</h4>
+                <div style="padding:10px;">{{ aao.critere_essentielles_en|safe }}</div>
+            </div>
+        </li>
+        <li><h3>16. Award of Contract</h3><div style="padding:15px;">{{ aao.attribution_en|safe }}</div></li>
+        <li><h3>17. Maximum Number of Lots</h3><div style="padding:15px;">{% if aao.nombre_max_lots %}A bidder cannot be awarded more than <b>{{ aao.nombre_max_lots }}</b> lot(s).{% else %}Not applicable{% endif %}</div></li>
+        <li><h3>18. Duration of Validity of Bids</h3><div style="padding:15px;">Bidders shall remain committed to their bids for {{ aao.duree_validite }} days from the deadline set for the submission of bids.</div></li>
+        <li><h3>19. Further Information</h3><div style="padding:15px;">{{ aao.renseignement_complementaires_en|safe }}</div></li>
+    </ol>
+</div>
