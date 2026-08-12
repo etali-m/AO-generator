@@ -27,11 +27,12 @@ class AvisAppelOffre(models.Model):
     renseignement_complementaires = RichTextField()
 
     # ===== Champs communs =====
-    nombre_max_lots = models.IntegerField()
+    
     duree_validite = models.IntegerField()
     numero_moa = models.IntegerField(blank=True, null=True)
-
-    # ===== Spécifique conception-réalisation (concours) =====
+    nombre_max_lots = models.IntegerField()
+    #à supprimer
+    
     note_artistique_minimale = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
 
     # ===== Version anglaise (générée) =====
@@ -63,60 +64,65 @@ class AvisAppelOffre(models.Model):
 
 
 class RPAO(models.Model):
+    """
+    Les champs ref_X_Y correspondent directement aux références de la colonne
+    "Références RGAO" du tableau du Règlement Particulier de l'Appel d'Offres
+    conception-réalisation (DTAO ARMP, pages 58 à 86) : ref_1_1 = ligne "1.1"
+    du tableau, ref_1_2 = ligne "1.2", etc. ref_17 correspond à la ligne sur la
+    monnaie/taux de change dont le numéro était illisible dans le document
+    source (imprimé "SI").
+    """
     appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE, related_name='rpao_cr')
 
-    # ===== Réutilisés (même sens que le RPAO travaux) =====
-    provenance_materiaux = RichTextField()
-    visite_travaux = RichTextField()
-    renseignements_necessaires = RichTextField(blank=True, null=True)
-    renseignements_complementaires = RichTextField()
-    langue_soumission = RichTextField()
-    piecesAdminLocales = RichTextField()
-    piecesAdminEtrangeres = RichTextField()
-    refSoumissionnaire = RichTextField()
-    personnel = RichTextField()
-    materiels = RichTextField()
-    organisation_methodologie = RichTextField()
-    preuve_acceptation = RichTextField()
-    commentaire_ccap = RichTextField()
-    prix_marche = RichTextField()
-    monnaies_soumission = RichTextField()
-    taux_change = RichTextField()
-    monnaie_retenu = RichTextField()
-    validite_offre = RichTextField()
-    montant_cautionnement = RichTextField()
-    variante_techniques = RichTextField()
-    reunion_preparatoire = RichTextField()
-    soumission_en_ligne = RichTextField()
-    mode_soumission = RichTextField()
-    date_heure_limite = RichTextField()
-    criteres_eliminatoires = RichTextField()
-    criteres_essentiels = RichTextField()
-    mode_evaluation = RichTextField()
+    # ===== A. Généralités =====
+    ref_1_1 = RichTextField(default='')   # Descriptif de l'opération
+    ref_1_2 = RichTextField(default='')   # Étendue de la consultation (concours, mode de sélection, coût et délai globaux)
+    ref_1_4 = RichTextField(default='')   # Répartition en phase conception et phase travaux
+    ref_1_5 = RichTextField(default='')   # Conférence préalable à l'établissement des offres
+    ref_1_6 = RichTextField(default='')   # Responsable(s) du Maître d'Ouvrage à contacter
+    ref_2 = RichTextField(default='')     # Source(s) de financement
 
-    # ===== Spécifique conception-réalisation (concours bi-phase) =====
-    descriptif_operation = RichTextField()
-    lieu_execution = RichTextField()
-    objectifs_mission = RichTextField()
-    source_financement_rpao = RichTextField()
-    delai_phase_conception = RichTextField()
-    delai_phase_realisation = RichTextField()
-    delai_global = RichTextField()
-    cout_global_previsionnel = RichTextField()
-    nombre_exemplaires_dossier_administratif = models.IntegerField(blank=True, null=True)
-    nombre_exemplaires_proposition_artistique = models.IntegerField(blank=True, null=True)
-    nombre_exemplaires_proposition_technique = models.IntegerField(blank=True, null=True)
-    adresse_depot_offres = RichTextField()
-    avant_projet_sommaire = RichTextField()
-    liste_etudes_conception = RichTextField()
-    cout_etudes = RichTextField()
-    cout_estimatif_projet = RichTextField()
-    cout_global_projet = RichTextField()
+    # ===== B. Candidats admis à participer =====
+    ref_4_2 = RichTextField(default='')   # Candidats admis à participer (groupement)
+    ref_5_1 = RichTextField(default='')   # Provenance des matériaux, matériels et fournitures
+    ref_6_2 = RichTextField(default='')   # Pièces à produire uniquement par le mandataire du groupement
+    ref_7 = RichTextField(default='')     # Visite du site
+    ref_9 = RichTextField(default='')     # Éclaircissements / renseignements complémentaires
+    ref_11 = RichTextField(default='')    # Délai de dépôt des offres
+
+    # ===== C. Préparation des offres =====
+    ref_13_2 = RichTextField(default='')  # Volumes de soumission (4 enveloppes)
+    ref_13_3 = RichTextField(default='')  # Soumission électronique
+    ref_13_4 = RichTextField(default='')  # Lieu, date et heure limite de dépôt
+    ref_13_7 = RichTextField(default='')  # Ouverture des plis (2 temps)
+    ref_14 = RichTextField(default='')    # Langue de l'offre et volumes attendus
+
+    # ===== D. Offre financière et prix =====
+    ref_15_1 = RichTextField(default='')  # Caution de soumission et dossier administratif détaillé
+    ref_16_1 = RichTextField(default='')  # Montant de l'offre / coût global du projet
+    ref_16_4 = RichTextField(default='')  # Variation des prix
+    ref_17 = RichTextField(default='')    # Monnaie de soumission et taux de change
+
+    # ===== E. Validité, cautionnement, variantes, mode de soumission =====
+    ref_18 = RichTextField(default='')    # Délai de validité des offres
+    ref_19 = RichTextField(default='')    # Montant de la caution de soumission
+    ref_20_3 = RichTextField(default='')  # Variantes
+    ref_22_5 = RichTextField(default='')  # Mode de soumission (en ligne / hors ligne)
+
+    # ===== F. Évaluation =====
+    ref_24 = RichTextField(default='')    # Critères d'évaluation (éliminatoires et essentiels)
+    ref_25 = RichTextField(default='')    # Grille détaillée des critères et sous-critères (NA, NT, NF, NG)
+
+    # ===== G. Attribution et éthique =====
+    ref_30 = RichTextField(default='')    # Cautionnement définitif
+    ref_35 = RichTextField(default='')    # Attribution du marché
+    ref_36 = RichTextField(default='')    # Principes éthiques
+
+    # ===== Champs structurés dérivés (réutilisés ailleurs dans l'application) =====
     formation_element_majeur = models.BooleanField(default=False)
     poids_artistique = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     poids_technique = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
     poids_financiere = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
-    taux_cautionnement_definitif_rpao = models.DecimalField(max_digits=5, decimal_places=2, blank=True, null=True)
 
     def __str__(self):
         return f"{self.appel_offre}"

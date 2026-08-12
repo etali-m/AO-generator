@@ -128,16 +128,12 @@ class ConceptionRealisationFlowTests(TestCase):
         }, format='json')
 
         rpao_fields = [
-            'descriptif_operation', 'lieu_execution', 'objectifs_mission', 'source_financement_rpao',
-            'delai_phase_conception', 'delai_phase_realisation', 'delai_global', 'cout_global_previsionnel',
-            'provenance_materiaux', 'visite_travaux', 'renseignements_complementaires', 'langue_soumission',
-            'piecesAdminLocales', 'piecesAdminEtrangeres', 'refSoumissionnaire', 'personnel', 'materiels',
-            'organisation_methodologie', 'preuve_acceptation', 'commentaire_ccap', 'prix_marche',
-            'monnaies_soumission', 'taux_change', 'monnaie_retenu', 'validite_offre', 'montant_cautionnement',
-            'variante_techniques', 'reunion_preparatoire', 'soumission_en_ligne', 'mode_soumission',
-            'date_heure_limite', 'criteres_eliminatoires', 'criteres_essentiels', 'mode_evaluation',
-            'avant_projet_sommaire', 'liste_etudes_conception', 'cout_etudes', 'cout_estimatif_projet',
-            'cout_global_projet', 'adresse_depot_offres',
+            'ref_1_1', 'ref_1_2', 'ref_1_4', 'ref_1_5', 'ref_1_6', 'ref_2',
+            'ref_4_2', 'ref_5_1', 'ref_6_2', 'ref_7', 'ref_9', 'ref_11',
+            'ref_13_2', 'ref_13_3', 'ref_13_4', 'ref_13_7', 'ref_14',
+            'ref_15_1', 'ref_16_1', 'ref_16_4', 'ref_17',
+            'ref_18', 'ref_19', 'ref_20_3', 'ref_22_5',
+            'ref_24', 'ref_25', 'ref_30', 'ref_35', 'ref_36',
         ]
         rpao_payload = {name: '<p>x</p>' for name in rpao_fields}
         response = self.client.post(f'/api/marche-conception-realisation/{self.appel_offre.id}/rpao', rpao_payload, format='json')
