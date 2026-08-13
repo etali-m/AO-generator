@@ -20,8 +20,17 @@
           <td style="text-align: center; font-weight: bold;">Dispositions du Règlement Particulier de l'Appel d'Offres</td>
         </tr>
 
-        <tr><td></td><td style="text-align: center; font-weight: bold;"><h3>A. GENERALITES</h3></td></tr>
-        <tr><td style="text-align: center; vertical-align: top;">1.1</td><td style="padding-left:15px;">{{ rpao.ref_1_1|safe }}</td></tr>
+        
+        <tr>
+            <td style="text-align: center; vertical-align: top;">1.1</td>
+            <td style="padding-left:15px;">
+                <strong>GENERALITES</strong>
+                <p> - Nom et adresse du maître d'ouvrage : {{ appel_offre.maitre_ouvrage }}</p>
+                <p> - Référence de l’Appel d’Offres : <strong style="text-transform: uppercase;">{{ appel_offre.objet_appel }}</strong> </p>
+                <p> - Nombre de lots : {{ aao.nombre_max_lots }} </p> <br>
+                {{ rpao.ref_1_1|safe }}
+            </td>
+        </tr>
         <tr><td style="text-align: center; vertical-align: top;">1.2</td><td style="padding-left:15px;">{{ rpao.ref_1_2|safe }}</td></tr>
         <tr><td style="text-align: center; vertical-align: top;">1.4</td><td style="padding-left:15px;">{{ rpao.ref_1_4|safe }}</td></tr>
         <tr><td style="text-align: center; vertical-align: top;">1.5</td><td style="padding-left:15px;">{{ rpao.ref_1_5|safe }}</td></tr>
