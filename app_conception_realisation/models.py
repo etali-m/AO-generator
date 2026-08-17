@@ -111,6 +111,8 @@ class RPAO(models.Model):
 
     # ===== F. Évaluation =====
     ref_24 = RichTextField(default='')    # Critères d'évaluation (éliminatoires et essentiels)
+    criteres_eliminatoires = RichTextField(default='')  # Détail des critères éliminatoires (référence 24)
+    criteres_essentiels = RichTextField(default='')     # Détail des critères essentiels (référence 24)
     ref_25 = RichTextField(default='')    # Grille détaillée des critères et sous-critères (NA, NT, NF, NG)
 
     # ===== G. Attribution et éthique =====

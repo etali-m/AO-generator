@@ -65,7 +65,16 @@
         <tr><td style="text-align: center; vertical-align: top;">22.5</td><td style="padding-left:15px;">{{ rpao.ref_22_5|safe }}</td></tr>
 
         <tr><td></td><td style="text-align: center; font-weight: bold;"><h3>F. EVALUATION DES OFFRES</h3></td></tr>
-        <tr><td style="text-align: center; vertical-align: top;">24</td><td style="padding-left:15px;">{{ rpao.ref_24|safe }}</td></tr>
+        <tr>
+            <td style="text-align: center; vertical-align: top;">24</td><td style="padding-left:15px;">
+                <h5>Critères d'évaluation</h5>
+                {{ rpao.ref_24|safe }}
+                <br>
+                {{ rpao.criteres_eliminatoires|safe }}
+                <br>
+                {{ rpao.criteres_essentiels|safe }}
+            </td>
+        </tr>
         <tr>
             <td style="text-align: center; vertical-align: top;">25</td>
             <td style="padding-left:15px;">
