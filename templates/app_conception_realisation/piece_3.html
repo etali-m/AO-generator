@@ -72,16 +72,9 @@
                 <br>
                 {{ rpao.criteres_eliminatoires|safe }}
                 <br>
-                {{ rpao.criteres_essentiels|safe }}
-            </td>
-        </tr>
-        <tr>
-            <td style="text-align: center; vertical-align: top;">25</td>
-            <td style="padding-left:15px;">
-                {{ rpao.ref_25|safe }}
-                <p style="margin-top:10pt;"><strong>Pondération retenue :</strong> Artistique {{ rpao.poids_artistique }}% — Technique {{ rpao.poids_technique }}% — Financière {{ rpao.poids_financiere }}%</p>
-                <p><em>Formation, élément majeur de la mission : {% if rpao.formation_element_majeur %}Oui{% else %}Non{% endif %}</em></p>
-                <p><em>La grille détaillée des critères et sous-critères figure en Pièce n°16.</em></p>
+                {{ rpao.sous_criteres_essentiels_prop_artistique|safe }}
+                <br>
+                {{ rpao.sous_criteres_essentiels_prop_technique|safe }}
             </td>
         </tr>
 
