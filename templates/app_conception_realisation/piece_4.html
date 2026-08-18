@@ -1,3 +1,4 @@
+<!-- Cahier des clauses administratives particulières (conception-réalisation) -->
 <div>
     <h1 style="padding-top:500px; text-align: center;"><a name="cr4"></a>PIECE N° 4</h1>
     <h1 style="text-align:center;">CAHIER DES CLAUSES ADMINISTRATIVES PARTICULIERES</h1>
@@ -5,61 +6,377 @@
 
     <div class="page-break"></div>
 
-    <div style="padding:15px;">
-        <h3>Chef de service du marché</h3><p>{{ ccap.chef_service_marche }}</p>
-        <h3>Contractant</h3><p>{{ ccap.contractant }}</p>
-        <h3>Ingénieur du marché</h3><p>{{ ccap.ing_marche }}</p>
-        <h3>Maîtrise d'œuvre de la phase conception</h3><div style="padding:10px;">{{ ccap.maitrise_oeuvre_conception|safe }}</div>
-        <h3>Maître d'œuvre de la phase réalisation</h3><div style="padding:10px;">{{ ccap.maitre_oeuvre_realisation|safe }}</div>
-        <h3>Assistant à maîtrise d'ouvrage</h3><div style="padding:10px;">{{ ccap.assistant_maitrise_ouvrage|safe }}</div>
-        <h3>Consistance de la phase conception</h3><div style="padding:10px;">{{ ccap.consistance_phase_conception|safe }}</div>
-        <h3>Consistance de la phase réalisation</h3><div style="padding:10px;">{{ ccap.consistance_phase_realisation|safe }}</div>
-        <h3>Montant de la phase 1 (conception)</h3><div style="padding:10px;">{{ ccap.montant_phase1|safe }}</div>
-        <h3>Montant de la phase 2 (réalisation)</h3><div style="padding:10px;">{{ ccap.montant_phase2|safe }}</div>
-        <h3>Commission de suivi et de recette de la conception</h3><div style="padding:10px;">{{ ccap.commission_suivi_recette_conception|safe }}</div>
-        <h3>Contrôle externe</h3><p>{{ ccap.control_externe }}</p>
-        <h3>Cocontractant</h3><p>{{ ccap.cocontractant }}</p>
-        <h3>Autorité d'ordonnancement</h3><p>{{ ccap.autorite_ordonnancement }}</p>
-        <h3>Autorité de liquidation</h3><p>{{ ccap.autorite_liquidation }}</p>
-        <h3>Organisme payeur</h3><p>{{ ccap.organisme_paiment }}</p>
-        <h3>Responsable des renseignements</h3><p>{{ ccap.responsable_renseignement }}</p>
-        <h3>Pièces constitutives du marché</h3><div style="padding:10px;">{{ ccap.pieces_constitutive_marche|safe }}</div>
-        <h3>Textes applicables</h3><div style="padding:10px;">{{ ccap.textes_applicables|safe }}</div>
-        <h3>Communication</h3><div style="padding:10px;">{{ ccap.communication|safe }}</div>
-        <h3>Délai d'exécution</h3><div style="padding:10px;">{{ ccap.delai_execution|safe }}</div>
-        <h3>Marché à tranches</h3><div style="padding:10px;">{{ ccap.marche_a_tranche|safe }}</div>
-        <h3>Personnel de l'entreprise</h3><div style="padding:10px;">{{ ccap.personnel_entreprise|safe }}</div>
-        <h3>Remplacement du personnel</h3><div style="padding:10px;">{{ ccap.replacement_personnel|safe }}</div>
-        <h3>Programme des travaux</h3><div style="padding:10px;">{{ ccap.programme_travaux|safe }}</div>
-        <h3>Projet d'exécution</h3><div style="padding:10px;">{{ ccap.projet_execution|safe }}</div>
-        <h3>Laboratoire de chantier</h3><div style="padding:10px;">{{ ccap.labo_chantier|safe }}</div>
-        <h3>Réunion de chantier</h3><div style="padding:10px;">{{ ccap.reunion_chantier|safe }}</div>
-        <h3>Utilisation d'explosifs</h3><div style="padding:10px;">{{ ccap.utilisation_explosifs|safe }}</div>
-        <h3>Opérations préalables à la réception</h3><div style="padding:10px;">{{ ccap.operation_prealable_reception|safe }}</div>
-        <h3>Commission de réception</h3><div style="padding:10px;">{{ ccap.commission_reception|safe }}</div>
-        <h3>Réception partielle</h3><div style="padding:10px;">{{ ccap.reception_partielle|safe }}</div>
-        <h3>Période de garantie</h3><div style="padding:10px;">{{ ccap.periode_garantie|safe }}</div>
-        <h3>Documents à fournir</h3><div style="padding:10px;">{{ ccap.documente_a_fournir|safe }}</div>
-        <h3>Délai de garantie</h3><div style="padding:10px;">{{ ccap.delai_garantie|safe }}</div>
-        <h3>Réception définitive</h3><div style="padding:10px;">{{ ccap.reception_definitive|safe }}</div>
-        <h3>Cautionnement définitif</h3><div style="padding:10px;">{{ ccap.cautionnement_definitif|safe }}</div>
-        <h3>Cautionnement de garantie</h3><div style="padding:10px;">{{ ccap.cautionnement_garantie|safe }}</div>
-        <h3>Cautionnement d'avance de démarrage</h3><div style="padding:10px;">{{ ccap.cautionnement_avance_demarrage|safe }}</div>
-        <h3>Variation des prix</h3><div style="padding:10px;">{{ ccap.variation_prix|safe }}</div>
-        <h3>Révision des prix</h3><div style="padding:10px;">{{ ccap.revision_prix|safe }}</div>
-        <h3>Actualisation des prix</h3><div style="padding:10px;">{{ ccap.actualisation_prix|safe }}</div>
-        <h3>Travaux en régie</h3><div style="padding:10px;">{{ ccap.travaux_regie|safe }}</div>
-        <h3>Valorisation des approvisionnements</h3><div style="padding:10px;">{{ ccap.valorisation_approvisionnement|safe }}</div>
-        <h3>Avances</h3><div style="padding:10px;">{{ ccap.avances|safe }}</div>
-        <h3>Décompte provisoire</h3><div style="padding:10px;">{{ ccap.decompte_provisoir|safe }}</div>
-        <h3>Décompte final</h3><div style="padding:10px;">{{ ccap.decompte_final|safe }}</div>
-        <h3>Décompte définitif</h3><div style="padding:10px;">{{ ccap.decompte_defintif|safe }}</div>
-        <h3>Règlement des groupements</h3><div style="padding:10px;">{{ ccap.reglement_groupement|safe }}</div>
-        <h3>Régime fiscal</h3><div style="padding:10px;">{{ ccap.regime_fiscal|safe }}</div>
-        <h3>Résiliation du marché</h3><div style="padding:10px;">{{ ccap.resiliation_marche|safe }}</div>
-        <h3>Force majeure</h3><div style="padding:10px;">{{ ccap.force_majeure|safe }}</div>
-        <h3>Différends et litiges</h3><div style="padding:10px;">{{ ccap.differends_litiges|safe }}</div>
-        <h3>Édition du marché</h3><div style="padding:10px;">{{ ccap.edition_marche|safe }}</div>
-        <h3>Entrée en vigueur</h3><div style="padding:10px;">{{ ccap.entree_en_vigueur|safe }}</div>
-    </div>
+    <h2 style="text-align:center;">Note relative au Cahier des Clauses Administratives Particulières</h2>
+    <p style="padding-left:12pt;text-align:justify;">Les dispositions du Cahier des Clauses Administratives Particulières expriment l'ensemble des droits et obligations des parties.</p>
+    <p style="padding-left:12pt;text-align:justify;">Lors de la préparation de la Pièce n°4, une attention particulière devra donc être accordée aux aspects suivants :</p>
+    <ul>
+        <li>a. Tous les renseignements nécessaires pour compléter les Articles du CCAG ;</li>
+        <li>b. Les modifications et/ou les dispositions additionnelles à celles du CCAG nécessitées par le marché en question.</li>
+    </ul>
+    <p style="padding-left:12pt;text-align:justify;">Dans tous les cas où les dispositions se contredisent, les dispositions du Cahier des Clauses Administratives Particulières prévaudront sur celles du Cahier des Clauses Administratives Générales.</p>
+    <p style="padding-left:12pt;text-align:justify;">Le numéro de l'article du CCAG auquel se réfère l'article du CCAP est indiqué entre parenthèse. Les autres clauses du CCAG ne figurant pas dans le CCAP restent bien entendu en vigueur dans le cadre de l'exécution du marché.</p>
+    <p style="padding-left:12pt;text-align:justify;">Les clauses types du CCAP constituent un canevas des dispositions que le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué devront suivre pour préparer chaque Dossier d'Appel d'Offres et projet de marché.</p>
+    <p style="padding-left:12pt;text-align:justify;">Les instructions nécessaires pour remplir le CCAP sont données en italique avec trame.</p>
+
+    <div class="page-break"></div>
+
+    <h2 style="text-align:center;">Table des matières</h2>
+    <p style="padding-left:24pt;"><a href="#ccap-chap1"><strong>CHAPITRE I. GENERALITES</strong></a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art1">Article 1. Objet du marché</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art2">Article 2. Procédure de passation du marché</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art3">Article 3. Attributions et nantissement</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art4">Article 4. Langue, lois et règlements applicables</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art5">Article 5. Normes</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art6">Article 6. Pièces constitutives du marché</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art7">Article 7. Textes généraux applicables</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art8">Article 8. Communication</a></p>
+
+    <p style="padding-left:24pt;"><a href="#ccap-chap2"><strong>CHAPITRE II. EXECUTION DES PRESTATIONS</strong></a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art9">Article 9. Consistance des prestations</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art10">Article 10. Délais d'exécution du marché</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art11">Article 11. Obligations du Maître d'Ouvrage ou du Maître d'Ouvrage Délégué</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art12">Article 12. Ordres de service</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art13">Article 13. Rôles et responsabilités du cocontractant de l'administration</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art14">Article 14. Marchés à tranches conditionnelles</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art15">Article 15. Personnel et Matériel du cocontractant</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art16">Article 16. Pièces à fournir par le cocontractant</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art17">Article 17. Mise à disposition des documents et du site</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art18">Article 18. Assurances des ouvrages et responsabilités civiles</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art19">Article 19. Sous-traitance</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art20">Article 20. Laboratoire de chantier et essais</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art21">Article 21. Journal et Réunions de chantier</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art22">Article 22. Utilisation des explosifs</a></p>
+
+    <p style="padding-left:24pt;"><a href="#ccap-chap3"><strong>CHAPITRE III. DE LA RECEPTION</strong></a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art23">Article 23. Réception des prestations</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art24">Article 24. Documents à fournir après exécution</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art25">Article 25. Garantie contractuelle / Entretien pendant la période de garantie</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art26">Article 26. Réception définitive</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art27">Article 27. Garantie légale</a></p>
+
+    <p style="padding-left:24pt;"><a href="#ccap-chap4"><strong>CHAPITRE IV. CLAUSES FINANCIERES</strong></a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art28">Article 28. Montant du marché</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art29">Article 29. Lieu et mode de paiement</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art30">Article 30. Garanties et cautions</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art31">Article 31. Variation des prix</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art32">Article 32. Formules de révision des prix</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art33">Article 33. Formules d'actualisation des prix</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art34">Article 34. Travaux en régie</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art35">Article 35. Valorisation des approvisionnements</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art36">Article 36. Avances</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art37">Article 37. Règlement des travaux</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art38">Article 38. Intérêts moratoires</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art39">Article 39. Pénalités</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art40">Article 40. Règlement en cas de groupement d'entreprises et de sous-traitance</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art41">Article 41. Régime fiscal et douanier</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art42">Article 42. Timbres et enregistrement des marchés</a></p>
+
+    <p style="padding-left:24pt;"><a href="#ccap-chap5"><strong>CHAPITRE V. DISPOSITIONS DIVERSES</strong></a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art43">Article 43. Résiliation du marché</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art44">Article 44. Cas de force majeure</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art45">Article 45. Différends et litiges</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art46">Article 46. Edition et diffusion du présent marché</a></p>
+    <p style="padding-left:36pt;"><a href="#ccap-art47">Article 47. Et dernier : Validité et entrée en vigueur du marché</a></p>
+
+    <div class="page-break"></div>
+
+    <h2 style="text-align:center;"><a name="ccap-chap1"></a>CHAPITRE I. GENERALITES</h2>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art1"></a>Article 1. Objet du marché</h3>
+    <p style="padding-left:12pt;text-align:justify;">Le présent marché a pour objet : <strong>{{ appel_offre.objet_appel }}</strong></p>
+    <p style="padding-left:12pt;text-align:justify;"><i>[En cas d'allotissement, l'objet du marché portera sur le lot concerné. L'objet du marché doit être en adéquation avec l'article 1 du RPAO.]</i></p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art2"></a>Article 2. Procédure de passation du marché</h3>
+    <p style="padding-left:12pt;text-align:justify;">Le présent marché est passé après <span style="text-transform:capitalize;">{{ appel_offre.type_dossier }}</span> <span style="text-transform:capitalize;">{% if appel_offre.mode_passation == 'concour' %} avec {% endif %}{{ appel_offre.mode_passation }}</span> N° {{ appel_offre.numero_appel_offre }}.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art3"></a>Article 3. Attributions et nantissement</h3>
+    <p style="padding-left:12pt;text-align:justify;">Pour l'application des dispositions du présent marché, il est précisé que :</p>
+    <p style="padding-left:12pt;"><strong>3.1. Attributions</strong> <i>(Cf. code des marchés publics)</i></p>
+    <ul>
+        <li>L'organisme chargé du contrôle externe des marchés publics est <strong>{{ ccap.control_externe }}</strong>. Le Ministère des Marchés Publics ou son démembrement déconcentré compétent assure le contrôle de conformité de l'exécution du marché, délivre les visas préalables requis et vise le décompte général et définitif.</li>
+        <li>Le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué est : <strong>{{ appel_offre.maitre_ouvrage }}</strong></li>
+        <li>Le Chef de service du marché est : <strong>{{ ccap.chef_service_marche }}</strong>. Il s'assure de la bonne exécution des obligations contractuelles, veille au respect des clauses administratives, techniques et financières et des délais contractuels, est responsable de la direction générale de l'exécution des prestations, arrête toutes les dispositions technico-financières et représente le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué auprès des instances compétentes d'arbitrage des litiges.</li>
+        <li>L'Ingénieur du marché est : <strong>{{ ccap.ing_marche }}</strong>. Il est accrédité par le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué, pour le suivi de l'exécution du marché sous la supervision du Chef de service du marché à qui il rend compte.</li>
+        <li>La Maîtrise d'Œuvre de la phase de conception du présent marché est assurée par : <strong>{{ ccap.maitrise_oeuvre_conception|safe }}</strong></li>
+        <li>Le Maître d'Œuvre (mission de contrôle) de la phase de réalisation est : <strong>{{ ccap.maitre_oeuvre_realisation|safe }}</strong>, ci-après désigné Maître d'Œuvre. Il est chargé d'assurer la défense des intérêts du Maître d'Ouvrage ou du Maître d'Ouvrage Délégué aux stades de la définition, de l'élaboration, de l'exécution et de la réception des prestations objet du marché.</li>
+        <li>L'Assistant à Maîtrise d'Ouvrage est : <strong>{{ ccap.assistant_maitrise_ouvrage|safe }}</strong></li>
+        <li>Le cocontractant de l'Administration ou le titulaire du marché est : <strong>{{ ccap.cocontractant }}</strong>. Il est chargé de l'exécution des prestations prévues dans le marché.</li>
+    </ul>
+    <p style="padding-left:12pt;"><strong>3.2. Nantissement</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">Aux fins d'application du régime de nantissement prévu à l'article 150 du décret n°2018/366 du 20 juin 2018 portant Code des Marchés Publics, les attributions sont définies comme suit :</p>
+    <ul>
+        <li>L'autorité chargée de l'ordonnancement des paiements est : <strong>{{ ccap.autorite_ordonnancement }}</strong></li>
+        <li>L'autorité chargée de la liquidation des dépenses est : <strong>{{ ccap.autorite_liquidation }}</strong></li>
+        <li>L'organisme ou le responsable chargé du paiement est : <strong>{{ ccap.organisme_paiment }}</strong></li>
+        <li>Le responsable compétent pour fournir les renseignements au titre de l'exécution du présent marché est : <strong>{{ ccap.responsable_renseignement }}</strong></li>
+    </ul>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art4"></a>Article 4. Langue, lois et règlements applicables</h3>
+    <p style="padding-left:12pt;text-align:justify;">4.1. La langue utilisée est le Français ou l'Anglais.</p>
+    <p style="padding-left:12pt;text-align:justify;">4.2. Le cocontractant ou titulaire du marché s'engage à observer les lois, et règlements en vigueur en République du Cameroun et ce, aussi bien dans sa propre organisation que dans la réalisation du marché.</p>
+    <p style="padding-left:12pt;text-align:justify;">Si les lois et règlements en vigueur à la date de signature du présent marché venaient à être modifiés après la signature du marché, les coûts éventuels qui en découleraient directement seraient pris en compte sans gain ni perte pour chaque partie.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art5"></a>Article 5. Normes</h3>
+    <p style="padding-left:12pt;text-align:justify;">5.1. Les travaux en exécution du présent marché seront conformes aux normes fixées dans les Cahiers des Clauses Techniques Particulières, et quand aucune norme applicable n'est mentionnée, à la norme faisant autorité en la matière et applicable au Cameroun, cette norme sera la norme la plus récemment approuvée par l'autorité compétente.</p>
+    <p style="padding-left:12pt;text-align:justify;">5.2. Le cocontractant étudiera, exécutera et garantira les travaux du présent marché en prenant en considération la meilleure pratique de réalisation au Cameroun pour des opérations de technologie similaire.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art6"></a>Article 6. Pièces constitutives du marché</h3>
+    <p style="padding-left:12pt;text-align:justify;"><i>[Les pièces contractuelles constitutives du présent marché sont complémentaires. Elles sont par ordre de priorité, à adapter en fonction de la nature des travaux.]</i></p>
+    {{ ccap.pieces_constitutive_marche|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art7"></a>Article 7. Textes généraux applicables</h3>
+    <p style="padding-left:12pt;text-align:justify;"><i>[Le présent marché est soumis aux textes généraux ci-après, liste non exhaustive, à adapter selon les cas.]</i></p>
+    {{ ccap.textes_applicables|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art8"></a>Article 8. Communication</h3>
+    {{ ccap.communication|safe }}
+
+    <div class="page-break"></div>
+
+    <h2 style="text-align:center;"><a name="ccap-chap2"></a>CHAPITRE II. EXECUTION DES PRESTATIONS</h2>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art9"></a>Article 9. Consistance des prestations</h3>
+    <p style="padding-left:12pt;text-align:justify;">Les prestations à réaliser dans le cadre du présent marché comprennent deux (02) phases :</p>
+    <p style="padding-left:12pt;"><strong>Phase 1 : Conception ou Etudes</strong></p>
+    {{ ccap.consistance_phase_conception|safe }}
+    <p style="padding-left:12pt;"><strong>Phase 2 : Réalisation des travaux</strong></p>
+    {{ ccap.consistance_phase_realisation|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art10"></a>Article 10. Délais d'exécution du marché</h3>
+    {{ ccap.delai_execution|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art11"></a>Article 11. Obligations du Maître d'Ouvrage ou du Maître d'Ouvrage Délégué</h3>
+    <p style="padding-left:12pt;text-align:justify;">11.1. Le Maître d'ouvrage ou le Maître d'Ouvrage Délégué est responsable de l'acquisition et de la mise à disposition du site ainsi que son accès, de la possession, de l'utilisation et de l'accès à toutes les autres zones raisonnablement nécessaires à la bonne exécution du Marché. Il doit fournir au Cocontractant les facilités pour l'accès aux sites des projets. Pour les sites éloignés du siège du Maître d'Ouvrage, les frais de transport pour leur accès sont à la charge du Cocontractant.</p>
+    <p style="padding-left:12pt;text-align:justify;">11.2. Le Maître d'ouvrage ou le Maître d'Ouvrage Délégué est responsable de l'acquisition et de la mise à disposition du site ainsi que son accès, de la possession, de l'utilisation et de l'accès à toutes les autres zones raisonnablement nécessaires à la bonne exécution du Marché, y compris tous les droits de passage correspondants.</p>
+    <p style="padding-left:12pt;text-align:justify;">11.3. Le Maître d'ouvrage ou le Maître d'Ouvrage Délégué devra obtenir à ses frais les permis, autorisations, agréments et licences auprès des autorités locales, régionales ou nationales ou des services publics compétents, nécessaires à l'exécution du Marché, et qui relèvent de ses obligations.</p>
+    <p style="padding-left:12pt;text-align:justify;">11.4. Si le cocontractant de l'administration en fait la demande, le Maître d'ouvrage ou le Maître d'Ouvrage Délégué fera tout son possible pour l'aider à obtenir à temps et avec toute la diligence requise auprès des administrations ou services publics locaux, régionaux, nationaux, les permis, autorisations et licences nécessaires à l'exécution du Marché requis par ces organismes pour le cocontractant, ses sous-traitants ou le personnel du cocontractant ou de ses sous-traitants selon les cas.</p>
+    <p style="padding-left:12pt;text-align:justify;">11.5. Le Maître d'Ouvrage assure au cocontractant la protection contre les menaces, outrages, violences, voies de fait, injures ou diffamations dont il peut être victime en raison ou à l'occasion de l'exercice de sa mission.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art12"></a>Article 12. Ordres de service</h3>
+    <p style="padding-left:12pt;text-align:justify;">Les différents ordres de service seront établis et notifiés dans les conditions suivantes :</p>
+    <p style="padding-left:12pt;text-align:justify;">12.1. a) Dès notification du marché au titulaire, le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué dispose d'un délai de quinze (15) jours calendaires pour signer l'ordre de service de démarrage des prestations de la phase 1 du marché. Cet Ordre de service est notifié au cocontractant par le Chef de service du marché dans un délai de sept (7) jours calendaires à compter de sa date de signature. Une copie dudit ordre de service est transmise au Ministre en charge des Marchés Publics, à l'Organisme chargé de la Régulation, au Chef de service du marché, à l'Ingénieur du marché, à l'Organisme Payeur et au Maître d'œuvre le cas échéant.</p>
+    <p style="padding-left:12pt;text-align:justify;">12.1. b) Dès réception des prestations de la phase 1, le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué signe l'ordre de service de démarrage des travaux objets de la phase 2, notifié dans les mêmes conditions.</p>
+    <p style="padding-left:12pt;text-align:justify;">12.2. Les ordres de service ayant une incidence sur le montant et/ou sur le délai du marché sont signés par le Maître d'Ouvrage dans les conditions suivantes :</p>
+    <ul>
+        <li>lorsqu'un ordre de service est susceptible d'entraîner le dépassement du montant du marché, sa signature est subordonnée aux justificatifs du financement par le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué ;</li>
+        <li>en cas de dépassement du montant du marché, les modifications ne peuvent se faire que par voie d'avenant et les prestations supplémentaires ne peuvent être payées qu'après signature de ce dernier ;</li>
+        <li>les ordres de service pour prestations supplémentaires peuvent être signés par le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué et régularisés plus tard par voie d'avenant, tant que leur incidence financière cumulée est inférieure à dix pour cent (10%) du montant du marché ;</li>
+        <li>le visa préalable de l'Organisme Payeur sera éventuellement requis avant la signature de ceux ayant une incidence sur le montant ;</li>
+        <li>en tout état de cause, toute modification touchant aux spécifications techniques ou clauses techniques particulières doit faire l'objet d'une étude préalable sur l'étendue, le coût et les délais du marché.</li>
+    </ul>
+    <p style="padding-left:12pt;text-align:justify;">12.3. Les ordres de service à caractère technique liés au déroulement normal du chantier seront directement signés par le Chef de service du Marché et notifiés au Cocontractant par l'Ingénieur du Marché ou le Maître d'œuvre (le cas échéant) avec copie au Ministre en charge des Marchés Publics, à l'Organisme chargé de la Régulation et à l'Organisme Payeur.</p>
+    <p style="padding-left:12pt;text-align:justify;">12.4. Les ordres de service valant mise en demeure seront signés par le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué, et notifiés au Cocontractant par le Chef de service du Marché, avec copie au Ministre en charge des Marchés Publics, à l'Organisme chargé de la Régulation, à l'Ingénieur du marché et au Maître d'œuvre le cas échéant.</p>
+    <p style="padding-left:12pt;text-align:justify;">12.5. Les ordres de service de suspension et de reprise des travaux, pour cause d'intempéries ou autre cas de force majeure, seront signés par le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué et notifiés par le Chef de service du Marché au cocontractant, avec copie au Ministre en charge des Marchés Publics, à l'Organisme chargé de la Régulation, à l'Ingénieur du marché et au Maître d'œuvre le cas échéant.</p>
+    <p style="padding-left:12pt;text-align:justify;">12.6. Les ordres de service prescrivant les travaux nécessaires pour remédier aux désordres ne relevant pas d'une utilisation normale qui apparaîtraient dans les ouvrages pendant la période de garantie, seront signés par le Chef de Service du Marché, sur proposition de l'Ingénieur du Marché et notifiés au Cocontractant par l'Ingénieur du Marché.</p>
+    <p style="padding-left:12pt;text-align:justify;">12.7. Le Cocontractant dispose d'un délai de quinze (15) jours pour émettre des réserves sur tout ordre de service reçu. Le fait d'émettre des réserves ne dispense pas le Cocontractant d'exécuter les ordres de service reçus.</p>
+    <p style="padding-left:12pt;text-align:justify;">12.8. En cas de groupement d'entreprises, les ordres de service sont adressés au mandataire, qui a seule qualité pour présenter des réserves au nom du groupement qu'il représente.</p>
+    <p style="padding-left:12pt;text-align:justify;">12.9. Le marché peut comporter des tranches conditionnelles dont l'exécution est subordonnée, pour chacune d'entre elles, à la levée éventuelle de la clause de dénonciation et à la notification au Cocontractant, par ordre de service, de la décision du Maître d'Ouvrage de poursuivre l'exécution desdites tranches. Si cet ordre de service n'a pas été notifié au Cocontractant dans le délai imparti défini à l'article 14 du présent marché, le Maître d'Ouvrage et le Cocontractant sont, à l'expiration de ce délai, déliés de cette obligation pour cette tranche conditionnelle.</p>
+    <p style="padding-left:12pt;text-align:justify;">12.10. L'ordre de service de démarrage des travaux de la tranche conditionnelle ne peut être notifié qu'après achèvement et réception provisoire de la tranche précédente. Toutefois, au cas où la condition suspensive de l'exécution de la tranche conditionnelle tient à la disponibilité de financement, la notification de l'ordre de service de démarrage est donnée dès lors que la preuve de disponibilité de financement est établie.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art13"></a>Article 13. Rôles et responsabilités du cocontractant de l'administration</h3>
+    <p style="padding-left:12pt;text-align:justify;">13.1. Le cocontractant a pour mission d'assurer l'exécution des travaux sous le contrôle de l'Ingénieur ou du Maître d'œuvre (à préciser le cas échéant) et de remplir ses obligations de façon diligente, efficace et économique, tels que décrits dans les Spécifications techniques ou les clauses techniques, sous le contrôle de l'Ingénieur et ce conformément au présent marché, aux règles et normes en vigueur au Cameroun et aux techniques et pratiques généralement acceptées dans le domaine d'activité concerné par le marché. Il est tenu notamment d'effectuer (s'il y a lieu) les calculs, essais et analyses, de déterminer, de choisir, d'acheter, et approvisionner tous les outillages, matériaux et fournitures nécessaires pour l'exécution des travaux. Il est tenu d'engager tout le personnel utile spécialisé ou non.</p>
+    <p style="padding-left:12pt;text-align:justify;">13.2. Le cocontractant est responsable vis-à-vis du Maître d'Ouvrage ou du Maître d'Ouvrage Délégué de la qualité des matériaux et des fournitures utilisées, de leur parfaite adaptation aux besoins du chantier, de la bonne exécution des travaux, des prestations et interventions effectuées par les sous-traitants agréés. Il a l'obligation de se conformer à la législation en vigueur au Cameroun concernant le respect de l'environnement. Il devra exécuter tous les travaux spécifiés dans le CCTP et aux textes et directives mentionnés dans ladite pièce. Il aura notamment l'obligation de produire une plaque de chantier conformément à la réglementation et d'afficher un règlement intérieur à l'entreprise en prenant en compte les problèmes environnementaux et sociaux.</p>
+    <p style="padding-left:12pt;text-align:justify;">13.3. Pendant la durée du marché, le cocontractant ne s'engage pas directement ou indirectement, dans des activités professionnelles ou contractuelles susceptibles de compromettre son indépendance par rapport aux missions qui lui sont dévolues.</p>
+    <p style="padding-left:12pt;text-align:justify;">13.4. En cas de conflit d'intérêt du fait d'un membre de l'équipe de la mission, le cocontractant doit le signaler par écrit au Maître d'Ouvrage et doit remplacer l'expert en question, impliqué dans le projet ou le marché. Le conflit d'intérêt s'entend de toute situation dans laquelle le cocontractant pourrait tirer des profits directs ou indirects d'un marché passé par le Maître d'Ouvrage auprès duquel il est consulté, ou toute situation dans laquelle il a des intérêts personnels ou financiers suffisants pour compromettre son impartialité dans l'accomplissement de ses fonctions ou de nature à affecter défavorablement son jugement.</p>
+    <p style="padding-left:12pt;text-align:justify;">13.5. Le cocontractant est tenu au secret professionnel vis-à-vis des tiers, sur les informations, renseignements et documents recueillis ou portés à sa connaissance à l'occasion de l'exécution du marché. A ce titre, les documents établis par le cocontractant au cours de l'exécution du marché ne peuvent être publiés ou communiqués qu'avec l'accord écrit du Maître d'Ouvrage. Le cocontractant est tenu, lors du dépôt du rapport final, de restituer tous les documents empruntés au Maître d'Ouvrage.</p>
+    <p style="padding-left:12pt;text-align:justify;">13.6. Le cocontractant ainsi que ses associés ou ses sous-traitants s'interdisent pendant la durée du marché, et à son issue pendant <i>[six (6) mois]</i>, de fournir des biens, prestations ou services destinés au Maître d'Ouvrage découlant des prestations ou ayant un rapport étroit avec elles (à l'exception de l'exécution des prestations ou de leur continuation). Le cocontractant doit prendre en charge des frais professionnels et de la couverture de tous risques de maladie et d'accident dans le cadre de sa mission. Le cocontractant ne peut pas modifier la composition de l'équipe proposée dans son offre technique sans l'accord écrit du Maître d'Ouvrage. Pour les entreprises étrangères et à défaut de résider, le Cocontractant aura à maintenir en République du Cameroun pendant la période d'exécution du contrat, un représentant permanent dûment mandaté.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art14"></a>Article 14. Marchés à tranches conditionnelles</h3>
+    {{ ccap.marche_a_tranche|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art15"></a>Article 15. Personnel et Matériel du cocontractant</h3>
+    <p style="padding-left:12pt;"><strong>15.1. Personnel clé du cocontractant</strong></p>
+    {{ ccap.personnel_entreprise|safe }}
+    <p style="padding-left:12pt;text-align:justify;"><i>[Indiquer par ailleurs le personnel à recruter dans le cas de l'approche HIMO le cas échéant, ainsi que le mode de leur rémunération.]</i></p>
+    <p style="padding-left:12pt;"><strong>15.2. Remplacement du personnel clé</strong></p>
+    {{ ccap.replacement_personnel|safe }}
+    <p style="padding-left:12pt;"><strong>15.3. Retrait du personnel</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">Après agrément écrit du Maître d'Ouvrage ou du Maître d'Ouvrage Délégué, le Chef de service du marché peut, sur proposition de l'Ingénieur du Marché ou du Maître d'œuvre le cas échéant, demander au cocontractant, après mise en demeure, de retirer un personnel faisant partie de ses effectifs pour faute grave dûment constatée ou pour incompétence, en donnant les motifs de sa requête. Le cocontractant veillera à ce que cette personne quitte le Site dans les quinze (15) jours et qu'elle n'ait plus aucun rapport avec le travail dans le cadre du Marché. Dans ce cas, son remplacement est effectué conformément aux dispositions de l'article 13.2 ci-dessus.</p>
+    <p style="padding-left:12pt;"><strong>15.4. Représentant du cocontractant</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">Dès notification du marché, le cocontractant désigne une personne physique, le chef de projet, qui le représente vis-à-vis de l'Administration pour tout ce qui concerne l'exécution du projet. Cette personne, chargée de la conduite de l'exécution des prestations, doit disposer des pouvoirs suffisants pour prendre sans délai les décisions nécessaires à la bonne marche du projet.</p>
+    <p style="padding-left:12pt;"><strong>15.5. Législation du travail</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">Le Cocontractant devra se conformer à la législation du travail en vigueur au Cameroun incluant la législation relative à l'embauche, la santé, la sécurité, la protection sociale, à l'HIMO, au quota de ressources locales à mobiliser. Le cocontractant devra fournir le logement, l'assistance médicale, la nourriture et les installations sanitaires au personnel vivant dans ses bases vie, en se conformant aux exigences des Spécifications se rapportant aux Conditions sociales et sanitaires de la main d'œuvre. Dans les relations avec son personnel et le personnel de ses sous-traitants, qui seront employés ou participeront à l'exécution du Marché, le cocontractant devra respecter les fêtes nationales, jours fériés légaux, fêtes religieuses ou autres coutumes, ainsi que toutes les lois et toutes les réglementations locales applicables en matière de droit du travail. Le cocontractant aura la responsabilité d'obtenir tous les permis et/ou visas nécessaires de la part des autorités compétentes, afin que toute la main-d'œuvre et tout le personnel devant être employés sur le site puissent entrer et séjourner en situation régulière au Cameroun. Le cocontractant devra fournir à ses propres frais les moyens nécessaires afin de rapatrier tous les membres de son personnel ainsi que celui de ses sous-traitants travaillant sur le Site, dans les pays où ils ont été respectivement recrutés pour l'exécution du marché.</p>
+    <p style="padding-left:12pt;"><strong>15.6. Matériel proposé dans l'offre</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">Le cocontractant utilisera les matériels et équipements nécessaires indiqués dans son offre, dans l'Avant-Projet Détaillé et dans le projet d'exécution pour la bonne réalisation des prestations selon les règles de l'art. Toute modification apportée sera notifiée au Maître d'Ouvrage ou au Maître d'Ouvrage Délégué pour approbation préalable.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art16"></a>Article 16. Pièces à fournir par le cocontractant</h3>
+    <p style="padding-left:12pt;text-align:justify;"><i>[Le Maître d'Ouvrage indiquera tous les documents à fournir par le cocontractant, les délais de leur transmission ainsi que ceux d'approbation par les personnes à désigner.]</i></p>
+    <p style="padding-left:12pt;"><strong>16.1./16.2. Programmes d'action et des travaux, Plan d'assurance qualité et autres, pour la phase 1 (Conception ou études) et la phase 2 (Réalisation des travaux)</strong></p>
+    {{ ccap.programme_travaux|safe }}
+    <p style="padding-left:12pt;"><strong>16.3. Projet d'exécution des travaux</strong></p>
+    {{ ccap.projet_execution|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art17"></a>Article 17. Mise à disposition des documents et du site</h3>
+    <p style="padding-left:12pt;text-align:justify;">Le Maître d'Ouvrage mettra le site des travaux et ses voies d'accès à la disposition du Cocontractant en temps utile et au fur et à mesure de l'avancement des travaux, conformément au programme d'exécution. L'exemplaire reproductible des plans figurant dans le Dossier d'Appel d'Offres sera remis par : <i>[le Chef de service ou le Maître d'Œuvre]</i>.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art18"></a>Article 18. Assurances des ouvrages et responsabilités civiles</h3>
+    <p style="padding-left:12pt;"><strong>18.1. Emballage pour le transport des équipements et matériaux</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">Le fournisseur doit prendre toutes les dispositions nécessaires pour que les équipements ou les matériaux soient protégés par un emballage soigné et approprié au transport maritime, aérien, ferroviaire ou routier. Le fournisseur doit faire toute diligence pour réparer tous les dégâts éventuellement occasionnés pendant le transport jusqu'au lieu de livraison.</p>
+    <p style="padding-left:12pt;"><strong>18.2. Assurances</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">a) Le titulaire d'un marché est tenu de souscrire auprès d'une ou plusieurs sociétés d'assurances agréées, et dès notification du marché, une police d'assurance couvrant les risques liés à l'exécution des prestations, objets de son marché.</p>
+    <p style="padding-left:12pt;text-align:justify;">b) Les polices d'assurances suivantes sont requises au titre du présent Marché pour les montants minima, les franchises et les autres conditions minimales dans un délai de quinze (15) jours à compter de la notification du marché <i>(à préciser selon la liste ci-après)</i> :</p>
+    <ul>
+        <li>Assurance responsabilité civile vis-à-vis des tiers couvrant les risques de dommages corporels causés à des tiers ou des risques de décès de tiers (y compris le personnel du Maître d'ouvrage), les risques de perte ou des dommages survenant dans le cadre de l'exécution des travaux à des biens pendant la fourniture ou le montage ou les installations, le cas échéant ;</li>
+        <li>Assurance « Tous risques chantier » couvrant la perte ou les dommages causés aux Installations sur le site, survenant avant l'achèvement des Installations, avec une extension de garantie couvrant la responsabilité du cocontractant au titre de la perte ou des dommages survenant pendant la période de garantie, aussi longtemps que le cocontractant restera sur le site pour exécuter ses obligations pendant la période de garantie ;</li>
+        <li>Assurance couvrant la responsabilité décennale, le cas échéant.</li>
+    </ul>
+    <p style="padding-left:12pt;text-align:justify;">18.3. En tout état de cause, la police doit couvrir tous les dommages corporels, matériels et immatériels causés aux tiers ou aux ouvrages du lendemain de sa souscription, à la réception définitive des prestations ou décennale, le cas échéant.</p>
+    <p style="padding-left:12pt;text-align:justify;">18.4. Si le cocontractant s'abstient de contracter et/ou de maintenir les assurances visées ci-dessus, le Maître d'Ouvrage pourra contracter ces assurances et les maintenir en vigueur, et déduire de temps à autre, de toute somme due au cocontractant en vertu du marché, toute prime que le Maître d'Ouvrage aura payée à l'assureur, ou recouvrer autrement le montant de la prime ainsi payée comme si c'était une dette due par le cocontractant.</p>
+    <p style="padding-left:12pt;text-align:justify;">18.5. Le cocontractant devra veiller à ce que son ou ses sous-traitants souscrivent et maintiennent en vigueur, dans toute la mesure nécessaire, des polices d'assurance appropriées couvrant leur personnel, leurs véhicules et les prestations exécutées par eux en vertu du marché, à moins que ces sous-traitants ne soient couverts par les polices contractées par le cocontractant.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art19"></a>Article 19. Sous-traitance</h3>
+    <p style="padding-left:12pt;text-align:justify;">Le présent marché peut donner lieu à des sous-commandes ou de faire exécuter une partie des travaux par des sous-traitants suivant les modalités fixées par le Code et le Cahier des Clauses Administratives Générales applicable aux travaux après autorisation préalable du Maître d'Ouvrage ou du Maître d'Ouvrage Délégué. Nonobstant tout recours à une sous-commande, l'entreprise principale demeure responsable de l'exécution de toutes les obligations résultant du marché. Le contrat de sous-traitance doit être conforme aux engagements de l'entreprise principale. Les sous-traitants exécuteront leur partie des travaux sous la seule et pleine responsabilité du cocontractant.</p>
+    <p style="padding-left:12pt;text-align:justify;">Le montant des travaux pouvant être sous-traités est limité à trente pour cent (30%) du montant du marché et de ses avenants, le cas échéant. Les prestations objet de sous-commande doivent prioritairement être accordées aux Petites et Moyennes entreprises nationales dont cinquante-et-un pour cent (51%) au moins du capital est détenu par les nationaux, et en cas d'insuffisance ou de carence, aux PME et Grandes entreprises dont trente-trois pour cent (33%) au moins du capital est détenu par les nationaux.</p>
+    <p style="padding-left:12pt;text-align:justify;">Le paiement du sous-traitant peut être effectué par le Maître d'Ouvrage lorsque le montant de la prestation sous-traitée par une seule entreprise est supérieur ou égal à dix pour cent (10%) du montant total du marché et ses éventuels avenants, ou lorsqu'il est établi que l'entreprise principale se livre à des manœuvres dolosives vis-à-vis du sous-traitant. Lorsque le sous-traitant doit être payé directement, l'entreprise principale est tenue, lors de la demande d'autorisation, d'établir que la cession ou le nantissement de créances résultant du marché ne fait pas obstacle au paiement direct du sous-traitant.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art20"></a>Article 20. Laboratoire de chantier et essais</h3>
+    {{ ccap.labo_chantier|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art21"></a>Article 21. Journal et Réunions de chantier</h3>
+    <p style="padding-left:12pt;"><strong>21.1. Journal de chantier</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">Le cocontractant est tenu d'ouvrir avant tout démarrage des travaux, un journal de chantier. C'est un document contradictoire unique. Ses pages sont numérotées et visées. Aucune page ne doit être enlevée. Les parties raturées ou annulées sont signalées en marge pour validation. Y sont consignés chaque jour : les opérations administratives relatives à l'exécution et au règlement du marché (notification, résultats d'essais, attachement) ; les conditions atmosphériques ; les réceptions de matériaux et agréments de toutes sortes ; les incidents ou détails de toutes natures présentant quelque intérêt du point de vue de la tenue ultérieure des ouvrages ou de la durée réelle des travaux ; etc. Le cocontractant pourra y consigner les incidents ou observations susceptibles de donner lieu à une réclamation de sa part. Ce journal sera signé contradictoirement par le Maître d'œuvre et le représentant du cocontractant à chaque visite de chantier. Pour toute réclamation éventuelle du cocontractant, il ne pourra être fait état, outre les autres pièces du marché, que des événements ou documents mentionnés en temps utile au journal de chantier.</p>
+    <p style="padding-left:12pt;"><strong>21.2. Réunions de chantier</strong></p>
+    {{ ccap.reunion_chantier|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art22"></a>Article 22. Utilisation des explosifs</h3>
+    {{ ccap.utilisation_explosifs|safe }}
+
+    <div class="page-break"></div>
+
+    <h2 style="text-align:center;"><a name="ccap-chap3"></a>CHAPITRE III. DE LA RECEPTION</h2>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art23"></a>Article 23. Réception des prestations</h3>
+    <p style="padding-left:12pt;"><strong>23.1. Commission de suivi et de recette technique de la phase conception</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">Avant la réception, le cocontractant demande la réception des prestations par écrit au Maître d'Ouvrage avec copie à l'ingénieur et à l'organisme payeur. La Commission de suivi et de recette sera composée, à titre indicatif, des membres suivants :</p>
+    {{ ccap.commission_suivi_recette_conception|safe }}
+    <p style="padding-left:12pt;text-align:justify;">NB : pour la validation des études, l'ingénieur du marché prononce la réception des prestations à la suite de l'approbation de ladite commission.</p>
+    <p style="padding-left:12pt;"><strong>23.2. Réception provisoire de la phase réalisation</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">23.2.1. Documents à fournir avant la réception technique : le cocontractant devra, dans un délai de dix (10) jours au moins avant la réception provisoire du marché subséquent, transmettre au Maître d'Ouvrage ou au Maître d'Ouvrage Délégué les documents suivants : 
+        <ul>
+            <li>copie de la facture ou du décompte décrivant les travaux, leurs quantités, leur prix et le montant total</li>
+            <li>notification de la réception ;</li>
+            <li>copie du cautionnement définitif</li>
+            <li>copie de l'assurance le cas échéant</li>
+            <li>autres pièces à préciser</li>
+        </ul></p>
+    <p style="padding-left:12pt;"><strong>23.2.2. Opérations préalables à la réception</strong></p>
+    {{ ccap.operation_prealable_reception|safe }}
+    <p style="padding-left:12pt;"><strong>23.2.3. Réception provisoire</strong></p>
+    {{ ccap.reception_provisoire|safe }}
+    <p style="padding-left:12pt;"><strong>23.2.4. Composition de la commission de réception</strong></p>
+    {{ ccap.commission_reception|safe }}
+    <p style="padding-left:12pt;text-align:justify;">Les membres de la commission de réception sont convoqués au moins dix (10) jours avant la date de réception. Le cocontractant est convoqué à la réception par courrier au moins <i>[10 jours]</i> avant la date de la réception. Il est tenu d'y assister (ou de s'y faire représenter) ; son absence équivaut à l'acceptation sans réserve des conclusions de la Commission de réception.</p>
+    <p style="padding-left:12pt;"><strong>23.2.5. Réceptions partielles</strong></p>
+    {{ ccap.reception_partielle|safe }}
+    <p style="padding-left:12pt;text-align:justify;">23.2.6. Prise de possession des ouvrages : toute prise de possession des ouvrages doit être précédée d'une réception partielle ou provisoire. Toutefois, s'il y a urgence, la prise de possession peut intervenir antérieurement à la réception, sous réserve de l'établissement d'un état des lieux contradictoire.</p>
+    <p style="padding-left:12pt;text-align:justify;">23.2.7. Rejet : lorsque la Commission juge que les travaux appellent des réserves telles qu'il ne lui apparaît possible d'en prononcer ni la réception partielle ni la réception avec réfaction, le Chef de service du marché notifie une décision motivée de rejet. Le Cocontractant dispose de quinze (15) jours pour présenter ses observations ; passé ce délai, il est réputé avoir accepté la décision. Si le Cocontractant formule des observations, le Chef de service du marché dispose ensuite de quinze (15) jours pour notifier une nouvelle décision, après avis de la Commission de réception le cas échéant. En cas de rejet, le Cocontractant est tenu de rembourser les avances et acomptes déjà perçus.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art24"></a>Article 24. Documents à fournir après exécution</h3>
+    {{ ccap.documente_a_fournir|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art25"></a>Article 25. Garantie contractuelle / Entretien pendant la période de garantie</h3>
+    <p style="padding-left:12pt;"><strong>25.1. Délai de garantie</strong></p>
+    {{ ccap.delai_garantie|safe }}
+    <p style="padding-left:12pt;"><strong>25.2. Entretien pendant la période de garantie</strong></p>
+    {{ ccap.periode_garantie|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art26"></a>Article 26. Réception définitive</h3>
+    {{ ccap.reception_definitive|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art27"></a>Article 27. Garantie légale</h3>
+    <p style="padding-left:12pt;text-align:justify;">Le cocontractant est responsable de plein droit pendant dix (10) ans envers le Maître d'ouvrage ou le Maître d'Ouvrage Délégué, à compter de la réception provisoire, des dommages qui compromettent la solidité de l'ouvrage ou qui l'affectent dans l'un de ses éléments constitutifs ou l'un de ses éléments d'équipement le rendant impropre à sa destination. A cette fin, il devra recruter un Bureau de Contrôle Technique (BCT) agréé chargé de l'expertise des travaux en vue d'une assurance décennale.</p>
+
+    <div class="page-break"></div>
+
+    <h2 style="text-align:center;"><a name="ccap-chap4"></a>CHAPITRE IV. CLAUSES FINANCIERES</h2>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art28"></a>Article 28. Montant du marché</h3>
+    {{ ccap.montant_marche|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art29"></a>Article 29. Lieu et mode de paiement</h3>
+    <p style="padding-left:12pt;text-align:justify;">Tout règlement relatif à un marché public intervient par transfert sur un compte domicilié dans un établissement de crédit de droit camerounais de premier rang agréé par le Ministre chargé des finances, conformément aux textes en vigueur, ou par crédit documentaire. Le Maître d'Ouvrage se libérera des sommes dues par virement bancaire au nom du cocontractant. <i>[La domiciliation bancaire devra être la même que celle du cautionnement définitif.]</i></p>
+    <p style="padding-left:12pt;text-align:justify;">a) Pour les règlements en francs CFA : par crédit au compte n° _________ ouvert au nom du cocontractant à la banque ______________.</p>
+    <p style="padding-left:12pt;text-align:justify;">b) Pour les règlements en devises (le cas échéant) : par crédit au compte n° _________ ouvert au nom du cocontractant à la banque ______________.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art30"></a>Article 30. Garanties et cautions</h3>
+    <p style="padding-left:12pt;text-align:justify;">Le cocontractant devra fournir les garanties émanant d'organismes financiers agréés par le Ministre chargé des finances ou ayant un correspondant local agréé. Les garanties décrites ci-après en faveur du Maître d'Ouvrage ou du Maître d'Ouvrage Délégué sont exigées dans les délais, pour le montant, selon la manière et sous la forme indiquée ci-après :</p>
+    <p style="padding-left:12pt;"><strong>30.1. Cautionnement définitif</strong></p>
+    {{ ccap.cautionnement_definitif|safe }}
+    <p style="padding-left:12pt;"><strong>30.2. Cautionnement d'avance de démarrage</strong></p>
+    {{ ccap.cautionnement_avance_demarrage|safe }}
+    <p style="padding-left:12pt;"><strong>30.3. Cautionnement de bonne exécution (en remplacement de la retenue de garantie)</strong></p>
+    {{ ccap.cautionnement_garantie|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art31"></a>Article 31. Variation des prix</h3>
+    {{ ccap.variation_prix|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art32"></a>Article 32. Formules de révision des prix</h3>
+    {{ ccap.revision_prix|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art33"></a>Article 33. Formules d'actualisation des prix</h3>
+    {{ ccap.actualisation_prix|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art34"></a>Article 34. Travaux en régie</h3>
+    {{ ccap.travaux_regie|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art35"></a>Article 35. Valorisation des approvisionnements</h3>
+    {{ ccap.valorisation_approvisionnement|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art36"></a>Article 36. Avances</h3>
+    {{ ccap.avances|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art37"></a>Article 37. Règlement des travaux</h3>
+    <p style="padding-left:12pt;"><strong>37.1. Constatation des travaux exécutés</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">Avant la fin de chaque mois, le cocontractant de l'administration et l'Ingénieur (ou le Maître d'Œuvre le cas échéant) établissent un attachement contradictoire qui récapitule et fixe les quantités ou livrables réalisés et constatés pour chaque poste du bordereau au cours du mois et pouvant donner droit au paiement.</p>
+    <p style="padding-left:12pt;"><strong>37.2. Décomptes provisoires</strong></p>
+    {{ ccap.decompte_provisoir|safe }}
+    <p style="padding-left:12pt;"><strong>37.3. Décompte final</strong> <i>(Article 35 CCAG et Article 47 (f) du CMP)</i></p>
+    {{ ccap.decompte_final|safe }}
+    <p style="padding-left:12pt;"><strong>37.4. Décompte général et définitif</strong> <i>(CCAG Article 35)</i></p>
+    {{ ccap.decompte_defintif|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art38"></a>Article 38. Intérêts moratoires</h3>
+    <p style="padding-left:12pt;text-align:justify;">Les intérêts moratoires éventuels sont payés par état des sommes dues et calculés par application de la formule :</p>
+    <p style="padding-left:12pt;text-align:center;"><strong>L = M x (n/360) x (i)</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">Dans laquelle : M = Montant TTC des sommes dues au titulaire ; n = Nombre de jours calendaires de retard ; i = Taux débiteurs des entreprises à la BEAC majoré d'un (01) point ou taux d'escompte pratiqué par la Banque d'émission de la monnaie considérée majoré au plus d'un (01) point, selon le cas.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art39"></a>Article 39. Pénalités</h3>
+    <p style="padding-left:12pt;"><strong>A. Pénalités de retard</strong></p>
+    <p style="padding-left:12pt;text-align:justify;">39.1. En cas de dépassement du délai contractuel imputable au titulaire du marché, il lui est appliqué, après mise en demeure préalable, une pénalité de retard, dont le montant est fixé comme suit :</p>
+    <ul>
+        <li>Un deux-millième (1/2000ème) du montant TTC du marché de base par jour calendaire de retard du premier au trentième jour au-delà du délai contractuel fixé par le marché ;</li>
+        <li>Un millième (1/1000ème) du montant TTC du marché de base par jour calendaire de retard au-delà du trentième jour.</li>
+    </ul>
+    <p style="padding-left:12pt;text-align:justify;">39.2. Pour les marchés à tranche conditionnelle, les délais et montants à prendre en compte sont ceux de la tranche considérée.</p>
+    <p style="padding-left:12pt;"><strong>B. Pénalités particulières</strong> <i>(montant et mode de calcul à préciser)</i></p>
+    <p style="padding-left:12pt;text-align:justify;">39.3. Indépendamment des pénalités pour dépassement du délai contractuel, le cocontractant est passible des pénalités particulières suivantes pour inobservation des dispositions du contrat, notamment : remise tardive du cautionnement définitif ; remise tardive des assurances ; remise tardive du projet d'exécution pour autant que le retard soit du fait du cocontractant ; autres <i>[à préciser par le Maître d'ouvrage]</i>.</p>
+    <p style="padding-left:12pt;text-align:justify;">39.4. En tout état de cause, le montant cumulé de toutes les pénalités (de retard et particulières) ne saurait excéder dix pour cent (10%) du montant TTC du marché de base et de ses avenants le cas échéant, sous peine de résiliation. Toute remise de pénalités ne peut intervenir qu'après avis de l'organisme chargé de la régulation des marchés publics requis par le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué.</p>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art40"></a>Article 40. Règlement en cas de groupement d'entreprises et de sous-traitance</h3>
+    {{ ccap.reglement_groupement|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art41"></a>Article 41. Régime fiscal et douanier</h3>
+    {{ ccap.regime_fiscal|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art42"></a>Article 42. Timbres et enregistrement des marchés</h3>
+    <p style="padding-left:12pt;text-align:justify;">Sept (07) exemplaires originaux du marché seront timbrés et enregistrés par les soins et aux frais du cocontractant de l'administration, conformément à la réglementation en vigueur.</p>
+
+    <div class="page-break"></div>
+
+    <h2 style="text-align:center;"><a name="ccap-chap5"></a>CHAPITRE V. DISPOSITIONS DIVERSES</h2>
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art43"></a>Article 43. Résiliation du marché</h3>
+    {{ ccap.resiliation_marche|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art44"></a>Article 44. Cas de force majeure</h3>
+    {{ ccap.force_majeure|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art45"></a>Article 45. Différends et litiges</h3>
+    {{ ccap.differends_litiges|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art46"></a>Article 46. Edition et diffusion du présent marché</h3>
+    {{ ccap.edition_marche|safe }}
+
+    <h3 style="padding-left:12pt;"><a name="ccap-art47"></a>Article 47. Et dernier : Validité et entrée en vigueur du marché</h3>
+    {{ ccap.entree_en_vigueur|safe }}
 </div>

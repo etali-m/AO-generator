@@ -46,7 +46,10 @@
 
         <div style="margin: 0 auto;">
             <div class="textbox" style="font-size:24px; border:3.0pt solid #000000; display:block; min-height:155.3pt; width:auto;">
-                <p style="font-weight:bold; font-size:24px; text-align: center;">Dossier d'Appel d'Offres <span style="text-transform:capitalize;">{{ appel_offre.type_dossier }}</span> <span style="text-transform:capitalize;">{{ appel_offre.mode_passation }}</span> avec Concours</p>
+                <p style="font-weight:bold; font-size:24px; text-align: center;">Dossier d'Appel d'Offres <span style="text-transform:capitalize;">{{ appel_offre.type_dossier }}</span> <span style="text-transform:capitalize;">
+                    {% if appel_offre.mode_passation == 'concour' %} avec {% endif %}
+                    {{ appel_offre.mode_passation }}
+                </span></p>
                 <p style="font-weight:bold; font-size:24px; text-align: center;"><b>N°{{ appel_offre.numero_appel_offre }}</b> <b>du</b> _______________________</p>
                 <p style="font-size:24px; text-align: center;">POUR LA CONCEPTION-REALISATION DE : <br> {{ appel_offre.objet_appel }}</p>
             </div>

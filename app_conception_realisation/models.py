@@ -113,7 +113,13 @@ class RPAO(models.Model):
     ref_24 = RichTextField(default='')    # Critères d'évaluation (éliminatoires et essentiels)
     criteres_eliminatoires = RichTextField(default='')  # Détail des critères éliminatoires (référence 24)
     sous_criteres_essentiels_prop_artistique = RichTextField(default='')  # Sous-critères essentiels - proposition artistique
-    sous_criteres_essentiels_prop_technique = RichTextField(default='')   # Sous-critères essentiels - proposition technique
+
+    # ----- Sous-critères essentiels - proposition technique (fragmentés, pages 80-85) -----
+    sous_criteres_technique_references = RichTextField(default='')       # A. Références du soumissionnaire (30 pts)
+    sous_criteres_technique_personnel = RichTextField(default='')        # B. Qualifications et expérience du personnel (35 pts)
+    sous_criteres_technique_materiel = RichTextField(default='')         # Disponibilité du matériel/équipements, études + réalisation (30 pts)
+    sous_criteres_technique_delais_capacite = RichTextField(default='')  # C. Délais (03 pts) + D. Capacité financière (02 pts)
+    notes_financiere_generale = RichTextField(default='')                # II. Note financière (NF) + III. Note générale (NG)
 
     # ===== G. Attribution et éthique =====
     ref_30 = RichTextField(default='')    # Cautionnement définitif
@@ -175,6 +181,7 @@ class CCAP(models.Model):
     reunion_chantier = RichTextField()
     utilisation_explosifs = RichTextField(blank=True, null=True)
     operation_prealable_reception = RichTextField()
+    reception_provisoire = RichTextField(blank=True, null=True)
     commission_reception = RichTextField()
     reception_partielle = RichTextField(blank=True, null=True)
     periode_garantie = RichTextField(blank=True, null=True)
@@ -207,8 +214,9 @@ class CCAP(models.Model):
     assistant_maitrise_ouvrage = RichTextField(blank=True, null=True)
     consistance_phase_conception = RichTextField()
     consistance_phase_realisation = RichTextField()
-    montant_phase1 = RichTextField()
-    montant_phase2 = RichTextField()
+    montant_phase1 = RichTextField(blank=True, null=True)
+    montant_phase2 = RichTextField(blank=True, null=True)
+    montant_marche = RichTextField(blank=True, null=True)
     commission_suivi_recette_conception = RichTextField()
 
     def __str__(self):
