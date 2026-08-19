@@ -1,32 +1,48 @@
+<!-- Bordereau des prix unitaires -->
 <div>
     <h1 style="padding-top:500px; text-align: center;"><a name="cr7"></a>PIECE N° 7</h1>
     <h1 style="text-align:center;">CADRE DU BORDEREAU DES PRIX UNITAIRES</h1>
 
     <div class="page-break"></div>
 
-    <table style="width:100%; border-collapse: collapse; margin-top:20px;">
+    <h2 style="padding-top: 3pt; text-align: center;">BORDEREAU DES PRIX UNITAIRES</h2>
+    <p style="padding-top: 9pt;text-indent: 0pt;text-align: left;"><br/></p>
+
+    <table class="table" style="width: 100%; border-collapse: collapse; border: 1px solid #1a1a1a;">
         <thead>
             <tr>
-                <th style="border:1px solid #000; padding:6px;">N° Prix</th>
-                <th style="border:1px solid #000; padding:6px;">Désignation</th>
-                <th style="border:1px solid #000; padding:6px;">Unité</th>
-                <th style="border:1px solid #000; padding:6px;">Quantité</th>
+                <th colspan="5" style="text-transform: uppercase; font-weight: bold; text-align: center; padding: 15px 5px;">BORDEREAU DES PRIX UNITAIRES POUR L'EXECUTION DES TRAVAUX DE : {{ appel_offre.objet_appel }}</th>
+            </tr>
+            <tr style="background-color: #f2f2f2;">
+                <th style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">N° Prix</th>
+                <th style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">Désignation</th>
+                <th style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">Unité</th>
+                <th style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">Prix Unitaire en Chiffre FCFA</th>
+                <th style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">Prix Unitaire en lettre FCFA</th>
             </tr>
         </thead>
+
         <tbody>
             {% for ligne in bpu_dqe %}
                 {% if ligne.type == 'section' %}
                 <tr>
-                    <td colspan="4" style="border:1px solid #000; padding:6px; font-weight:bold; background:#f0f0f0;">{{ ligne.title }}</td>
+                    <td colspan="5" style="border: 1px solid #1a1a1a; padding: 12px; text-align: center; font-weight: bold; text-transform: uppercase;">{{ ligne.title }}</td>
                 </tr>
                 {% else %}
                 <tr>
-                    <td style="border:1px solid #000; padding:6px;">{{ ligne.code }}</td>
-                    <td style="border:1px solid #000; padding:6px;">{{ ligne.designation }}</td>
-                    <td style="border:1px solid #000; padding:6px;">{{ ligne.unit }}</td>
-                    <td style="border:1px solid #000; padding:6px;">{{ ligne.quantity }}</td>
+                    <td style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">{{ ligne.code }}</td>
+                    <td style="border: 1px solid #1a1a1a; padding: 12px; text-align: left; text-transform: capitalize;">{{ ligne.designation }}</td>
+                    <td style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;">{{ ligne.unit }}</td>
+                    <td style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;"> </td>
+                    <td style="border: 1px solid #1a1a1a; padding: 12px; text-align: left;"> </td>
                 </tr>
                 {% endif %}
+            {% empty %}
+                <tr>
+                    <td colspan="5" style="text-align:center; color:#888; padding: 20px; font-style: italic;">
+                        Aucune ligne pour le moment.
+                    </td>
+                </tr>
             {% endfor %}
         </tbody>
     </table>
