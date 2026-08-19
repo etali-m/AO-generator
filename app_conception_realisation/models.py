@@ -269,11 +269,6 @@ class ModelMarche(models.Model):
 # équivalent "visa de maturité" côté travaux qui est une simple annexe statique)
 class EtudePrealable(models.Model):
     appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE, related_name='etude_prealable_cr')
-    etude_prealable_date = models.DateField(blank=True, null=True)
-    etude_prealable_maitre_oeuvre = models.CharField(max_length=255, blank=True, null=True)
-    etude_prealable_references_marche = models.CharField(max_length=255, blank=True, null=True)
-    etude_prealable_type = models.CharField(max_length=100, blank=True, null=True)
-    etude_prealable_description = RichTextField(blank=True, null=True)
     etude_prealable_fichier = models.FileField(upload_to='etudes_prealables', blank=True, null=True)
 
     def __str__(self):

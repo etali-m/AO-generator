@@ -6,14 +6,10 @@
     <div class="page-break"></div>
 
     <div style="padding:15px;">
-        {% if etude_prealable %}
-        <h3>Date de l'étude</h3><p>{{ etude_prealable.etude_prealable_date }}</p>
-        <h3>Maître d'œuvre ayant réalisé l'étude</h3><p>{{ etude_prealable.etude_prealable_maitre_oeuvre }}</p>
-        <h3>Références du marché d'étude</h3><p>{{ etude_prealable.etude_prealable_references_marche }}</p>
-        <h3>Type d'opération</h3><p>{{ etude_prealable.etude_prealable_type }}</p>
-        <h3>Description des études (APS / APD)</h3><div style="padding:10px;">{{ etude_prealable.etude_prealable_description|safe }}</div>
+        {% if etude_prealable and etude_prealable.etude_prealable_fichier %}
+        <p>Le document justificatif des études préalables est joint en annexe du présent dossier.</p>
         {% else %}
-        <p style="font-style: italic;">[Sans objet — aucune étude préalable renseignée pour ce dossier.]</p>
+        <p style="font-style: italic;">[Sans objet — aucun document justificatif d'étude préalable joint pour ce dossier.]</p>
         {% endif %}
     </div>
 </div>

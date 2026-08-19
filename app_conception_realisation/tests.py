@@ -108,10 +108,7 @@ class ConceptionRealisationFlowTests(TestCase):
         self.assertEqual(response.status_code, 201, response.content)
         self.assertEqual(TDR.objects.filter(appel_offre=self.appel_offre).count(), 1)
 
-        etude_payload = {
-            'etude_prealable_maitre_oeuvre': 'Bureau Etudes XYZ',
-            'etude_prealable_type': 'entretien',
-        }
+        etude_payload = {}
         response = self.client.post(f'/api/marche-conception-realisation/{self.appel_offre.id}/etude_prealable', etude_payload, format='json')
         self.assertEqual(response.status_code, 201, response.content)
         self.assertEqual(EtudePrealable.objects.filter(appel_offre=self.appel_offre).count(), 1)

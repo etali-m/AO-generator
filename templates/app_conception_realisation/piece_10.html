@@ -4,110 +4,325 @@
 
     <div class="page-break"></div>
 
+    <!-- ============ PAGE 1 : PAGE DE GARDE DU MARCHE ============ -->
+
     <table style="width: 100%; border-collapse: collapse; margin-bottom: 16px;">
         <tr>
-            <td style="width: 45%; vertical-align: top; font-size: 10pt; line-height: 1.7;">
+            <td style="width: 45%; vertical-align: top; text-align: center; font-size: 10pt; line-height: 1.7;">
                 <strong>REPUBLIQUE DU CAMEROUN</strong><br>
                 Paix &#8211; Travail &#8211; Patrie<br>
                 &#8213;&#8213;&#8213;&#8213;&#8213;<br>
-                <em>{{ appel_offre.maitre_ouvrage }}</em>
+                [Indiquer le Maître d'Ouvrage ou Maître d'Ouvrage Délégué]<br>
+                &#8213;&#8213;&#8213;&#8213;&#8213;
             </td>
             <td style="width: 10%; text-align: center; vertical-align: middle;">
                 {% if logo_base64 %}<img src="{{ logo_base64 }}" width="80" height="100">{% endif %}
             </td>
-            <td style="width: 45%; text-align: right; vertical-align: top; font-size: 10pt; line-height: 1.7;">
+            <td style="width: 45%; text-align: center; vertical-align: top; font-size: 10pt; line-height: 1.7;">
                 <strong>REPUBLIC OF CAMEROON</strong><br>
                 Peace &#8211; Work &#8211; Fatherland<br>
                 &#8213;&#8213;&#8213;&#8213;&#8213;<br>
-                <em>{{ appel_offre.maitre_ouvrage }}</em>
+                [Indicate the Contracting Authority]<br>
+                &#8213;&#8213;&#8213;&#8213;&#8213;
             </td>
         </tr>
     </table>
 
-    <div style="margin-bottom: 6px; text-transform: uppercase; font-weight:bold">
-        <span style="font-weight: bold; font-size: 11pt;">MARCHÉ N°</span>
-        <span style="display: inline-block; border-bottom: 1px solid #1a1a1a; min-width: 120px;">&nbsp;</span>
-        <span style="font-size: 10pt;"> /M </span>
-    </div>
+    <p style="font-size: 10.5pt; text-align: center; margin-bottom: 20px;">
+        <strong>MARCHE ou LETTRE COMMANDE N°</strong> _________/M /AC/MO/CPM/ 00 du ..........
+        Passé après Appel d'Offres [National ou International] ou Ouvert avec Concours
+        n°&nbsp;{{ appel_offre.numero_appel_offre }}&nbsp;/AO ___/MO/CPM /00 du .......................
+        pour la conception et la réalisation&nbsp;{{ appel_offre.objet_appel }}.............
+    </p>
 
-    <div style="margin-bottom: 4px; font-size: 10pt; text-transform: uppercase;">
-        <span style="font-weight: bold;">
-            Passé après Appel d'Offres avec Concours &nbsp; {{ appel_offre.type_dossier }} {{ appel_offre.mode_passation }}
-            &nbsp;N° {{ appel_offre.numero_appel_offre }} DU ___________/{{ appel_offre.exercice_budgetaire }}
-        </span> POUR : <span style="font-weight: bold;">la conception-réalisation de {{ appel_offre.objet_appel }}</span>
-    </div>
-
-    <div style="padding: 12px 16px; margin-bottom: 16px; font-size: 10pt; line-height: 1.9;">
-        <div>
-            <strong>Maître d'Ouvrage ou Maître d'Ouvrage Délégué :</strong>
-            <span style="font-style: italic;">{{ appel_offre.maitre_ouvrage }}</span>
+    <div style="font-size: 10.5pt; line-height: 1.9; margin-bottom: 14px;">
+        <div><strong>MAITRE D'OUVRAGE</strong> : <span style="font-style: italic;">{{ appel_offre.maitre_ouvrage }}</span></div>
+        <div style="margin-top: 8px;">
+            <strong>TITULAIRE</strong> :
+            <span style="font-style: italic;">[Indiquer le titulaire et son adresse complète]</span>
         </div>
-        <div style="margin-top: 6px;">
-            <strong style="font-size: 11pt;">TITULAIRE :</strong>
-            <span style="font-style: italic;">[indiquer le groupement titulaire et son adresse complète]</span>
+        <div style="margin-top: 4px; padding-left: 24px; line-height: 2;">
+            B.P : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span>&nbsp;&nbsp;
+            Tél : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span>&nbsp;&nbsp;
+            Fax : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span><br>
+            N° R.C : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 80px;">&nbsp;</span>&nbsp;&nbsp;
+            N° Contribuable : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span>&nbsp;&nbsp;
+            RIB : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 80px;">&nbsp;</span>
         </div>
     </div>
 
-    <div style="font-size: 10.5pt; line-height: 2; margin-bottom: 16px;">
-        <div><strong>LIEU :</strong> Région {{ appel_offre.region }}, département de {{ appel_offre.departement }}</div>
-        <div><strong>DÉLAI PHASE CONCEPTION :</strong> {{ rpao.delai_phase_conception|safe }}</div>
-        <div><strong>DÉLAI PHASE RÉALISATION :</strong> {{ rpao.delai_phase_realisation|safe }}</div>
+    <div style="font-size: 10.5pt; line-height: 2; margin-bottom: 14px;">
+        <div><strong>OBJET</strong> : conception et réalisation&nbsp;{{ appel_offre.objet_appel }}......</div>
+        <div><strong>LIEU</strong> : Région&nbsp;{{ appel_offre.region }}{% if appel_offre.departement %}, département de {{ appel_offre.departement }}{% endif %}</div>
     </div>
 
-    <table style="border-collapse: collapse; margin: 0 auto 20px auto; font-size: 10pt; width: 80%;">
+    <div style="font-size: 10.5pt; font-weight: bold; margin-bottom: 6px;">DELAI D'EXECUTION :</div>
+    <table style="border-collapse: collapse; width: 100%; margin-bottom: 16px; font-size: 9.5pt;">
+        <thead>
+            <tr style="background: #f2f2f2;">
+                <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">Phases</th>
+                <th style="border: 1px solid #888; padding: 6px 10px; text-align: center;">Délais d'exécution (en mois)</th>
+            </tr>
+        </thead>
         <tbody>
             <tr>
-                <td style="border: 1px solid #888; padding: 7px 16px; font-weight: bold; background: #f0f0f0; width: 45%;">Montant Phase 1 (Conception)</td>
-                <td style="border: 1px solid #888; padding: 7px 16px;">{{ ccap.montant_phase1|safe }}</td>
+                <td style="border: 1px solid #888; padding: 6px 10px;">Phase 1 : Conception ou Etudes</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
             </tr>
             <tr>
-                <td style="border: 1px solid #888; padding: 7px 16px; font-weight: bold; background: #f0f0f0;">Montant Phase 2 (Réalisation)</td>
-                <td style="border: 1px solid #888; padding: 7px 16px;">{{ ccap.montant_phase2|safe }}</td>
+                <td style="border: 1px solid #888; padding: 6px 10px;">Phase 2 : Réalisation des travaux</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold;">Délai global (Phase 1 + Phase 2)</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
             </tr>
         </tbody>
     </table>
 
-    <div style="font-size: 10.5pt; line-height: 2; margin-bottom: 24px;">
-        <div><strong>FINANCEMENT :</strong> <span style="font-style: italic;">{{ appel_offre.financement }}</span></div>
-        <div><strong>IMPUTATION :</strong> <span style="font-style: italic;">{{ appel_offre.imputation }}</span></div>
+    <div style="font-size: 10.5pt; font-weight: bold; margin-bottom: 6px;">MONTANT EN FCFA :</div>
+    <table style="border-collapse: collapse; width: 100%; margin-bottom: 16px; font-size: 9.5pt;">
+        <thead>
+            <tr style="background: #f2f2f2;">
+                <th style="border: 1px solid #888; padding: 6px 10px;"></th>
+                <th style="border: 1px solid #888; padding: 6px 10px; text-align: center;">Coûts de la Phase 1<br>(conception ou études)</th>
+                <th style="border: 1px solid #888; padding: 6px 10px; text-align: center;">Coûts de la Phase 2<br>(réalisation des travaux)</th>
+                <th style="border: 1px solid #888; padding: 6px 10px; text-align: center;">Coûts Globaux du Marché<br>(Phase 1 et Phase 2)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold;">Montant HTVA (francs CFA)</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold;">Montant de la TVA (francs CFA)</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold;">Montant TTC (francs CFA)</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold;">Montant de l'AIR<sup>(1)</sup> ou de TSR<sup>(2)</sup> (francs CFA), le cas échéant</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold; background: #f2f2f2;">Net à percevoir</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="font-size: 10.5pt; line-height: 2; margin-bottom: 20px;">
+        <div><strong>FINANCEMENT</strong> : <span style="font-style: italic;">{{ appel_offre.financement|default:"[Indiquer source de financement]" }}</span></div>
+        <div><strong>IMPUTATION</strong> : <span style="font-style: italic;">{{ appel_offre.imputation|default:"[A compléter]" }}</span></div>
     </div>
 
-    <div style="font-size: 10.5pt; line-height: 1.9;">
-        <h4 style="font-size: 11pt;">Entre :</h4>
-        <p>L'administration camerounaise, représentée par&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 200px;">&nbsp;</span></p>
-        <p>Dénommée ci-après :</p>
-        <div style="padding: 8px 16px; font-style: italic; font-weight: bold;">« Le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué ou Autorité contractante »</div>
-        <h4 style="font-size: 11pt;">D'une part,</h4>
-        <h4 style="font-size: 11pt;">Et</h4>
-        <p>Le groupement&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 200px;">&nbsp;</span></p>
-        <div style="padding: 8px 16px; font-style: italic; font-weight: bold;">« le Cocontractant »</div>
-        <h4 style="font-size: 11pt;">D'autre part,</h4>
+    <div style="text-align: right; font-size: 10pt; line-height: 2; margin-bottom: 20px;">
+        <div>SOUSCRIT,&nbsp;&nbsp;&nbsp;LE&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span></div>
+        <div>SIGNE,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LE&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span></div>
+        <div>NOTIFIE,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;LE&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span></div>
+        <div>ENREGISTRE,&nbsp;LE&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span></div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- ============ PAGE 2 : ENTRE ============ -->
+
+    <div style="font-size: 10.5pt; line-height: 2;">
+        <h4 style="font-size: 11pt; margin: 0 0 20px 0;">Entre :</h4>
+
+        <p style="margin: 0 0 20px 0;">
+            L'administration camerounaise, représentée par&nbsp;
+            <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 220px;">&nbsp;</span>
+            dénommée ci-après «&nbsp;L Maître d'Ouvrage ou Maître d'Ouvrage Délégué&nbsp;»
+        </p>
+
+        <h4 style="font-size: 11pt; margin: 0 0 20px 0;">Et</h4>
+
+        <p style="margin: 0 0 4px 0; font-weight: bold;">L'Entreprise</p>
+        <p style="margin: 0 0 20px 0;">
+            B.P : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span>&nbsp;&nbsp;
+            Tél : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span>&nbsp;&nbsp;
+            Fax : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span><br>
+            N° R.C : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span>&nbsp;&nbsp;
+            N° Contribuable : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px;">&nbsp;</span>
+        </p>
+
+        <p style="margin: 0 0 20px 0;">
+            Représentée par Monsieur&nbsp;
+            <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 200px;">&nbsp;</span>,
+            son Directeur Général, dénommée ci-après «&nbsp;l'entrepreneur&nbsp;»
+        </p>
+
+        <h4 style="font-size: 11pt; margin: 0 0 20px 0;">D'autre part,</h4>
+
         <p style="text-align: center; font-style: italic;">Il a été convenu et arrêté ce qui suit :</p>
     </div>
 
     <div class="page-break"></div>
 
+    <!-- ============ PAGE 3 : SOMMAIRE ============ -->
+
     <div style="text-align: center; margin-bottom: 30px;">
-        <h2 style="font-size: 15pt; font-weight: bold; text-transform: uppercase;">SOMMAIRE</h2>
+        <h2 style="font-size: 15pt; font-weight: bold; text-transform: uppercase; letter-spacing: 1px;">Sommaire</h2>
     </div>
 
     <table style="width: 85%; margin: 0 auto; border-collapse: collapse; font-size: 10.5pt;">
         <tbody>
-            <tr style="border-bottom: 1px solid #ddd;"><td style="padding: 10px 12px; font-weight: bold; width: 12%;">Titre I</td><td style="padding: 10px 12px;">Cahier des Clauses Administratives Particulières (CCAP)</td></tr>
-            <tr style="border-bottom: 1px solid #ddd; background: #f9f9f9;"><td style="padding: 10px 12px; font-weight: bold;">Titre II</td><td style="padding: 10px 12px;">Termes de Référence (TDR) et Cahier des Clauses Techniques Particulières (CCTP)</td></tr>
-            <tr style="border-bottom: 1px solid #ddd;"><td style="padding: 10px 12px; font-weight: bold;">Titre III</td><td style="padding: 10px 12px;">Bordereau des Prix Unitaires (BPU)</td></tr>
-            <tr style="background: #f9f9f9;"><td style="padding: 10px 12px; font-weight: bold;">Titre IV</td><td style="padding: 10px 12px;">Détail Quantitatif et Estimatif (DQE)</td></tr>
+            <tr>
+                <td style="padding: 10px 12px; font-weight: bold; width: 12%;">Titre I</td>
+                <td style="padding: 10px 12px;">: Cahier des Clauses Administratives Particulières (CCAP)</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px 12px; font-weight: bold;">Titre II</td>
+                <td style="padding: 10px 12px;">: Cahier des Clauses Techniques Particulières (CCTP)</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px 12px; font-weight: bold;">Titre III</td>
+                <td style="padding: 10px 12px;">: Bordereau des Prix Unitaires (BPU)</td>
+            </tr>
+            <tr>
+                <td style="padding: 10px 12px; font-weight: bold;">Titre IV</td>
+                <td style="padding: 10px 12px;">: Détail ou Devis Estimatif (DE)</td>
+            </tr>
         </tbody>
     </table>
 
-    <div style="margin-top: 60px;">
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h4 style="font-size: 11pt; text-transform: uppercase;">Lu et accepté par le titulaire</h4>
-            <div style="font-size: 10pt; font-style: italic;">[Lieu], le&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px;">&nbsp;</span></div>
+    <div class="page-break"></div>
+
+    <!-- ============ PAGE 4 : DERNIERE PAGE ============ -->
+
+    <p style="font-size: 10.5pt; text-align: center; margin-bottom: 20px;">
+        Page&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 40px;">&nbsp;</span>&nbsp;
+        et Dernière du Marché N°&nbsp;
+        <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span>
+        /MAC/MO/CPM/ .......
+        Passé après Appel d'Offres n°&nbsp;{{ appel_offre.numero_appel_offre }}&nbsp;/AO ___/MO/CPM /00 du .......................
+        pour la conception et la réalisation&nbsp;{{ appel_offre.objet_appel }}....... Avec................
+    </p>
+
+    <div style="font-size: 10.5pt; line-height: 1.9; margin-bottom: 14px;">
+        <div><strong>MAITRE D'OUVRAGE</strong> : <span style="font-style: italic;">{{ appel_offre.maitre_ouvrage }}</span></div>
+        <div style="margin-top: 8px;">
+            <strong>TITULAIRE</strong> :
+            <span style="font-style: italic;">[Indiquer le titulaire et son adresse complète]</span>
         </div>
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h4 style="font-size: 11pt; text-transform: uppercase;">Signé par [Maître d'Ouvrage ou Maître d'Ouvrage Délégué]</h4>
-            <div style="font-size: 10pt; font-style: italic;">[Lieu], le&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px;">&nbsp;</span></div>
+        <div style="margin-top: 4px; padding-left: 24px; line-height: 2;">
+            B.P : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span>&nbsp;&nbsp;
+            Tél : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span>&nbsp;&nbsp;
+            Fax : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span><br>
+            N° R.C : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 80px;">&nbsp;</span>&nbsp;&nbsp;
+            N° Contribuable : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 100px;">&nbsp;</span>&nbsp;&nbsp;
+            RIB : <span style="display: inline-block; border-bottom: 1px solid #888; min-width: 80px;">&nbsp;</span>
+        </div>
+    </div>
+
+    <div style="font-size: 10.5pt; line-height: 2; margin-bottom: 14px;">
+        <div><strong>OBJET</strong> : conception et réalisation&nbsp;{{ appel_offre.objet_appel }}......</div>
+        <div><strong>LIEU</strong> : Région&nbsp;{{ appel_offre.region }}{% if appel_offre.departement %}, département de {{ appel_offre.departement }}{% endif %}</div>
+    </div>
+
+    <div style="font-size: 10.5pt; font-weight: bold; margin-bottom: 6px;">DELAI D'EXECUTION :</div>
+    <table style="border-collapse: collapse; width: 100%; margin-bottom: 16px; font-size: 9.5pt;">
+        <thead>
+            <tr style="background: #f2f2f2;">
+                <th style="border: 1px solid #888; padding: 6px 10px; text-align: left;">Phases</th>
+                <th style="border: 1px solid #888; padding: 6px 10px; text-align: center;">Délais d'exécution (en mois)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px;">Phase 1 : Conception ou Etudes</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px;">Phase 2 : Réalisation des travaux</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold;">Délai global (Phase 1 + Phase 2)</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div style="font-size: 10.5pt; font-weight: bold; margin-bottom: 6px;">MONTANT EN FCFA :</div>
+    <table style="border-collapse: collapse; width: 100%; margin-bottom: 24px; font-size: 9.5pt;">
+        <thead>
+            <tr style="background: #f2f2f2;">
+                <th style="border: 1px solid #888; padding: 6px 10px;"></th>
+                <th style="border: 1px solid #888; padding: 6px 10px; text-align: center;">Coûts de la Phase 1<br>(conception ou études)</th>
+                <th style="border: 1px solid #888; padding: 6px 10px; text-align: center;">Coûts de la Phase 2<br>(réalisation des travaux)</th>
+                <th style="border: 1px solid #888; padding: 6px 10px; text-align: center;">Coûts Globaux du Marché<br>(Phase 1 et Phase 2)</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold;">Montant HTVA (francs CFA)</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold;">Montant de la TVA (francs CFA)</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold;">Montant TTC (francs CFA)</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold;">Montant de l'AIR<sup>(1)</sup> ou de TSR<sup>(2)</sup> (francs CFA), le cas échéant</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+            <tr>
+                <td style="border: 1px solid #888; padding: 6px 10px; font-weight: bold; background: #f2f2f2;">Net à percevoir</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+                <td style="border: 1px solid #888; padding: 6px 10px; text-align: center; font-style: italic;">[A préciser en lettres et en chiffres]</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <table style="width: 100%; border-collapse: collapse; margin-bottom: 24px;">
+        <tr>
+            <td style="width: 50%; text-align: center; vertical-align: top; font-size: 10.5pt; padding: 0 10px;">
+                <div style="font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 30px;">Lu et accepté par l'Entrepreneur</div>
+                <div style="font-style: italic;">
+                    [Lieu], le&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px;">&nbsp;</span>
+                </div>
+            </td>
+            <td style="width: 50%; text-align: center; vertical-align: top; font-size: 10.5pt; padding: 0 10px;">
+                <div style="font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 30px;">Signé par le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué</div>
+                <div style="font-style: italic;">
+                    [Lieu], le&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px;">&nbsp;</span>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <div style="text-align: center; font-size: 10.5pt;">
+        <div style="font-weight: bold; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 12px;">Enregistrement</div>
+        <div style="font-style: italic;">
+            [Lieu], le&nbsp;<span style="display: inline-block; border-bottom: 1px solid #888; min-width: 120px;">&nbsp;</span>
         </div>
     </div>
 </div>
