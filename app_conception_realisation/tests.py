@@ -4,7 +4,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 
 from account.models import User
 from document.models import TypeMarche, AppelOffre
-from .models import AvisAppelOffre, RPAO, GrilleNotation, CCAP, TDR, CCTP, BPU_DQE, ModelMarche, EtudePrealable
+from .models import AvisAppelOffre, RPAO, GrilleNotation, CCAP, TDR, CCTP, BPU_DQE, ModelMarche
 
 
 class ConceptionRealisationFlowTests(TestCase):
@@ -97,7 +97,7 @@ class ConceptionRealisationFlowTests(TestCase):
         self.assertEqual(response.status_code, 201, response.content)
         self.assertEqual(BPU_DQE.objects.filter(appel_offre=self.appel_offre).count(), 2)
 
-    def test_tdr_and_etude_prealable_crud(self):
+    def test_tdr_crud(self):
         tdr_payload = {
             'contexte_justification': '<p>contexte</p>',
             'objectif_conception': '<p>objectif</p>',
@@ -107,11 +107,6 @@ class ConceptionRealisationFlowTests(TestCase):
         response = self.client.post(f'/api/marche-conception-realisation/{self.appel_offre.id}/tdr', tdr_payload, format='json')
         self.assertEqual(response.status_code, 201, response.content)
         self.assertEqual(TDR.objects.filter(appel_offre=self.appel_offre).count(), 1)
-
-        etude_payload = {}
-        response = self.client.post(f'/api/marche-conception-realisation/{self.appel_offre.id}/etude_prealable', etude_payload, format='json')
-        self.assertEqual(response.status_code, 201, response.content)
-        self.assertEqual(EtudePrealable.objects.filter(appel_offre=self.appel_offre).count(), 1)
 
     def test_pdf_generation_end_to_end(self):
         self.client.post(f'/api/marche-conception-realisation/{self.appel_offre.id}/aao', {

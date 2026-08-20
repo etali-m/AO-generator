@@ -264,12 +264,3 @@ class ModelMarche(models.Model):
     def __str__(self):
         return f"{self.appel_offre}"
 
-
-# Justificatifs des études préalables (pièce 17 - formulaire, contrairement à son
-# équivalent "visa de maturité" côté travaux qui est une simple annexe statique)
-class EtudePrealable(models.Model):
-    appel_offre = models.OneToOneField(AppelOffre, on_delete=models.CASCADE, related_name='etude_prealable_cr')
-    etude_prealable_fichier = models.FileField(upload_to='etudes_prealables', blank=True, null=True)
-
-    def __str__(self):
-        return f"{self.appel_offre}"

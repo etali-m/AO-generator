@@ -10,7 +10,6 @@ urlpatterns = [
     path('<int:project_id>/cctp', CCTPView.as_view(), name="cctp-cr"),
     path('<int:project_id>/bpu_dqe', BPU_DQEView.as_view(), name="bpu_dqe-cr"),
     path('<int:project_id>/modele_marche', ModelMarcheView.as_view(), name="modele-marche-cr"),
-    path('<int:project_id>/etude_prealable', EtudePrealableView.as_view(), name="etude_prealable-cr"),
     path('<int:project_id>/telecharger', telecharger_marche_conception_realisation, name="telecharger-cr"),
     path('<int:project_id>/apercu/', apercu_marche_conception_realisation, name='apercu_pdf-cr'),
 ]

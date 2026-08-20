@@ -412,54 +412,6 @@ class ModelMarcheView(GenericAPIView):
         }, status=status.HTTP_201_CREATED)
 
 
-class EtudePrealableView(GenericAPIView):
-    serializer_class = EtudePrealableSerializer
-    queryset = EtudePrealable.objects.all()
-
-    def get(self, request, *args, **kwargs):
-        project_id = kwargs.get('project_id')
-        queryset = self.get_queryset().filter(appel_offre=project_id)
-
-        serializer = self.get_serializer(queryset, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-    def post(self, request, *args, **kwargs):
-        project_id = kwargs.get('project_id')
-        data = request.data.copy()
-        data['appel_offre'] = project_id
-
-        serializer = self.get_serializer(data=data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        return Response({
-            'data': serializer.data,
-            'message': "Justificatifs des études préalables enregistrés avec succès"
-        }, status=status.HTTP_201_CREATED)
-
-    def put(self, request, *args, **kwargs):
-        project_id = kwargs.get('project_id')
-        data = request.data.copy()
-        data['appel_offre'] = project_id
-
-        try:
-            instance = EtudePrealable.objects.get(appel_offre=project_id)
-        except EtudePrealable.DoesNotExist:
-            return Response(
-                {'detail': "Les justificatifs des études préalables n'existent pas"},
-                status=status.HTTP_404_NOT_FOUND
-            )
-
-        serializer = self.get_serializer(instance, data=data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        return Response({
-            'data': serializer.data,
-            'message': "Les justificatifs des études préalables ont été mis à jour correctement"
-        }, status=status.HTTP_201_CREATED)
-
-
 def get_image_base64(image_field):
     """Convertit un ImageField Django en base64 pour l'intégrer dans le HTML"""
     if not image_field:
@@ -500,7 +452,6 @@ def generer_pdf(request, project_id, mode='inline'):
     ccap = CCAP.objects.filter(appel_offre=appel_offre).first()
     tdr = TDR.objects.filter(appel_offre=appel_offre).first()
     cctp = CCTP.objects.filter(appel_offre=appel_offre).first()
-    etude_prealable = EtudePrealable.objects.filter(appel_offre=appel_offre).first()
     bpu_dqe = BPU_DQE.objects.filter(appel_offre=appel_offre)
     grille_notation = GrilleNotation.objects.filter(appel_offre=appel_offre)
 
@@ -513,7 +464,6 @@ def generer_pdf(request, project_id, mode='inline'):
         'ccap': ccap,
         'tdr': tdr,
         'cctp': cctp,
-        'etude_prealable': etude_prealable,
         'bpu_dqe': bpu_dqe,
         'grille_notation': grille_notation,
         'logo_base64': logo_base64,

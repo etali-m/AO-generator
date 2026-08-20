@@ -104,11 +104,3 @@ class ModelMarcheSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class EtudePrealableSerializer(serializers.ModelSerializer):
-    appel_offre = serializers.PrimaryKeyRelatedField(
-        queryset=AppelOffre.objects.all()
-    )
-
-    class Meta:
-        model = EtudePrealable
-        fields = '__all__'
