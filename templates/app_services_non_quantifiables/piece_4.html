@@ -1,0 +1,71 @@
+<div>
+    <h1 style="padding-top:500px; text-align: center;"><a name="snq4"></a>PIECE N° 4</h1>
+    <h1 style="text-align:center;">CAHIER DES CLAUSES ADMINISTRATIVES</h1>
+    <h2 style="text-align:center;">PARTICULIERES (CCAP)</h2>
+
+    <div class="page-break"></div>
+
+    <ol>
+        <li><h3>Article 1. Objet du marché</h3><div style="padding:15px;">{{ ccap.objet_marche|safe }}</div></li>
+        <li><h3>Article 2. Procédure de passation du marché</h3><div style="padding:15px;">{{ ccap.procedure_passation|safe }}</div></li>
+        <li>
+            <h3>Article 3. Définitions et attributions</h3>
+            <div style="padding:15px;">
+                <p>Pour l'application des dispositions du présent marché, il est précisé que :</p>
+                <p style="padding-left: 12pt;"><strong>3.1. Attributions</strong> <em>(Cf. Code des marchés publics)</em></p>
+                <ul>
+                    <li>Le Maître d'Ouvrage ou le Maître d'Ouvrage Délégué est : <strong>{{ appel_offre.maitre_ouvrage }}</strong>. Il signe le marché, ordonne le paiement des prestations, veille à la conservation des originaux des documents y relatifs et procède à la transmission des copies à l'Autorité chargée des marchés publics, à l'organisme chargé de la régulation et au Ministère chargé des Marchés Publics ou son démembrement déconcentré compétent.</li>
+                    <li>Le Chef de service du marché est : <strong>{{ ccap.chef_service_marche }}</strong>. Il s'assure de la bonne exécution des obligations contractuelles, veille au respect des clauses administratives, techniques et financières et des délais contractuels, est responsable de la direction générale de l'exécution des prestations, arrête toutes les dispositions technico-financières et représente le Maître d'Ouvrage auprès des instances compétentes d'arbitrage des litiges. Il apporte au Maître d'Ouvrage une assistance générale à caractère administratif, financier et technique aux stades de la définition, de l'élaboration, de l'exécution et de la réception des prestations objet du marché.</li>
+                    <li>L'Ingénieur du marché est : <strong>{{ ccap.ing_marche }}</strong>. Il est accrédité par le Maître d'Ouvrage pour le suivi et le contrôle technique et financier de l'exécution du marché, sous la supervision du Chef de Service du marché à qui il rend compte. Il apprécie, décide et donne toutes les instructions n'entraînant aucune incidence financière.</li>
+                    <li>La Maîtrise d'Œuvre du présent marché est assurée par la Commission de suivi et de recette technique telle que définie à l'article 151 alinéa 7 du Code des Marchés Publics. À ce titre, elle est chargée de garantir les intérêts du Maître d'Ouvrage au stade de la direction de l'exécution et de la réception des prestations.</li>
+                    <li>L'organisme chargé du contrôle externe des marchés publics est : <strong>{{ ccap.control_externe }}</strong>. Il assure le contrôle de conformité de l'exécution du marché, délivre les visas préalables requis et vise le décompte final.</li>
+                    <li>Le cocontractant de l'Administration ou le titulaire du marché est : <strong>{{ ccap.cocontractant }}</strong>. Il est chargé de l'exécution des prestations prévues dans le marché.</li>
+                </ul>
+                <p style="padding-left: 12pt;"><strong>3.2. Nantissement</strong></p>
+                <p style="padding-left: 12pt; text-align: justify;">Le nantissement est soumis aux règles applicables en la matière, notamment l'article 150 du décret n°2018/366 du 20 juin 2018 portant Code des Marchés Publics et ses textes d'application. En vue de l'application du régime de nantissement en vigueur, sont définis comme :</p>
+                <ul>
+                    <li>L'autorité chargée de l'ordonnancement des paiements est : <strong>{{ ccap.autorite_ordonnancement }}</strong>.</li>
+                    <li>L'autorité chargée de la liquidation des dépenses est : <strong>{{ ccap.autorite_liquidation }}</strong>.</li>
+                    <li>L'autorité chargée du paiement est : <strong>{{ ccap.organisme_paiment }}</strong>.</li>
+                    <li>Le responsable compétent pour fournir les renseignements au titre de l'exécution du présent marché est : <strong>{{ ccap.responsable_renseignement }}</strong>.</li>
+                </ul>
+            </div>
+        </li>
+        <li><h3>Article 4. Langue, lois et règlements applicables</h3><div style="padding:15px;">{{ ccap.langue_lois_reglements|safe }}</div></li>
+        <li><h3>Article 5. Pièces constitutives du marché</h3><div style="padding:15px;">{{ ccap.pieces_constitutives_marche|safe }}</div></li>
+        <li><h3>Article 6. Textes généraux applicables</h3><div style="padding:15px;">{{ ccap.textes_generaux_applicables|safe }}</div></li>
+        <li><h3>Article 7. Communication</h3><div style="padding:15px;">{{ ccap.communication|safe }}</div></li>
+        <li><h3>Article 8. Ordres de service</h3><div style="padding:15px;">{{ ccap.ordres_service|safe }}</div></li>
+        <li><h3>Article 9. Marchés pluriannuels ou à tranches</h3><div style="padding:15px;">{{ ccap.marches_tranches|safe }}</div></li>
+        <li><h3>Article 10. Matériel et personnel du cocontractant</h3><div style="padding:15px;">{{ ccap.materiel_personnel_cocontractant|safe }}</div></li>
+        <li><h3>Article 11. Montant du marché</h3><div style="padding:15px;">{{ ccap.montant_marche|safe }}</div></li>
+        <li><h3>Article 12. Lieu et mode de paiement</h3><div style="padding:15px;">{{ ccap.lieu_mode_paiement|safe }}</div></li>
+        <li><h3>Article 13. Garanties et cautions</h3><div style="padding:15px;">{{ ccap.garanties_cautions|safe }}</div></li>
+        <li><h3>Article 14. Variation des prix</h3><div style="padding:15px;">{{ ccap.variation_prix|safe }}</div></li>
+        <li><h3>Article 15. Formules de Révision des prix</h3><div style="padding:15px;">{{ ccap.revision_prix|safe }}</div></li>
+        <li><h3>Article 16. Formules d'actualisation des prix</h3><div style="padding:15px;">{{ ccap.actualisation_prix|safe }}</div></li>
+        <li><h3>Article 17. Avance de démarrage</h3><div style="padding:15px;">{{ ccap.avance_demarrage|safe }}</div></li>
+        <li><h3>Article 18. Règlement des prestations</h3><div style="padding:15px;">{{ ccap.reglement_prestations|safe }}</div></li>
+        <li><h3>Article 19. Intérêts moratoires</h3><div style="padding:15px;">{{ ccap.interets_moratoires|safe }}</div></li>
+        <li><h3>Article 20. Pénalités</h3><div style="padding:15px;">{{ ccap.penalites|safe }}</div></li>
+        <li><h3>Article 21. Règlement en cas de groupement d'entreprises et de sous-traitance</h3><div style="padding:15px;">{{ ccap.reglement_groupement_soustraitance|safe }}</div></li>
+        <li><h3>Article 22. Décompte général et définitif</h3><div style="padding:15px;">{{ ccap.decompte_general_definitif|safe }}</div></li>
+        <li><h3>Article 23. Régime fiscal et douanier</h3><div style="padding:15px;">{{ ccap.regime_fiscal_douanier|safe }}</div></li>
+        <li><h3>Article 24. Timbres et enregistrement des marchés</h3><div style="padding:15px;">{{ ccap.timbres_enregistrement|safe }}</div></li>
+        <li><h3>Article 25. Consistance des prestations</h3><div style="padding:15px;">{{ ccap.consistance_prestations|safe }}</div></li>
+        <li><h3>Article 26. Délais d'exécution du marché</h3><div style="padding:15px;">{{ ccap.delais_execution|safe }}</div></li>
+        <li><h3>Article 27. Obligations du Maître d'Ouvrage</h3><div style="padding:15px;">{{ ccap.obligations_maitre_ouvrage|safe }}</div></li>
+        <li><h3>Article 28. Obligations du cocontractant</h3><div style="padding:15px;">{{ ccap.obligations_cocontractant|safe }}</div></li>
+        <li><h3>Article 29. Assurances</h3><div style="padding:15px;">{{ ccap.assurances|safe }}</div></li>
+        <li><h3>Article 30. Programme d'exécution</h3><div style="padding:15px;">{{ ccap.programme_execution|safe }}</div></li>
+        <li><h3>Article 31. Agrément du personnel</h3><div style="padding:15px;">{{ ccap.agrement_personnel|safe }}</div></li>
+        <li><h3>Article 32. Sous-traitance</h3><div style="padding:15px;">{{ ccap.sous_traitance|safe }}</div></li>
+        <li><h3>Article 33. Commission de suivi et recette</h3><div style="padding:15px;">{{ ccap.commission_suivi_recette|safe }}</div></li>
+        <li><h3>Article 34. Recette des prestations</h3><div style="padding:15px;">{{ ccap.recette_prestations|safe }}</div></li>
+        <li><h3>Article 35. Cas de force majeure</h3><div style="padding:15px;">{{ ccap.force_majeure|safe }}</div></li>
+        <li><h3>Article 36. Résiliation du marché</h3><div style="padding:15px;">{{ ccap.resiliation_marche|safe }}</div></li>
+        <li><h3>Article 37. Différends et litiges</h3><div style="padding:15px;">{{ ccap.differends_litiges|safe }}</div></li>
+        <li><h3>Article 38. Edition et diffusion du présent marché</h3><div style="padding:15px;">{{ ccap.edition_diffusion|safe }}</div></li>
+        <li><h3>Article 39. Entrée en vigueur du marché</h3><div style="padding:15px;">{{ ccap.entree_en_vigueur|safe }}</div></li>
+    </ol>
+</div>

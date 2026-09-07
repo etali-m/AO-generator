@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'document.apps.DocumentConfig',
     'app_travaux',
     'app_conception_realisation',
+    'app_services_non_quantifiables',
     'services_quantifiables',
     'rest_framework_simplejwt.token_blacklist',
     'rest_framework',

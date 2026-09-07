@@ -16,8 +16,19 @@ TRANSLATABLE_FIELDS = [
     'renseignement_complementaires',
 ]
 
+# Mêmes champs que TRANSLATABLE_FIELDS, sauf 'consistence_prestations' au lieu
+# de 'consistence_travaux' (nommage propre à l'AAO des services non quantifiables).
+TRANSLATABLE_FIELDS_SNQ = [
+    'objet_appel', 'consistence_prestations', 'tranches', 'cout_previsionnel',
+    'delai_previsionnel', 'participation', 'financement', 'mode_soumission',
+    'caution_soumission', 'consultation_dossier', 'acquisition_dao',
+    'remise_offre', 'recevabilite_plis', 'ouverture_plis',
+    'critere_eliminatoire', 'critere_essentielles', 'attribution',
+    'renseignement_complementaires',
+]
 
-def build_translated_fields(validated_data):
+
+def build_translated_fields(validated_data, fields=TRANSLATABLE_FIELDS):
     """
     Prend le validated_data d'un AAOSerializer (avant save), traduit les champs
     français présents via DeepL, et retourne un dict {champ_en: valeur} prêt
@@ -25,7 +36,7 @@ def build_translated_fields(validated_data):
     """
     # On ne garde que les champs non vides, dans un ordre stable
     fields_present = [
-        field for field in TRANSLATABLE_FIELDS
+        field for field in fields
         if validated_data.get(field)
     ]
     if not fields_present:
